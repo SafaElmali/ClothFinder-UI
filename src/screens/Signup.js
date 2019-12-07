@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
+import { View, Text, StyleSheet } from 'react-native';
 
 export default class Signup extends Component {
     constructor() {
@@ -22,8 +23,18 @@ export default class Signup extends Component {
 
     render() {
         return (
-            <>
-            </>
+            <View style={styles.container}>
+                <Text>Signup</Text>
+            </View>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        justifyContent: 'center',
+        alignContent: 'center'
+    }
+});
