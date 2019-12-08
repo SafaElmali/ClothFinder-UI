@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import AsyncStorage from '@react-native-community/async-storage';
 import { View, StyleSheet, Button, Text } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default class Login extends Component {
+    static navigationOptions = {
+        title: 'Login',
+        headerBackTitle: 'Login'
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -45,6 +50,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         justifyContent: 'center',
-        alignContent: 'center'
+        alignItems: 'center'
     }
 });

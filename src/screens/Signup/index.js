@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
+import { View, Text, StyleSheet, Button } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import { View, Text, StyleSheet } from 'react-native';
 
 export default class Signup extends Component {
+    static navigationOptions = () => {
+        return {
+            headerRight: () => (
+                <Button
+                    title="Signup"
+                    color={Platform.OS === 'ios' ? '#000' : null}
+                />
+            ),
+        };
+    };
+
     constructor() {
         super();
         this.state = {
@@ -35,6 +46,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         justifyContent: 'center',
-        alignContent: 'center'
+        alignItems: 'center'
     }
 });
