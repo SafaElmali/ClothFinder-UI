@@ -5,39 +5,40 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* ClothfinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ClothfinderTests.m */; };
+		0E12BE70B5734D44BDA6D8DC /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8ADACD82A77D4A35B0204285 /* Foundation.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		29935AD36E34072F7E689EE4 /* libPods-Clothfinder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2B86F7EC392F074EF14523 /* libPods-Clothfinder.a */; };
+		145F87D7AE1C47E9BD58B3C8 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FDC9803A25A44DA817FA0E4 /* FontAwesome5_Brands.ttf */; };
+		1B2AC9F5B35732BB132BCDA3 /* libPods-Clothfinder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 498BF29335D59096283E7D33 /* libPods-Clothfinder.a */; };
+		272DFB54F4B14D92A99A8B17 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F16AF4482F742009F787F1D /* SimpleLineIcons.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* ClothfinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ClothfinderTests.m */; };
-		6C9D5969B3A1F167113A8C18 /* libPods-Clothfinder-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB2DF69E512BD5B6008C5AE /* libPods-Clothfinder-tvOSTests.a */; };
-		8D6887B780EBC523A16DE45C /* libPods-Clothfinder-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BABC349EE06E41FEB17029 /* libPods-Clothfinder-tvOS.a */; };
-		C5A9EC15CACBD88D5521633D /* libPods-ClothfinderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C3FA7F5897F98867284815 /* libPods-ClothfinderTests.a */; };
-		4D9E18D98ACF41E6B0DA805F /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F92EF392C1A43D8B28C988E /* AntDesign.ttf */; };
-		C35C0737591A47E084159407 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D8E8D0B5F594BA0BD75CD17 /* Entypo.ttf */; };
-		3A706CBB7F8E489FADF3A5FA /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58BF7603108E4795861A28DD /* EvilIcons.ttf */; };
-		ADF4C419126848E69DB18689 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 789687C8B894442B8E25C694 /* Feather.ttf */; };
-		7E5F5E20D1344155BAE37DE9 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B03C1C865034803A259D79A /* FontAwesome.ttf */; };
-		145F87D7AE1C47E9BD58B3C8 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FDC9803A25A44DA817FA0E4 /* FontAwesome5_Brands.ttf */; };
-		CC5A2BE6A60848389FD7538F /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AE8BFFD3DD54CEBA3C2DA62 /* FontAwesome5_Regular.ttf */; };
-		AA223708E5544F4888598133 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 190AE2FA552847B19DE7A2CC /* FontAwesome5_Solid.ttf */; };
 		360A3AA16BCE4347BBCAB80B /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A662428B4B684AEF8C10F3F9 /* Fontisto.ttf */; };
-		0E12BE70B5734D44BDA6D8DC /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8ADACD82A77D4A35B0204285 /* Foundation.ttf */; };
-		8B7E07526B914BF0BC21B502 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA20971A905740C5BA05602C /* Ionicons.ttf */; };
+		3A706CBB7F8E489FADF3A5FA /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58BF7603108E4795861A28DD /* EvilIcons.ttf */; };
 		3E36B27501D549B590993287 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD38E85E4F4C4671A16B1BA2 /* MaterialCommunityIcons.ttf */; };
-		9F8AEA95A5F84105A0F6193F /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC221E66F25741278956360C /* MaterialIcons.ttf */; };
+		4D9E18D98ACF41E6B0DA805F /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F92EF392C1A43D8B28C988E /* AntDesign.ttf */; };
 		51437BEF1E204346B6EF2E81 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4380E74E56254746BD989391 /* Octicons.ttf */; };
+		7E5F5E20D1344155BAE37DE9 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B03C1C865034803A259D79A /* FontAwesome.ttf */; };
+		851F303156ABD16F68312867 /* libPods-Clothfinder-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21265D7D1053F28E9FB31FA3 /* libPods-Clothfinder-tvOS.a */; };
+		8B040839AEA8F326587BFBED /* libPods-ClothfinderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A50320C57699817B84AC650 /* libPods-ClothfinderTests.a */; };
+		8B7E07526B914BF0BC21B502 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA20971A905740C5BA05602C /* Ionicons.ttf */; };
+		9F8AEA95A5F84105A0F6193F /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC221E66F25741278956360C /* MaterialIcons.ttf */; };
+		AA223708E5544F4888598133 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 190AE2FA552847B19DE7A2CC /* FontAwesome5_Solid.ttf */; };
+		ADF4C419126848E69DB18689 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 789687C8B894442B8E25C694 /* Feather.ttf */; };
 		B5FE211CF4C742449B3D8EFC /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1820AEC2E0164BE9AA64F5ED /* Roboto_medium.ttf */; };
-		FBB6371C3C684E3A8BE15A29 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6BE9BA5BB9CB474685D7873F /* Roboto.ttf */; };
+		C35C0737591A47E084159407 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D8E8D0B5F594BA0BD75CD17 /* Entypo.ttf */; };
+		CC5A2BE6A60848389FD7538F /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AE8BFFD3DD54CEBA3C2DA62 /* FontAwesome5_Regular.ttf */; };
+		CDFCE3BDAA9985832DF27A24 /* libPods-Clothfinder-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 380B7C609192378F6D177012 /* libPods-Clothfinder-tvOSTests.a */; };
 		E9A5C23F5E864EF7B5D0533F /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 036D3154F9704B16AE94A495 /* rubicon-icon-font.ttf */; };
-		272DFB54F4B14D92A99A8B17 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F16AF4482F742009F787F1D /* SimpleLineIcons.ttf */; };
 		F692ECB2BB074ACAA6C61BEC /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F1979F157D4655985F41DF /* Zocial.ttf */; };
+		FBB6371C3C684E3A8BE15A29 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6BE9BA5BB9CB474685D7873F /* Roboto.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +63,8 @@
 		00E356EE1AD99517003FC87E /* ClothfinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClothfinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ClothfinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClothfinderTests.m; sourceTree = "<group>"; };
-		05E8AB8DBD4A41EF04C48F2C /* Pods-Clothfinder-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clothfinder-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Clothfinder-tvOSTests/Pods-Clothfinder-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		036D3154F9704B16AE94A495 /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
+		080A2516653E2435C12EECA7 /* Pods-ClothfinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothfinderTests.debug.xcconfig"; path = "Target Support Files/Pods-ClothfinderTests/Pods-ClothfinderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Clothfinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clothfinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Clothfinder/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Clothfinder/AppDelegate.m; sourceTree = "<group>"; };
@@ -70,40 +72,39 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Clothfinder/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Clothfinder/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Clothfinder/main.m; sourceTree = "<group>"; };
-		1E3A9E866F685741701C6F5C /* Pods-ClothfinderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothfinderTests.release.xcconfig"; path = "Target Support Files/Pods-ClothfinderTests/Pods-ClothfinderTests.release.xcconfig"; sourceTree = "<group>"; };
+		1820AEC2E0164BE9AA64F5ED /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
+		190AE2FA552847B19DE7A2CC /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		1FDC9803A25A44DA817FA0E4 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		21265D7D1053F28E9FB31FA3 /* libPods-Clothfinder-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Clothfinder-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AE8BFFD3DD54CEBA3C2DA62 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		2B03C1C865034803A259D79A /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* Clothfinder-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clothfinder-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* Clothfinder-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Clothfinder-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D2B86F7EC392F074EF14523 /* libPods-Clothfinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Clothfinder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		657DD2B950E648B2C5030CAA /* Pods-Clothfinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clothfinder.release.xcconfig"; path = "Target Support Files/Pods-Clothfinder/Pods-Clothfinder.release.xcconfig"; sourceTree = "<group>"; };
-		A0C3FA7F5897F98867284815 /* libPods-ClothfinderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ClothfinderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3BABC349EE06E41FEB17029 /* libPods-Clothfinder-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Clothfinder-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFAF4B04906787E83349307B /* Pods-Clothfinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clothfinder.debug.xcconfig"; path = "Target Support Files/Pods-Clothfinder/Pods-Clothfinder.debug.xcconfig"; sourceTree = "<group>"; };
-		B11FD0406F3AE3883298CE2B /* Pods-Clothfinder-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clothfinder-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Clothfinder-tvOSTests/Pods-Clothfinder-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		C684E1A737AD68CD9FF9C473 /* Pods-Clothfinder-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clothfinder-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Clothfinder-tvOS/Pods-Clothfinder-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		C6B91DAE5DE96BF5C159B1EE /* Pods-ClothfinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothfinderTests.debug.xcconfig"; path = "Target Support Files/Pods-ClothfinderTests/Pods-ClothfinderTests.debug.xcconfig"; sourceTree = "<group>"; };
-		DEB2DF69E512BD5B6008C5AE /* libPods-Clothfinder-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Clothfinder-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D8E8D0B5F594BA0BD75CD17 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		2D974B98480C4E5586BB3531 /* Pods-Clothfinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clothfinder.release.xcconfig"; path = "Target Support Files/Pods-Clothfinder/Pods-Clothfinder.release.xcconfig"; sourceTree = "<group>"; };
+		2F16AF4482F742009F787F1D /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		2F92EF392C1A43D8B28C988E /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/native-base/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		380B7C609192378F6D177012 /* libPods-Clothfinder-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Clothfinder-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4380E74E56254746BD989391 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		498BF29335D59096283E7D33 /* libPods-Clothfinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Clothfinder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		58BF7603108E4795861A28DD /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		5A50320C57699817B84AC650 /* libPods-ClothfinderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ClothfinderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A60A06E67AFD49299A7B004 /* Pods-Clothfinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clothfinder.debug.xcconfig"; path = "Target Support Files/Pods-Clothfinder/Pods-Clothfinder.debug.xcconfig"; sourceTree = "<group>"; };
+		677CC5B24107154CA6CC3B7C /* Pods-Clothfinder-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clothfinder-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Clothfinder-tvOSTests/Pods-Clothfinder-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6BE9BA5BB9CB474685D7873F /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
+		789687C8B894442B8E25C694 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		8ADACD82A77D4A35B0204285 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		93C8E4AA05A3AB0B61B9C8AC /* Pods-Clothfinder-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clothfinder-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Clothfinder-tvOSTests/Pods-Clothfinder-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		98F1979F157D4655985F41DF /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		A662428B4B684AEF8C10F3F9 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/native-base/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		AA20971A905740C5BA05602C /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		AE12C907A105FD23DE1A6084 /* Pods-ClothfinderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothfinderTests.release.xcconfig"; path = "Target Support Files/Pods-ClothfinderTests/Pods-ClothfinderTests.release.xcconfig"; sourceTree = "<group>"; };
+		C68D5BB381047465E17F2D69 /* Pods-Clothfinder-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clothfinder-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Clothfinder-tvOS/Pods-Clothfinder-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		DC221E66F25741278956360C /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		DD38E85E4F4C4671A16B1BA2 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		EC045D64AAA95657560F1987 /* Pods-Clothfinder-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clothfinder-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Clothfinder-tvOS/Pods-Clothfinder-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		FAF7909F8596FC2F10493B30 /* Pods-Clothfinder-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clothfinder-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Clothfinder-tvOS/Pods-Clothfinder-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		2F92EF392C1A43D8B28C988E /* AntDesign.ttf */ = {isa = PBXFileReference; name = "AntDesign.ttf"; path = "../node_modules/native-base/Fonts/AntDesign.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2D8E8D0B5F594BA0BD75CD17 /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		58BF7603108E4795861A28DD /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		789687C8B894442B8E25C694 /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2B03C1C865034803A259D79A /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		1FDC9803A25A44DA817FA0E4 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/native-base/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2AE8BFFD3DD54CEBA3C2DA62 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/native-base/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		190AE2FA552847B19DE7A2CC /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A662428B4B684AEF8C10F3F9 /* Fontisto.ttf */ = {isa = PBXFileReference; name = "Fontisto.ttf"; path = "../node_modules/native-base/Fonts/Fontisto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		8ADACD82A77D4A35B0204285 /* Foundation.ttf */ = {isa = PBXFileReference; name = "Foundation.ttf"; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		AA20971A905740C5BA05602C /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		DD38E85E4F4C4671A16B1BA2 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; name = "MaterialCommunityIcons.ttf"; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		DC221E66F25741278956360C /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4380E74E56254746BD989391 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		1820AEC2E0164BE9AA64F5ED /* Roboto_medium.ttf */ = {isa = PBXFileReference; name = "Roboto_medium.ttf"; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6BE9BA5BB9CB474685D7873F /* Roboto.ttf */ = {isa = PBXFileReference; name = "Roboto.ttf"; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		036D3154F9704B16AE94A495 /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2F16AF4482F742009F787F1D /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		98F1979F157D4655985F41DF /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5A9EC15CACBD88D5521633D /* libPods-ClothfinderTests.a in Frameworks */,
+				8B040839AEA8F326587BFBED /* libPods-ClothfinderTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29935AD36E34072F7E689EE4 /* libPods-Clothfinder.a in Frameworks */,
+				1B2AC9F5B35732BB132BCDA3 /* libPods-Clothfinder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,7 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D6887B780EBC523A16DE45C /* libPods-Clothfinder-tvOS.a in Frameworks */,
+				851F303156ABD16F68312867 /* libPods-Clothfinder-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C9D5969B3A1F167113A8C18 /* libPods-Clothfinder-tvOSTests.a in Frameworks */,
+				CDFCE3BDAA9985832DF27A24 /* libPods-Clothfinder-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,33 +174,33 @@
 			name = Clothfinder;
 			sourceTree = "<group>";
 		};
+		151EBE013BAAF6392A09C3EF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5A60A06E67AFD49299A7B004 /* Pods-Clothfinder.debug.xcconfig */,
+				2D974B98480C4E5586BB3531 /* Pods-Clothfinder.release.xcconfig */,
+				EC045D64AAA95657560F1987 /* Pods-Clothfinder-tvOS.debug.xcconfig */,
+				C68D5BB381047465E17F2D69 /* Pods-Clothfinder-tvOS.release.xcconfig */,
+				677CC5B24107154CA6CC3B7C /* Pods-Clothfinder-tvOSTests.debug.xcconfig */,
+				93C8E4AA05A3AB0B61B9C8AC /* Pods-Clothfinder-tvOSTests.release.xcconfig */,
+				080A2516653E2435C12EECA7 /* Pods-ClothfinderTests.debug.xcconfig */,
+				AE12C907A105FD23DE1A6084 /* Pods-ClothfinderTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				3D2B86F7EC392F074EF14523 /* libPods-Clothfinder.a */,
-				A3BABC349EE06E41FEB17029 /* libPods-Clothfinder-tvOS.a */,
-				DEB2DF69E512BD5B6008C5AE /* libPods-Clothfinder-tvOSTests.a */,
-				A0C3FA7F5897F98867284815 /* libPods-ClothfinderTests.a */,
+				498BF29335D59096283E7D33 /* libPods-Clothfinder.a */,
+				21265D7D1053F28E9FB31FA3 /* libPods-Clothfinder-tvOS.a */,
+				380B7C609192378F6D177012 /* libPods-Clothfinder-tvOSTests.a */,
+				5A50320C57699817B84AC650 /* libPods-ClothfinderTests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4D7D128A091A6641096832FD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AFAF4B04906787E83349307B /* Pods-Clothfinder.debug.xcconfig */,
-				657DD2B950E648B2C5030CAA /* Pods-Clothfinder.release.xcconfig */,
-				C684E1A737AD68CD9FF9C473 /* Pods-Clothfinder-tvOS.debug.xcconfig */,
-				FAF7909F8596FC2F10493B30 /* Pods-Clothfinder-tvOS.release.xcconfig */,
-				05E8AB8DBD4A41EF04C48F2C /* Pods-Clothfinder-tvOSTests.debug.xcconfig */,
-				B11FD0406F3AE3883298CE2B /* Pods-Clothfinder-tvOSTests.release.xcconfig */,
-				C6B91DAE5DE96BF5C159B1EE /* Pods-ClothfinderTests.debug.xcconfig */,
-				1E3A9E866F685741701C6F5C /* Pods-ClothfinderTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -217,8 +218,8 @@
 				00E356EF1AD99517003FC87E /* ClothfinderTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				4D7D128A091A6641096832FD /* Pods */,
 				DFF0AE8C88834626BB6452F2 /* Resources */,
+				151EBE013BAAF6392A09C3EF /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -237,7 +238,7 @@
 			sourceTree = "<group>";
 		};
 		DFF0AE8C88834626BB6452F2 /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				2F92EF392C1A43D8B28C988E /* AntDesign.ttf */,
 				2D8E8D0B5F594BA0BD75CD17 /* Entypo.ttf */,
@@ -260,8 +261,8 @@
 				98F1979F157D4655985F41DF /* Zocial.ttf */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
 			path = "";
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -270,7 +271,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ClothfinderTests" */;
 			buildPhases = (
-				FC0BD1A986CB3C5CB8DFB979 /* [CP] Check Pods Manifest.lock */,
+				8617323B2CA15143F940B2E3 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -289,12 +290,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Clothfinder" */;
 			buildPhases = (
-				06C502BB8045CBFEFA96A35D /* [CP] Check Pods Manifest.lock */,
+				2E94A9718AB6DBC736388CFC /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				7291FF75A569350D1ABB518A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -309,7 +311,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Clothfinder-tvOS" */;
 			buildPhases = (
-				74392E87B90261E904C715DF /* [CP] Check Pods Manifest.lock */,
+				34F6205B7AEB6C0558B4957F /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -329,7 +331,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Clothfinder-tvOSTests" */;
 			buildPhases = (
-				79CD90DDC66186753B42EC01 /* [CP] Check Pods Manifest.lock */,
+				FAEECF69B451AE4EF5FA1ACE /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -457,7 +459,21 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		06C502BB8045CBFEFA96A35D /* [CP] Check Pods Manifest.lock */ = {
+		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native Code And Images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		2E94A9718AB6DBC736388CFC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -479,21 +495,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Bundle React Native Code And Images";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		74392E87B90261E904C715DF /* [CP] Check Pods Manifest.lock */ = {
+		34F6205B7AEB6C0558B4957F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -515,29 +517,55 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		79CD90DDC66186753B42EC01 /* [CP] Check Pods Manifest.lock */ = {
+		7291FF75A569350D1ABB518A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+				"${PODS_ROOT}/Target Support Files/Pods-Clothfinder/Pods-Clothfinder-resources.sh",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Foundation.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
 			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Clothfinder-tvOSTests-checkManifestLockResult.txt",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Feather.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Brands.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Regular.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Solid.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Fontisto.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Foundation.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Ionicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCommunityIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Clothfinder/Pods-Clothfinder-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FC0BD1A986CB3C5CB8DFB979 /* [CP] Check Pods Manifest.lock */ = {
+		8617323B2CA15143F940B2E3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -553,6 +581,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-ClothfinderTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FAEECF69B451AE4EF5FA1ACE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Clothfinder-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -664,7 +714,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C6B91DAE5DE96BF5C159B1EE /* Pods-ClothfinderTests.debug.xcconfig */;
+			baseConfigurationReference = 080A2516653E2435C12EECA7 /* Pods-ClothfinderTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -687,7 +737,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E3A9E866F685741701C6F5C /* Pods-ClothfinderTests.release.xcconfig */;
+			baseConfigurationReference = AE12C907A105FD23DE1A6084 /* Pods-ClothfinderTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -707,7 +757,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AFAF4B04906787E83349307B /* Pods-Clothfinder.debug.xcconfig */;
+			baseConfigurationReference = 5A60A06E67AFD49299A7B004 /* Pods-Clothfinder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -727,7 +777,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 657DD2B950E648B2C5030CAA /* Pods-Clothfinder.release.xcconfig */;
+			baseConfigurationReference = 2D974B98480C4E5586BB3531 /* Pods-Clothfinder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -746,7 +796,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C684E1A737AD68CD9FF9C473 /* Pods-Clothfinder-tvOS.debug.xcconfig */;
+			baseConfigurationReference = EC045D64AAA95657560F1987 /* Pods-Clothfinder-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -774,7 +824,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAF7909F8596FC2F10493B30 /* Pods-Clothfinder-tvOS.release.xcconfig */;
+			baseConfigurationReference = C68D5BB381047465E17F2D69 /* Pods-Clothfinder-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -802,7 +852,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05E8AB8DBD4A41EF04C48F2C /* Pods-Clothfinder-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 677CC5B24107154CA6CC3B7C /* Pods-Clothfinder-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -829,7 +879,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B11FD0406F3AE3883298CE2B /* Pods-Clothfinder-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 93C8E4AA05A3AB0B61B9C8AC /* Pods-Clothfinder-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;

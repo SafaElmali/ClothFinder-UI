@@ -36,10 +36,12 @@ export default class Login extends Component {
     }
 
     render() {
+        const { navigate } = this.props.navigation;
+
         return (
             <View style={styles.container}>
-                <Button title="Login" onPress={() => this.props.navigation.navigate('App')} />
-                <Text onPress={() => { this.props.navigation.navigate('Signup') }} style={{ alignSelf: 'center' }}>Create an Account</Text>
+                <Button title="Login" onPress={() => navigate('App')} />
+                <Text onPress={() => { navigate('Signup') }} style={{ alignSelf: 'center' }}>Create an Account</Text>
             </View>
         );
     }

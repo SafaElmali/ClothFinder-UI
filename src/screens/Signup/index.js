@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import Form from './components/Form';
+import Header from './components/Header/index';
+import Footer from './components/Footer/index'
+import styles from './styles.js';
 
 export default class Signup extends Component {
-    static navigationOptions = () => {
-        return {
-            headerRight: () => (
-                <Button
-                    title="Signup"
-                    color={Platform.OS === 'ios' ? '#000' : null}
-                />
-            ),
-        };
+    static navigationOptions = {
+        title: 'Signup',
+        headerBackTitle: 'Signup',
+        headerStyle: {
+            backgroundColor: '#222831',
+        },
+        headerTitleStyle: {
+            color: '#fff'
+        },
     };
 
     constructor() {
@@ -21,6 +25,15 @@ export default class Signup extends Component {
             email: '',
             password: ''
         }
+    }
+
+    registerUser = (name, email, password) => {
+        console.log(name);
+        this.setState({
+            name,
+            email,
+            password
+        });
     }
 
     //Save user signup details to AsyncStorage
@@ -34,18 +47,18 @@ export default class Signup extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text>Signup</Text>
-            </View>
+            <SafeAreaView style={styles.container}>
+                <View style={styles.header}>
+                    <Header />
+                </View>
+                <View style={styles.formContent}>
+                    <Form onSignup={this.registerUser} />
+                </View>
+                <View style={styles.footer}>
+                    <Footer onClick={this.props.navigation} />
+                </View>
+            </SafeAreaView>
         );
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
-});
