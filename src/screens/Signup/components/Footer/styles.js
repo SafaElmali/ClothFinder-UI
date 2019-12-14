@@ -2,10 +2,10 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     footerText: {
-        color: '#d3d3d3',
+        color: '#000',
     },
     signInText: {
-        color: '#fff',
+        color: '#000',
         fontWeight: 'bold'
     }
 });

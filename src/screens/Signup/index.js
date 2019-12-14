@@ -11,10 +11,10 @@ export default class Signup extends Component {
         title: 'Signup',
         headerBackTitle: 'Signup',
         headerStyle: {
-            backgroundColor: '#222831',
+            backgroundColor: '#f7f7f7',
         },
         headerTitleStyle: {
-            color: '#fff'
+            color: '#000'
         },
     };
 

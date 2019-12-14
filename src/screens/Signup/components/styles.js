@@ -18,17 +18,17 @@ const styles = StyleSheet.create({
     },
     inputText: {
         marginLeft: 10,
-        color: '#d3d3d3'
+        color: '#000'
     },
     placeholder: {
         color: 'lightgray'
     },
     label: {
         position: 'absolute',
-        top: -12,
+        top: -10,
         left: 20,
-        color: '#ffd369',
-        backgroundColor: '#222831'
+        color: '#000',
+        backgroundColor: '#f7f7f7'
     },
     button: {
         marginTop: 20,
