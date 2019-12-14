@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput } from 'react-native';
+import { View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Button } from 'react-native-elements';
 import styles from './styles';

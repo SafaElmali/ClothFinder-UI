@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import Form from './components/Form';
+import Form from './components/Form/index';
 import Header from './components/Header/index';
 import Footer from './components/Footer/index'
 import styles from './styles.js';
@@ -47,7 +47,6 @@ export default class Signup extends Component {
             console.log(error);
         }
     }
-
 
     render() {
         return (
