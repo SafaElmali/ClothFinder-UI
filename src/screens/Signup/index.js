@@ -21,29 +21,33 @@ export default class Signup extends Component {
     constructor() {
         super();
         this.state = {
-            name: '',
-            email: '',
-            password: ''
+            user: {
+                name: '',
+                email: '',
+                password: ''
+            }
         }
     }
 
     registerUser = (name, email, password) => {
-        console.log(name);
         this.setState({
-            name,
-            email,
-            password
-        });
+            user: {
+                name,
+                email,
+                password
+            }
+        }, () => this.saveToStorage(this.state.user));
     }
 
     //Save user signup details to AsyncStorage
     saveToStorage = async (user) => {
         try {
-            await AsyncStorage.setItem("USER_DETAILS", user)
+            await AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user))
         } catch (error) {
             console.log(error);
         }
     }
+
 
     render() {
         return (
