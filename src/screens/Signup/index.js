@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import Form from './components/Form/index';
 import Header from './components/Header/index';
 import Footer from './components/Footer/index';
+import KeyboardEvent from '../../components/Keyboard/index';
 import styles from './styles.js';
 
 export default class Signup extends Component {
@@ -28,24 +29,6 @@ export default class Signup extends Component {
             },
             isKeyboardOpen: false
         }
-        this._keyboardDidHide.bind(this);
-        this._keyboardDidShow.bind(this);
-    }
-
-    componentDidMount() {
-        this.keyboardDidShowListener = Keyboard.addListener(
-            'keyboardDidShow',
-            this._keyboardDidShow,
-        );
-        this.keyboardDidHideListener = Keyboard.addListener(
-            'keyboardDidHide',
-            this._keyboardDidHide,
-        );
-    }
-
-    componentWillUnmount() {
-        this.keyboardDidShowListener.remove();
-        this.keyboardDidHideListener.remove();
     }
 
     _keyboardDidShow = () => {
@@ -83,6 +66,7 @@ export default class Signup extends Component {
         const { isKeyboardOpen } = this.state;
         return (
             <SafeAreaView style={styles.container}>
+                <KeyboardEvent keyboardShow={this._keyboardDidShow} keyboardHide={this._keyboardDidHide} />
                 {!isKeyboardOpen === true ?
                     <View style={styles.header}>
                         <Header imagePath={require('../../images/standing-6.png')} />
