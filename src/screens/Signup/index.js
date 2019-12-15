@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { View, SafeAreaView } from 'react-native';
+import { View, SafeAreaView, Keyboard } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Form from './components/Form/index';
 import Header from './components/Header/index';
-import Footer from './components/Footer/index'
+import Footer from './components/Footer/index';
 import styles from './styles.js';
 
 export default class Signup extends Component {
@@ -25,8 +25,39 @@ export default class Signup extends Component {
                 name: '',
                 email: '',
                 password: ''
-            }
+            },
+            isKeyboardOpen: false
         }
+        this._keyboardDidHide.bind(this);
+        this._keyboardDidShow.bind(this);
+    }
+
+    componentDidMount() {
+        this.keyboardDidShowListener = Keyboard.addListener(
+            'keyboardDidShow',
+            this._keyboardDidShow,
+        );
+        this.keyboardDidHideListener = Keyboard.addListener(
+            'keyboardDidHide',
+            this._keyboardDidHide,
+        );
+    }
+
+    componentWillUnmount() {
+        this.keyboardDidShowListener.remove();
+        this.keyboardDidHideListener.remove();
+    }
+
+    _keyboardDidShow = () => {
+        this.setState({
+            isKeyboardOpen: true
+        });
+    }
+
+    _keyboardDidHide = () => {
+        this.setState({
+            isKeyboardOpen: false
+        });
     }
 
     registerUser = (name, email, password) => {
@@ -49,17 +80,22 @@ export default class Signup extends Component {
     }
 
     render() {
+        const { isKeyboardOpen } = this.state;
         return (
             <SafeAreaView style={styles.container}>
-                <View style={styles.header}>
-                    <Header />
-                </View>
+                {!isKeyboardOpen === true ?
+                    <View style={styles.header}>
+                        <Header imagePath={require('../../images/standing-6.png')} />
+                    </View> : null
+                }
                 <View style={styles.formContent}>
                     <Form onSignup={this.registerUser} />
                 </View>
-                <View style={styles.footer}>
-                    <Footer onClick={this.props.navigation} />
-                </View>
+                {!isKeyboardOpen === true ?
+                    <View style={styles.footer}>
+                        <Footer onClick={this.props.navigation} />
+                    </View> : null
+                }
             </SafeAreaView>
         );
     }
