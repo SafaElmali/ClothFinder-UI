@@ -90,6 +90,4 @@ const InputComp = (props) => {
     )
 }
 
-
-
 export default InputComp;
