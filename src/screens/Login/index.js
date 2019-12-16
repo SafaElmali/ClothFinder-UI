@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, SafeAreaView } from 'react-native';
-import { Button } from 'react-native-elements';
+import { View, SafeAreaView } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import KeyboardEvent from '../../components/Keyboard/index';
 import Header from '../../components/Header/index';
 import styles from './styles';
 import LoginForm from './components/Form';
-import Footer from '../Signup/components/Footer';
-
+import Footer from '../../components/Footer/index';
 export default class Login extends Component {
     static navigationOptions = {
         title: 'Login',
@@ -68,9 +66,11 @@ export default class Login extends Component {
                 <View style={styles.loginFormContent}>
                     <LoginForm />
                 </View>
-                <View style={styles.footer}>
-                    <Text onPress={() => { navigate('Signup') }} style={{ alignSelf: 'center' }}>Create an Account</Text>
-                </View>
+                {!isKeyboardOpen === true ?
+                    <View style={styles.footer}>
+                        <Footer onClick={this.props.navigation} text="Don't have an account?" navigate_text=" Create one." screen_name="Signup" />
+                    </View> : null
+                }
             </SafeAreaView>
         );
     }

@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     signInText: {
         color: '#000',
         fontWeight: 'bold'
-    }
+    },
 });
 
 export default styles;

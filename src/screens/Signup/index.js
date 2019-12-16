@@ -3,7 +3,7 @@ import { View, SafeAreaView } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import SignupForm from './components/Form/index';
 import Header from '../../components/Header/index';
-import Footer from './components/Footer/index';
+import Footer from '../../components/Footer/index';
 import KeyboardEvent from '../../components/Keyboard/index';
 import styles from './styles.js';
 
@@ -77,7 +77,7 @@ export default class Signup extends Component {
                 </View>
                 {!isKeyboardOpen === true ?
                     <View style={styles.footer}>
-                        <Footer onClick={this.props.navigation} />
+                        <Footer onClick={this.props.navigation} text="Already have an account?" navigate_text=" Sign in." screen_name="Login" />
                     </View> : null
                 }
             </SafeAreaView>

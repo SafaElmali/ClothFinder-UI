@@ -16,7 +16,9 @@ const styles = StyleSheet.create({
     },
     footer: {
         flex: 0.2,
-        marginTop: Platform.OS === 'android' ? 10 : 0
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 });
 
