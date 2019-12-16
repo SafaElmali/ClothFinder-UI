@@ -30,6 +30,10 @@ const styles = StyleSheet.create({
         color: '#000',
         backgroundColor: '#f7f7f7'
     },
+    buttonContainer: {
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
     button: {
         marginTop: 20,
         borderWidth: 1,

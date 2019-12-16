@@ -14,6 +14,8 @@ const LoginForm = (props) => {
     }
 
     const handleLogin = () => {
+        const { onLogin } = props;
+        onLogin(name, password);
     }
 
     return (
@@ -56,7 +58,7 @@ const LoginForm = (props) => {
                 labelStyle={styles.label}
                 inputContainerStyle={styles.inputContainer}
             />
-            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+            <View style={styles.buttonContainer}>
                 <Button
                     title="Login"
                     type="clear"

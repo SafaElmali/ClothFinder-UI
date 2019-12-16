@@ -30,9 +30,14 @@ const styles = StyleSheet.create({
         color: '#000',
         backgroundColor: '#f7f7f7'
     },
+    buttonContainer: {
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
     button: {
         marginTop: 20,
         borderWidth: 1,
+        width: 200,
         borderRadius: 20,
         borderColor: '#2089dc'
     },

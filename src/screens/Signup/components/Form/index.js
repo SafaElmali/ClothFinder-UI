@@ -75,17 +75,19 @@ const SignupForm = (props) => {
                 labelStyle={styles.label}
                 inputContainerStyle={styles.inputContainer}
             />
-            <Button
-                title="Signup"
-                type="clear"
-                containerStyle={styles.button}
-                iconRight
-                icon={
-                    <Icon name='check-circle' size={22} color="#2089dc" />
-                }
-                titleStyle={styles.buttonTitle}
-                onPress={handleSignup}
-            />
+            <View style={styles.buttonContainer}>
+                <Button
+                    title="Signup"
+                    type="clear"
+                    containerStyle={styles.button}
+                    iconRight
+                    icon={
+                        <Icon name='check-circle' size={22} color="#2089dc" />
+                    }
+                    titleStyle={styles.buttonTitle}
+                    onPress={handleSignup}
+                />
+            </View>
         </View>
     )
 }

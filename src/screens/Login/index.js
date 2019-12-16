@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { View, SafeAreaView } from 'react-native';
+import { View, SafeAreaView, Platform } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import KeyboardEvent from '../../components/Keyboard/index';
 import Header from '../../components/Header/index';
 import styles from './styles';
 import LoginForm from './components/Form';
 import Footer from '../../components/Footer/index';
+
 export default class Login extends Component {
     static navigationOptions = {
         title: 'Login',
@@ -25,6 +26,25 @@ export default class Login extends Component {
         this.checkStorage();
     }
 
+    _keyboardDidShow = () => {
+        this.setState({
+            isKeyboardOpen: true
+        });
+    }
+
+    _keyboardDidHide = () => {
+        this.setState({
+            isKeyboardOpen: false
+        });
+    }
+
+    handleLogin = (name, password) => {
+        this.setState({
+            name,
+            password
+        });
+    }
+
     //Check AsyncStorage has Item
     checkStorage = async () => {
         try {
@@ -40,20 +60,7 @@ export default class Login extends Component {
         }
     }
 
-    _keyboardDidShow = () => {
-        this.setState({
-            isKeyboardOpen: true
-        });
-    }
-
-    _keyboardDidHide = () => {
-        this.setState({
-            isKeyboardOpen: false
-        });
-    }
-
     render() {
-        const { navigate } = this.props.navigation;
         const { isKeyboardOpen } = this.state;
         return (
             <SafeAreaView style={styles.container}>
@@ -64,7 +71,7 @@ export default class Login extends Component {
                     </View> : null
                 }
                 <View style={styles.loginFormContent}>
-                    <LoginForm />
+                    <LoginForm onLogin={this.handleLogin} />
                 </View>
                 {!isKeyboardOpen === true ?
                     <View style={styles.footer}>
