@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, SafeAreaView, Keyboard } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import Form from './components/Form/index';
-import Header from './components/Header/index';
+import SignupForm from './components/Form/index';
+import Header from '../../components/Header/index';
 import Footer from './components/Footer/index';
 import KeyboardEvent from '../../components/Keyboard/index';
 import styles from './styles.js';
@@ -73,7 +73,7 @@ export default class Signup extends Component {
                     </View> : null
                 }
                 <View style={styles.formContent}>
-                    <Form onSignup={this.registerUser} />
+                    <SignupForm onSignup={this.registerUser} />
                 </View>
                 {!isKeyboardOpen === true ?
                     <View style={styles.footer}>

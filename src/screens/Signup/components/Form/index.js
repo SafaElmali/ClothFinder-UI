@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Button } from 'react-native-elements';
 import styles from './styles';
 
-const InputComp = (props) => {
+const SignupForm = (props) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -90,4 +90,4 @@ const InputComp = (props) => {
     )
 }
 
-export default InputComp;
+export default SignupForm;
