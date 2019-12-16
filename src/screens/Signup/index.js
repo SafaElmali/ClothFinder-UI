@@ -23,7 +23,7 @@ export default class Signup extends Component {
         super();
         this.state = {
             user: {
-                name: '',
+                username: '',
                 email: '',
                 password: ''
             },
@@ -43,10 +43,10 @@ export default class Signup extends Component {
         });
     }
 
-    registerUser = (name, email, password) => {
+    registerUser = (username, email, password) => {
         this.setState({
             user: {
-                name,
+                username,
                 email,
                 password
             }
@@ -56,7 +56,7 @@ export default class Signup extends Component {
     //Save user signup details to AsyncStorage
     saveToStorage = async (user) => {
         try {
-            await AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user))
+            await AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
         } catch (error) {
             console.log(error);
         }

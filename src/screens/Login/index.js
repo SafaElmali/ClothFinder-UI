@@ -49,11 +49,12 @@ export default class Login extends Component {
     checkStorage = async () => {
         try {
             const userDetails = await AsyncStorage.getItem("USER_DETAILS");
-            if (userDetails !== null) {
+            const user = JSON.parse(userDetails);
+            if (user !== null) {
                 this.setState({
-                    username: userDetails.username,
-                    email: userDetails.email
-                });
+                    username: user.username,
+                    password: user.password
+                }, () => { console.log(this.state) });
             }
         } catch (error) {
             console.log(error);
@@ -71,7 +72,7 @@ export default class Login extends Component {
                     </View> : null
                 }
                 <View style={styles.loginFormContent}>
-                    <LoginForm onLogin={this.handleLogin} />
+                    <LoginForm onLogin={this.handleLogin} user={this.state} />
                 </View>
                 {!isKeyboardOpen === true ?
                     <View style={styles.footer}>

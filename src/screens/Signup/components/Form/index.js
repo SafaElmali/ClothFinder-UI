@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 
 const SignupForm = (props) => {
-    const [name, setName] = useState('');
+    const [username, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [displayPassword, setPasswordShow] = useState(false);
@@ -16,7 +16,7 @@ const SignupForm = (props) => {
 
     const handleSignup = () => {
         const { onSignup } = props;
-        onSignup(name.trim(), email, password);
+        onSignup(username.trim(), email, password);
         setName('');
         setEmail('');
         setPassword('');
@@ -25,12 +25,12 @@ const SignupForm = (props) => {
     return (
         <View>
             <Input
-                label="Name"
+                label="Username"
                 leftIcon={
                     <Icon name='user' size={18} color="#6c706d" />
                 }
                 onChangeText={name => setName(name)}
-                value={name}
+                value={username}
                 containerStyle={styles.container}
                 placeholderTextColor='#d3d3d3'
                 inputStyle={styles.inputText}
