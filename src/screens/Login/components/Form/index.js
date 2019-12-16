@@ -4,9 +4,8 @@ import { Input, Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 
-const SignupForm = (props) => {
+const LoginForm = (props) => {
     const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [displayPassword, setPasswordShow] = useState(false);
 
@@ -14,12 +13,7 @@ const SignupForm = (props) => {
         setPasswordShow(!displayPassword);
     }
 
-    const handleSignup = () => {
-        const { onSignup } = props;
-        onSignup(name.trim(), email, password);
-        setName('');
-        setEmail('');
-        setPassword('');
+    const handleLogin = () => {
     }
 
     return (
@@ -31,19 +25,6 @@ const SignupForm = (props) => {
                 }
                 onChangeText={name => setName(name)}
                 value={name}
-                containerStyle={styles.container}
-                placeholderTextColor='#d3d3d3'
-                inputStyle={styles.inputText}
-                labelStyle={styles.label}
-                inputContainerStyle={styles.inputContainer}
-            />
-            <Input
-                label="E-mail"
-                leftIcon={
-                    <Icon name='paper-plane' size={18} color="#6c706d" />
-                }
-                onChangeText={email => setEmail(email.trim())}
-                value={email}
                 containerStyle={styles.container}
                 placeholderTextColor='#d3d3d3'
                 inputStyle={styles.inputText}
@@ -75,19 +56,21 @@ const SignupForm = (props) => {
                 labelStyle={styles.label}
                 inputContainerStyle={styles.inputContainer}
             />
-            <Button
-                title="Signup"
-                type="clear"
-                containerStyle={styles.button}
-                iconRight
-                icon={
-                    <Icon name='check-circle' size={22} color="#2089dc" />
-                }
-                titleStyle={styles.buttonTitle}
-                onPress={handleSignup}
-            />
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                <Button
+                    title="Login"
+                    type="clear"
+                    containerStyle={styles.button}
+                    iconRight
+                    icon={
+                        <Icon size={22} color="#2089dc" />
+                    }
+                    titleStyle={styles.buttonTitle}
+                    onPress={handleLogin}
+                />
+            </View>
         </View>
     )
 }
 
-export default SignupForm;
+export default LoginForm;
