@@ -20,6 +20,7 @@ export default class Login extends Component {
         this.state = {
             user: {
                 username: '',
+                password: '',
                 jwt: ''
             },
             isKeyboardOpen: false
@@ -45,17 +46,19 @@ export default class Login extends Component {
     //check user username and password in db. If its true then navigate to the home
     // TODO catch method
     handleLogin = (username, password) => {
-        axios.post("http://localhost:8080/login", { username: username, password: password }).then(res => {
+        axios.post("http://192.168.0.10:8080/login", { username: username, password: password }).then(res => {
             if (res.status === 200) {
                 this.setState({
                     user: {
                         username: username,
+                        password: password,
                         jwt: res.data.jwt
                     }
                 }, async () => {
                     const { user } = this.state;
+
                     await AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
-                    this.props.navigation.navigate('Home', { user });
+                    this.props.navigation.navigate('Home', { user: { username: user.username, jwt: user.jwt } });
                 });
             } else if (res.status === 403) {
                 console.log("Username or password is not valid!");
@@ -88,8 +91,6 @@ export default class Login extends Component {
 
     render() {
         const { isKeyboardOpen } = this.state;
-        const { navigation } = this.props;
-
         return (
             <SafeAreaView style={styles.container}>
                 <KeyboardEvent keyboardShow={this._keyboardDidShow} keyboardHide={this._keyboardDidHide} />

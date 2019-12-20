@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView } from 'react-native';
-import { Text } from 'react-native-elements';
 import AsyncStorage from '@react-native-community/async-storage';
 import SignupForm from './components/Form/index';
 import Header from '../../components/Header/index';
@@ -58,7 +57,7 @@ export default class Signup extends Component {
     //Save user signup details to AsyncStorage
     saveToStorage = (user) => {
         try {
-            axios.post("http://localhost:8080/register", user).then(res => {
+            axios.post("http://192.168.0.10:8080/register", user).then(res => {
                 if (res.status === 200) {
                     AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
                     this.props.navigation.navigate('Login', { user });
