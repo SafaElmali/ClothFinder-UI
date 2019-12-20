@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView } from 'react-native';
+import { Text } from 'react-native-elements';
 import AsyncStorage from '@react-native-community/async-storage';
 import SignupForm from './components/Form/index';
 import Header from '../../components/Header/index';
 import Footer from '../../components/Footer/index';
 import KeyboardEvent from '../../components/Keyboard/index';
 import styles from './styles.js';
+import axios from 'axios';
 
 export default class Signup extends Component {
     static navigationOptions = {
@@ -54,9 +56,18 @@ export default class Signup extends Component {
     }
 
     //Save user signup details to AsyncStorage
-    saveToStorage = async (user) => {
+    saveToStorage = (user) => {
         try {
-            await AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
+            axios.post("http://localhost:8080/register", user).then(res => {
+                if (res.status === 200) {
+                    AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
+                    this.props.navigation.navigate('Login', { user });
+                } else if (res.status === 409) {
+                    console.log("This user already exist");
+                } else {
+                    console.log("An error occured. Please send an email about the problem!");
+                }
+            });
         } catch (error) {
             console.log(error);
         }

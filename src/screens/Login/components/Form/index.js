@@ -5,9 +5,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 
 const LoginForm = (props) => {
-    const { user } = props;
-    const [name, setName] = useState(user.username);
-    const [password, setPassword] = useState(user.password);
+    const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
     const [displayPassword, setPasswordShow] = useState(false);
 
     const onPasswordDisplay = () => {
