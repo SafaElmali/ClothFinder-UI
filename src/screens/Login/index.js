@@ -43,21 +43,21 @@ export default class Login extends Component {
     }
 
     //check user username and password in db. If its true then navigate to the home
+    // TODO catch method
     handleLogin = (username, password) => {
         axios.post("http://localhost:8080/login", { username: username, password: password }).then(res => {
             if (res.status === 200) {
-                console.log(res);
                 this.setState({
                     user: {
                         username: username,
                         jwt: res.data.jwt
                     }
-                }, () => {
+                }, async () => {
                     const { user } = this.state;
-                    AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
+                    await AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
                     this.props.navigation.navigate('Home', { user });
                 });
-            } else {
+            } else if (res.status === 403) {
                 console.log("Username or password is not valid!");
             }
         });
