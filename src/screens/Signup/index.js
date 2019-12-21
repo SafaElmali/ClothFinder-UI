@@ -7,6 +7,8 @@ import Footer from '../../components/Footer/index';
 import KeyboardEvent from '../../components/Keyboard/index';
 import styles from './styles.js';
 import axios from 'axios';
+import { registerLocalPoint } from '../../utils/config';
+
 
 export default class Signup extends Component {
     static navigationOptions = {
@@ -57,7 +59,7 @@ export default class Signup extends Component {
     //Save user signup details to AsyncStorage
     saveToStorage = (user) => {
         try {
-            axios.post("http://192.168.0.10:8080/register", user).then(res => {
+            axios.post(registerLocalPoint, user).then(res => {
                 if (res.status === 200) {
                     AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
                     this.props.navigation.navigate('Login', { user });

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView } from 'react-native';
-import { NavigationEvents } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
 import KeyboardEvent from '../../components/Keyboard/index';
 import Header from '../../components/Header/index';
@@ -8,6 +7,7 @@ import styles from './styles';
 import LoginForm from './components/Form';
 import Footer from '../../components/Footer/index';
 import axios from 'axios';
+import { loginLocalPoint } from '../../utils/config';
 
 export default class Login extends Component {
     static navigationOptions = {
@@ -46,7 +46,7 @@ export default class Login extends Component {
     //check user username and password in db. If its true then navigate to the home
     // TODO catch method
     handleLogin = (username, password) => {
-        axios.post("http://192.168.0.10:8080/login", { username: username, password: password }).then(res => {
+        axios.post(loginLocalPoint, { username: username, password: password }).then(res => {
             if (res.status === 200) {
                 this.setState({
                     user: {
@@ -56,7 +56,7 @@ export default class Login extends Component {
                     }
                 }, async () => {
                     const { user } = this.state;
-
+                    console.log(user);
                     await AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
                     this.props.navigation.navigate('Home', { user: { username: user.username, jwt: user.jwt } });
                 });
