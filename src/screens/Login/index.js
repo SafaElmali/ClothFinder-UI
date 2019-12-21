@@ -56,7 +56,6 @@ export default class Login extends Component {
                     }
                 }, async () => {
                     const { user } = this.state;
-                    console.log(user);
                     await AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
                     this.props.navigation.navigate('Home', { user: { username: user.username, jwt: user.jwt } });
                 });

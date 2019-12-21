@@ -1,9 +1,9 @@
-let startpoint = "https://finder-262622.appspot.com/";
+const startpoint = "https://finder-v1.appspot.com/";
 
-export let loginRecepPoint = "http://192.168.0.10:8080/login";
-export let registerRecepPoint = "http://192.168.0.10:8080/register";
-export let garmentRecepPoint = "http://192.168.0.10:8080/garments/";
+export const loginRecepPoint = "http://192.168.0.10:8080/login";
+export const registerRecepPoint = "http://192.168.0.10:8080/register";
+export const garmentRecepPoint = "http://192.168.0.10:8080/garments/";
 
-export let loginLocalPoint = `${startpoint}login`;
-export let registerLocalPoint = `${startpoint}register`;
-export let garmentTypeLocalPoint = `${startpoint}garments/`;
+export const loginLocalPoint = `${startpoint}login`;
+export const registerLocalPoint = `${startpoint}register`;
+export const garmentTypeLocalPoint = `${startpoint}garments/`;
