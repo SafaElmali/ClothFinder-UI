@@ -1,23 +1,32 @@
 import React from 'react';
 import { Dimensions, View, Text, StyleSheet } from "react-native";
-import { colors } from 'react-native-elements';
 
 const screenWidth = Math.round(Dimensions.get('window').width);
-const screenHeight = Math.round(Dimensions.get('window').height);
 
-//TODO Get text and time for display with props
-export const WarningToaster = (props) => {
-    return (
-        <View style={styles.warningToaster}>
-            <Text style={styles.toasterText}>{props.text}</Text>
-        </View>
-    );
+export const Toaster = (props) => {
+    const { text, type } = props;
+
+    switch (type) {
+        case 'Warning':
+            return (
+                <View style={styles(props).toasterView}>
+                    <Text style={styles(props).toasterText}>{text}</Text>
+                </View>
+            );
+            break;
+        case 'Success':
+            return (
+                <View style={styles(props).toasterView}>
+                    <Text style={styles(props).toasterText}>{text}</Text>
+                </View>
+            );
+    }
 }
 
-const styles = StyleSheet.create({
-    warningToaster: {
+const styles = props => StyleSheet.create({
+    toasterView: {
         position: 'absolute',
-        backgroundColor: '#F1C40F',
+        backgroundColor: props.type === 'Warning' ? '#f1c40f' : props.type === 'Success' ? '#07bc0c' : '#e74c3c',
         top: 20,
         zIndex: 1,
         height: 50,

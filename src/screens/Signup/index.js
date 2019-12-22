@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView } from 'react-native';
-import { registerLocalPoint } from '../../utils/config';
-import AsyncStorage from '@react-native-community/async-storage';
+import { Toaster } from '../../components/Toaster/index';
 import SignupForm from './components/Form/index';
 import Header from '../../components/Header/index';
 import Footer from '../../components/Footer/index';
 import KeyboardEvent from '../../components/Keyboard/index';
 import styles from './styles.js';
-import axios from 'axios';
-import { WarningToaster } from '../../components/Toaster/index';
 
 export default class Signup extends Component {
     static navigationOptions = {
@@ -25,14 +22,10 @@ export default class Signup extends Component {
     constructor() {
         super();
         this.state = {
-            user: {
-                username: '',
-                email: '',
-                password: ''
-            },
             isKeyboardOpen: false,
-            displayWarning: false,
-            warningText: ''
+            displayToaster: false,
+            toasterText: '',
+            toasterType: '',
         }
     }
 
@@ -48,52 +41,28 @@ export default class Signup extends Component {
         });
     }
 
-    registerUser = (username, email, password) => {
-        this.setState({
-            user: {
-                username,
-                email,
-                password
-            }
-        }, () => this.saveToStorage(this.state.user));
-    }
-
-    //Save user signup details to AsyncStorage
-    saveToStorage = (user) => {
-        try {
-            axios.post(registerLocalPoint, user).then(res => {
-                if (res.status === 200) {
-                    AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
-                    this.props.navigation.navigate('Login', { user });
-                }
-            }).catch(err => {
-                if (err.response.status === 409) {
-                    this.setState({ displayWarning: true, warningText: err.response.data })
-                    setTimeout(() => {
-                        this.setState({ displayWarning: false })
-                    }, 2500)
-                }
-                if (err.response.status === 422) {
-                    this.setState({ displayWarning: true, warningText: err.response.data })
-                    setTimeout(() => {
-                        this.setState({ displayWarning: false })
-                    }, 2500)
-                }
-            });
-        } catch (error) {
-            this.setState({ displayWarning: true, warningText: error })
+    handleSignupStatus = (status, statusText, toasterType) => {
+        if (status) {
+            this.setState({ displayToaster: true, toasterText: statusText, toasterType: toasterType });
             setTimeout(() => {
-                this.setState({ displayWarning: false })
-            }, 2500);
+                this.setState({ displayToaster: false }, () => {
+                    this.props.navigation.navigate('Login');
+                })
+            }, 3000);
+        } else {
+            this.setState({ displayToaster: true, toasterText: statusText, toasterType: toasterType });
+            setTimeout(() => {
+                this.setState({ displayToaster: false })
+            }, 3000);
         }
     }
 
     render() {
-        const { isKeyboardOpen, displayWarning, warningText } = this.state;
+        const { isKeyboardOpen, displayToaster, toasterText, toasterType } = this.state;
         return (
             <SafeAreaView style={styles.container}>
-                {displayWarning ?
-                    <WarningToaster text={warningText} /> : null
+                {displayToaster ?
+                    <Toaster text={toasterText} type={toasterType} /> : null
                 }
                 <KeyboardEvent keyboardShow={this._keyboardDidShow} keyboardHide={this._keyboardDidHide} />
                 {!isKeyboardOpen === true ?
@@ -102,7 +71,7 @@ export default class Signup extends Component {
                     </View> : null
                 }
                 <View style={styles.formContent}>
-                    <SignupForm onSignup={this.registerUser} />
+                    <SignupForm handleSignupStatus={this.handleSignupStatus} />
                 </View>
                 {!isKeyboardOpen === true ?
                     <View style={styles.footer}>

@@ -1,25 +1,40 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Input, Button } from 'react-native-elements';
+import { registerLocalPoint } from '../../../../utils/config';
+import AsyncStorage from '@react-native-community/async-storage';
+import axios from 'axios';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 
 const SignupForm = (props) => {
-    const [username, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [user, setUser] = useState({ username: '', email: '', password: '' });
     const [displayPassword, setPasswordShow] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const onPasswordDisplay = () => {
         setPasswordShow(!displayPassword);
     }
 
-    const handleSignup = () => {
-        const { onSignup } = props;
-        onSignup(username.trim(), email, password);
-        setName('');
-        setEmail('');
-        setPassword('');
+    //Save user signup details to AsyncStorage if response status is success
+    const handleFormSignup = () => {
+        const { handleSignupStatus } = props;
+        setLoading(true);
+        axios.post(registerLocalPoint, user).then(res => {
+            if (res.status === 200) {
+                setLoading(false);
+                AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
+                handleSignupStatus(true, 'You registered Successfully 🤩\nreturning to login 🚀', 'Success');
+            }
+        }).catch(err => {
+            if (err.response.status === 409) {
+                setLoading(false);
+                handleSignupStatus(false, err.response.data, 'Warning');
+            } else if (err.response.status === 422) {
+                setLoading(false);
+                handleSignupStatus(false, err.response.data, 'Warning');
+            }
+        });
     }
 
     return (
@@ -29,8 +44,8 @@ const SignupForm = (props) => {
                 leftIcon={
                     <Icon name='user' size={18} color="#6c706d" />
                 }
-                onChangeText={name => setName(name)}
-                value={username}
+                onChangeText={name => setUser({ ...user, username: name })}
+                value={user.username}
                 containerStyle={styles.container}
                 placeholderTextColor='#d3d3d3'
                 inputStyle={styles.inputText}
@@ -42,8 +57,8 @@ const SignupForm = (props) => {
                 leftIcon={
                     <Icon name='paper-plane' size={18} color="#6c706d" />
                 }
-                onChangeText={email => setEmail(email.trim())}
-                value={email}
+                onChangeText={email => setUser({ ...user, email: email.trim() })}
+                value={user.email}
                 containerStyle={styles.container}
                 placeholderTextColor='#d3d3d3'
                 inputStyle={styles.inputText}
@@ -67,8 +82,8 @@ const SignupForm = (props) => {
                     />
                 }
                 secureTextEntry={displayPassword === false ? true : false}
-                onChangeText={password => setPassword(password.trim())}
-                value={password}
+                onChangeText={password => setUser({ ...user, password: password.trim() })}
+                value={user.password}
                 containerStyle={styles.container}
                 placeholderTextColor='#d3d3d3'
                 inputStyle={styles.inputText}
@@ -81,11 +96,12 @@ const SignupForm = (props) => {
                     type="clear"
                     containerStyle={styles.button}
                     iconRight
+                    loading={loading}
                     icon={
                         <Icon name='check-circle' size={22} color="#2089dc" />
                     }
                     titleStyle={styles.buttonTitle}
-                    onPress={handleSignup}
+                    onPress={handleFormSignup}
                 />
             </View>
         </View>
