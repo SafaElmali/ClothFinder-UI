@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView } from 'react-native';
+import { registerLocalPoint } from '../../utils/config';
 import AsyncStorage from '@react-native-community/async-storage';
 import SignupForm from './components/Form/index';
 import Header from '../../components/Header/index';
@@ -7,8 +8,7 @@ import Footer from '../../components/Footer/index';
 import KeyboardEvent from '../../components/Keyboard/index';
 import styles from './styles.js';
 import axios from 'axios';
-import { registerLocalPoint } from '../../utils/config';
-
+import { WarningToaster } from '../../components/Toaster/index';
 
 export default class Signup extends Component {
     static navigationOptions = {
@@ -30,7 +30,9 @@ export default class Signup extends Component {
                 email: '',
                 password: ''
             },
-            isKeyboardOpen: false
+            isKeyboardOpen: false,
+            displayWarning: false,
+            warningText: ''
         }
     }
 
@@ -63,21 +65,36 @@ export default class Signup extends Component {
                 if (res.status === 200) {
                     AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
                     this.props.navigation.navigate('Login', { user });
-                } else if (res.status === 409) {
-                    console.log("This user already exist");
-                } else {
-                    console.log("An error occured. Please send an email about the problem!");
+                }
+            }).catch(err => {
+                if (err.response.status === 409) {
+                    this.setState({ displayWarning: true, warningText: err.response.data })
+                    setTimeout(() => {
+                        this.setState({ displayWarning: false })
+                    }, 2500)
+                }
+                if (err.response.status === 422) {
+                    this.setState({ displayWarning: true, warningText: err.response.data })
+                    setTimeout(() => {
+                        this.setState({ displayWarning: false })
+                    }, 2500)
                 }
             });
         } catch (error) {
-            console.log(error);
+            this.setState({ displayWarning: true, warningText: error })
+            setTimeout(() => {
+                this.setState({ displayWarning: false })
+            }, 2500);
         }
     }
 
     render() {
-        const { isKeyboardOpen } = this.state;
+        const { isKeyboardOpen, displayWarning, warningText } = this.state;
         return (
             <SafeAreaView style={styles.container}>
+                {displayWarning ?
+                    <WarningToaster text={warningText} /> : null
+                }
                 <KeyboardEvent keyboardShow={this._keyboardDidShow} keyboardHide={this._keyboardDidHide} />
                 {!isKeyboardOpen === true ?
                     <View style={styles.header}>
