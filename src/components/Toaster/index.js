@@ -13,7 +13,6 @@ export const Toaster = (props) => {
                     <Text style={styles(props).toasterText}>{text}</Text>
                 </View>
             );
-            break;
         case 'Success':
             return (
                 <View style={styles(props).toasterView}>

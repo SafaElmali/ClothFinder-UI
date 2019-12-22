@@ -15,7 +15,7 @@ const LoginForm = (props) => {
 
     const handleLogin = () => {
         const { onLogin } = props;
-        onLogin(name, password);
+        onLogin(name, password, true);
     }
 
     return (
