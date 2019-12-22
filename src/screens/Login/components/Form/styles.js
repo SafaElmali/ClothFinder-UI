@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: -10,
         left: 20,
-        color: '#000',
+        color: '#615D5D',
         backgroundColor: '#f7f7f7'
     },
     buttonContainer: {
