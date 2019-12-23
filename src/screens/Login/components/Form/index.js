@@ -21,7 +21,7 @@ const LoginForm = (props) => {
     return (
         <View>
             <Input
-                label="Name"
+                label="Username"
                 leftIcon={
                     <Icon name='user' size={18} color="#6c706d" />
                 }

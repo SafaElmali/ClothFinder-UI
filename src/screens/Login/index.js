@@ -48,7 +48,6 @@ export default class Login extends Component {
     }
 
     //check user username and password in db. If its true then navigate to the home
-    // TODO catch method
     handleLogin = (username, password, toasterStatus) => {
         axios.post(loginLocalPoint, { username: username, password: password }).then(res => {
             if (res.status === 200) {
