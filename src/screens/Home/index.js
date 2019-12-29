@@ -9,13 +9,16 @@ import axios from 'axios';
 export default class Home extends Component {
     constructor(props) {
         super(props);
-        const userDetails = this.props.navigation.getParam('user');
+        const { navigation } = this.props;
+        const userDetails = navigation.getParam('user');
+
         this.state = {
             username: userDetails.username,
             jwt: userDetails.jwt,
             isVisible: false,
             bottomWearList: []
         }
+
         this.handleGarment = this.handleGarment.bind(this);
     }
 
@@ -31,13 +34,14 @@ export default class Home extends Component {
 
     handleGarment = (garmentType) => {
         const { jwt } = this.state;
+
         axios.get(garmentTypeLocalPoint + `${garmentType}`, {
             headers: {
                 Authorization: 'Bearer ' + jwt //the token is a variable which holds the token
             }
-        }).then(res => {
+        }).then(({ data }) => {
             this.setState({
-                bottomWearList: res.data,
+                bottomWearList: data,
                 isVisible: true
             });
         });

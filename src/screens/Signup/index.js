@@ -59,6 +59,7 @@ export default class Signup extends Component {
 
     render() {
         const { isKeyboardOpen, displayToaster, toasterText, toasterType } = this.state;
+        const { navigation } = this.props;
         return (
             <SafeAreaView style={styles.container}>
                 {displayToaster ?
@@ -75,7 +76,7 @@ export default class Signup extends Component {
                 </View>
                 {!isKeyboardOpen === true ?
                     <View style={styles.footer}>
-                        <Footer onClick={this.props.navigation} text="Already have an account?" navigate_text=" Sign in." screen_name="Login" />
+                        <Footer onClick={navigation} text="Already have an account?" navigate_text=" Sign in." screen_name="Login" />
                     </View> : null
                 }
             </SafeAreaView>

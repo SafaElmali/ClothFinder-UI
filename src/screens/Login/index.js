@@ -49,18 +49,19 @@ export default class Login extends Component {
 
     //check user username and password in db. If its true then navigate to the home
     handleLogin = (username, password, toasterStatus) => {
-        axios.post(loginLocalPoint, { username: username, password: password }).then(res => {
-            if (res.status === 200) {
+        axios.post(loginLocalPoint, { username: username, password: password }).then(({ data, status }) => {
+            if (status === 200) {
                 this.setState({
                     user: {
                         username: username,
                         password: password,
-                        jwt: res.data.jwt
+                        jwt: data.jwt
                     }
                 }, async () => {
                     const { user } = this.state;
+                    const { navigation } = this.props;
                     await AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
-                    this.props.navigation.navigate('Home', { user: { username: user.username, jwt: user.jwt } });
+                    navigation.navigate('Home', { user: { username: user.username, jwt: user.jwt } });
                 });
             }
         }).catch(err => {
@@ -102,6 +103,7 @@ export default class Login extends Component {
 
     render() {
         const { isKeyboardOpen, displayToaster, toasterText, toasterType } = this.state;
+        const { navigation } = this.props;
         return (
             <SafeAreaView style={styles.container}>
                 {displayToaster ?
@@ -118,7 +120,7 @@ export default class Login extends Component {
                 </View>
                 {!isKeyboardOpen === true ?
                     <View style={styles.footer}>
-                        <Footer onClick={this.props.navigation} text="Don't have an account?" navigate_text=" Create one." screen_name="Signup" />
+                        <Footer onClick={navigation} text="Don't have an account?" navigate_text=" Create one." screen_name="Signup" />
                     </View> : null
                 }
 

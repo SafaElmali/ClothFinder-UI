@@ -20,8 +20,9 @@ const SignupForm = (props) => {
     const handleFormSignup = () => {
         const { handleSignupStatus } = props;
         setLoading(true);
-        axios.post(registerLocalPoint, user).then(res => {
-            if (res.status === 200) {
+
+        axios.post(registerLocalPoint, user).then(({ status }) => {
+            if (status === 200) {
                 setLoading(false);
                 AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
                 handleSignupStatus(true, 'You registered Successfully 🤩\nreturning to login 🚀', 'Success');
