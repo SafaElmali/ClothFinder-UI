@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Button, Overlay, Text, ListItem } from 'react-native-elements';
-import { garmentTypeLocalPoint } from '../../utils/config';
+import { garmentTypeLocalPoint } from '../../utils/config/config';
+import LogoutButton from './components/LogoutButton/index';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
@@ -49,6 +50,7 @@ export default class Home extends Component {
 
     render() {
         const { bottomWearList } = this.state;
+        const { navigation } = this.props;
         return (
             <View style={styles.container}>
                 <View style={styles.storyView}>
@@ -116,7 +118,7 @@ export default class Home extends Component {
                         ))
                     }
                 </Overlay>
-                <Button onPress={this.logoutUser} title="Logout" />
+                <LogoutButton onClick={navigation} />
             </View>
 
         );
