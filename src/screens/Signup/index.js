@@ -42,13 +42,14 @@ export default class Signup extends Component {
     }
 
     handleSignupStatus = (status, statusText, toasterType) => {
+        const { navigation } = this.props;
         if (status) {
             this.setState({ displayToaster: true, toasterText: statusText, toasterType: toasterType });
             setTimeout(() => {
                 this.setState({ displayToaster: false }, () => {
-                    this.props.navigation.navigate('Login');
+                    navigation.navigate('Login');
                 })
-            }, 3000);
+            }, 2500);
         } else {
             this.setState({ displayToaster: true, toasterText: statusText, toasterType: toasterType });
             setTimeout(() => {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView } from 'react-native';
 import { Toaster } from '../../components/Toaster/index';
-import { loginLocalPoint } from '../../utils/config';
+import { loginLocalPoint } from '../../utils/config/config';
 import AsyncStorage from '@react-native-community/async-storage';
 import KeyboardEvent from '../../components/Keyboard/index';
 import Header from '../../components/Header/index';

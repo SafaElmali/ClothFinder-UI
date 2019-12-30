@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Input, Button } from 'react-native-elements';
-import { registerLocalPoint } from '../../../../utils/config';
+import { registerLocalPoint } from '../../../../utils/config/config';
 import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
 import Icon from 'react-native-vector-icons/FontAwesome';
