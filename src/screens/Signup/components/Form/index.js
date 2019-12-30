@@ -12,11 +12,12 @@ const SignupForm = (props) => {
     const [displayPassword, setPasswordShow] = useState(false);
     const [loading, setLoading] = useState(false);
 
+    // Show/Hide user password
     const onPasswordDisplay = () => {
         setPasswordShow(!displayPassword);
     }
 
-    //Save user signup details to AsyncStorage if response status is success
+    // Save user signup details to AsyncStorage if response status is success
     const handleFormSignup = () => {
         const { handleSignupStatus } = props;
         setLoading(true);

@@ -6,6 +6,7 @@ const screenWidth = Math.round(Dimensions.get('window').width);
 export const Toaster = (props) => {
     const { text, type } = props;
 
+    // To use props in style inside Stylesheet, we pass props as a parameter
     switch (type) {
         case 'Warning':
             return (

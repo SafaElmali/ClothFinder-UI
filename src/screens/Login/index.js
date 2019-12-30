@@ -23,14 +23,15 @@ export default class Login extends Component {
                 username: '',
                 password: '',
                 jwt: '',
-                displayToaster: '',
-                toasterText: '',
-                toasterType: ''
             },
+            displayToaster: '',
+            toasterText: '',
+            toasterType: '',
             isKeyboardOpen: false
         }
     }
 
+    // Check storage to login automatically if there is user details
     componentDidMount() {
         this.checkStorage();
     }
@@ -47,7 +48,7 @@ export default class Login extends Component {
         });
     }
 
-    //check user username and password in db. If its true then navigate to the home
+    // Check user username and password in db. If its true then navigate to the home
     handleLogin = (username, password, toasterStatus) => {
         axios.post(loginLocalPoint, { username: username, password: password }).then(({ data, status }) => {
             if (status === 200) {

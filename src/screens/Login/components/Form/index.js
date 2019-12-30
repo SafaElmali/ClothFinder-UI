@@ -9,12 +9,15 @@ const LoginForm = (props) => {
     const [password, setPassword] = useState('');
     const [displayPassword, setPasswordShow] = useState(false);
 
+    // Show/Hide password
     const onPasswordDisplay = () => {
         setPasswordShow(!displayPassword);
     }
 
+    //Pass login details to parent component
     const handleLogin = () => {
         const { onLogin } = props;
+
         onLogin(name, password, true);
     }
 

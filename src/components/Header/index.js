@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image } from 'react-native';
 
+//Pass image for Header
 const Header = (props) => {
     return (
         <>

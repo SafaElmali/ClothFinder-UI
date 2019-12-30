@@ -1,6 +1,7 @@
 import React from 'react';
 import { Keyboard } from 'react-native';
 
+//To remove/add some components we listen keyboard show/hide events
 export default class KeyboardDisplay extends React.Component {
 
     componentDidMount() {

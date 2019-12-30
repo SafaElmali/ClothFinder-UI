@@ -41,8 +41,10 @@ export default class Signup extends Component {
         });
     }
 
+    // Handle user signup inputs
     handleSignupStatus = (status, statusText, toasterType) => {
         const { navigation } = this.props;
+
         if (status) {
             this.setState({ displayToaster: true, toasterText: statusText, toasterType: toasterType });
             setTimeout(() => {
@@ -61,6 +63,7 @@ export default class Signup extends Component {
     render() {
         const { isKeyboardOpen, displayToaster, toasterText, toasterType } = this.state;
         const { navigation } = this.props;
+
         return (
             <SafeAreaView style={styles.container}>
                 {displayToaster ?
