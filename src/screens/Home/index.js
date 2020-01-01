@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Button, Overlay, Text, ListItem } from 'react-native-elements';
-import { garmentTypeLocalPoint } from '../../utils/config/config';
+import { View, StyleSheet, ScrollView } from 'react-native';
+import { Overlay, Text, ListItem } from 'react-native-elements';
+import StoryButton from './components/StoryButton/index';
 import LogoutButton from './components/LogoutButton/index';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import AsyncStorage from '@react-native-community/async-storage';
-import axios from 'axios';
 
 export default class Home extends Component {
     constructor(props) {
@@ -17,99 +14,45 @@ export default class Home extends Component {
             username: userDetails.username,
             jwt: userDetails.jwt,
             isVisible: false,
-            bottomWearList: []
+            wearList: []
         }
 
-        this.handleGarment = this.handleGarment.bind(this);
+        // this.handleGarment = this.handleGarment.bind(this);
     }
 
-    logoutUser = async () => {
-        try {
-            await AsyncStorage.removeItem("USER_DETAILS");
-            this.props.navigation.navigate('Login');
+    handleGarmentList = (garmentList) => {
+        if (garmentList.length > 0) {
+            console.log(garmentList);
+        } else {
+            console.log("No wearable object found!");
         }
-        catch (exception) {
-            return false;
-        }
-    }
-
-    handleGarment = (garmentType) => {
-        const { jwt } = this.state;
-
-        axios.get(garmentTypeLocalPoint + `${garmentType}`, {
-            headers: {
-                Authorization: 'Bearer ' + jwt //the token is a variable which holds the token
-            }
-        }).then(({ data }) => {
-            this.setState({
-                bottomWearList: data,
-                isVisible: true
-            });
-        });
     }
 
     render() {
-        const { bottomWearList } = this.state;
+        const { wearList, jwt } = this.state;
         const { navigation } = this.props;
+
         return (
             <View style={styles.container}>
-                <View style={styles.storyView}>
-                    <View style={{}}>
-                        <Button
-                            icon={
-                                <Icon
-                                    name="crosshairs"
-                                    size={15}
-                                    color="green"
-                                />
-                            }
-                            buttonStyle={{ borderRadius: 50, width: 50, height: 50, backgroundColor: '#fff', borderColor: '#000', borderWidth: 1, margin: 20, borderStyle: 'dashed' }}
-                            onPress={() => this.handleGarment('TOPWEAR')}
-                        />
+                <ScrollView horizontal={true} alwaysBounceHorizontal={true} showsHorizontalScrollIndicator={false}>
+                    <View style={styles.storyView}>
+                        <StoryButton jwt={jwt} garmentType='TOPWEAR' handleGarmentList={this.handleGarmentList} />
+                        <StoryButton jwt={jwt} garmentType='BOTTOMWEAR' handleGarmentList={this.handleGarmentList} />
+                        <StoryButton jwt={jwt} garmentType='FOOTWEAR' handleGarmentList={this.handleGarmentList} />
+                        <StoryButton jwt={jwt} garmentType='ACCESSORIES' handleGarmentList={this.handleGarmentList} />
                     </View>
-                    <Button
-                        icon={
-                            <Icon
-                                name="crosshairs"
-                                size={15}
-                                color="green"
-                            />
-                        }
-                        buttonStyle={{ borderRadius: 50, width: 50, height: 50, backgroundColor: '#fff', borderColor: '#000', borderWidth: 1, margin: 20, borderStyle: 'dashed' }}
-                        onPress={() => this.handleGarment('BOTTOMWEAR')}
-                    />
-                    <Button
-                        icon={
-                            <Icon
-                                name="crosshairs"
-                                size={15}
-                                color="green"
-                            />
-                        }
-                        buttonStyle={{ borderRadius: 50, width: 50, height: 50, backgroundColor: '#fff', borderColor: '#000', borderWidth: 1, margin: 20, borderStyle: 'dashed' }}
-                        onPress={() => this.handleGarment('FOOTWEAR')}
-                    />
-                    <Button
-                        icon={
-                            <Icon
-                                name="crosshairs"
-                                size={15}
-                                color="green"
-                            />
-                        }
-                        buttonStyle={{ borderRadius: 50, width: 50, height: 50, backgroundColor: '#fff', borderColor: '#000', borderWidth: 1, margin: 20, borderStyle: 'dashed' }}
-                        onPress={() => this.handleGarment('ACCESSORIES')}
-                    />
-                </View>
+                </ScrollView>
+
+                { /*
                 <Overlay isVisible={this.state.isVisible}
                     onBackdropPress={() => this.setState({ isVisible: false })} >
-                    {bottomWearList.length > 0 ?
+                    {wearList.length > 0 ?
                         <View style={{ alignItems: 'center', justifyContent: 'center', borderBottomWidth: 1, borderBottomColor: '#bcbbc1' }}>
-                            <Text>{bottomWearList[0]['garmentType']}</Text>
+                            <Text>{wearList[0]['garmentType']}</Text>
                         </View> : null
                     }
                     {
-                        bottomWearList.map((l, i) => (
+                        wearList.map((l, i) => (
                             <ListItem
                                 key={i}
                                 title={l.name}
@@ -118,6 +61,7 @@ export default class Home extends Component {
                         ))
                     }
                 </Overlay>
+                */}
                 <LogoutButton onClick={navigation} />
             </View>
 
@@ -131,7 +75,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     storyView: {
-        flex: 0.15,
-        flexDirection: 'row'
-    }
+        flex: 0.9,
+        flexDirection: 'row',
+        justifyContent: 'flex-start'
+    },
 });
+
+export const garmetTypes = ['TOPWEAR', 'BOTTOMWEAR', 'FOOTWEAR', 'ACCESSORIES'];
