@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 const LogoutButton = (props) => {
 
+    // Logout user and remove storage details
     const logoutUser = async () => {
         const { navigate } = props.onClick;
 
