@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
-import { Overlay, Text, ListItem } from 'react-native-elements';
+import { View, ScrollView } from 'react-native';
 import StoryButton from './components/StoryButton/index';
 import LogoutButton from './components/LogoutButton/index';
+import GarmentModal from './components/Overlay/index';
+import styles from './styles';
 
 export default class Home extends Component {
     constructor(props) {
@@ -14,22 +15,33 @@ export default class Home extends Component {
             username: userDetails.username,
             jwt: userDetails.jwt,
             isVisible: false,
-            wearList: []
+            wearList: [],
         }
 
         // this.handleGarment = this.handleGarment.bind(this);
     }
 
-    handleGarmentList = (garmentList) => {
+    handleGarmentList = (garmentList, garmentType) => {
         if (garmentList.length > 0) {
             console.log(garmentList);
+            this.setState({
+                wearList: garmentList,
+                isVisible: true
+            })
         } else {
             console.log("No wearable object found!");
         }
     }
 
+    //Close modal
+    onCloseOverlay = (closeState) => {
+        this.setState({
+            isVisible: closeState
+        });
+    }
+
     render() {
-        const { wearList, jwt } = this.state;
+        const { wearList, jwt, isVisible } = this.state;
         const { navigation } = this.props;
 
         return (
@@ -42,26 +54,7 @@ export default class Home extends Component {
                         <StoryButton jwt={jwt} garmentType='ACCESSORIES' handleGarmentList={this.handleGarmentList} />
                     </View>
                 </ScrollView>
-
-                { /*
-                <Overlay isVisible={this.state.isVisible}
-                    onBackdropPress={() => this.setState({ isVisible: false })} >
-                    {wearList.length > 0 ?
-                        <View style={{ alignItems: 'center', justifyContent: 'center', borderBottomWidth: 1, borderBottomColor: '#bcbbc1' }}>
-                            <Text>{wearList[0]['garmentType']}</Text>
-                        </View> : null
-                    }
-                    {
-                        wearList.map((l, i) => (
-                            <ListItem
-                                key={i}
-                                title={l.name}
-                                bottomDivider
-                            />
-                        ))
-                    }
-                </Overlay>
-                */}
+                <GarmentModal wearList={wearList} isVisible={isVisible} onCloseOverlay={this.onCloseOverlay} />
                 <LogoutButton onClick={navigation} />
             </View>
 
@@ -69,16 +62,4 @@ export default class Home extends Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-    },
-    storyView: {
-        flex: 0.9,
-        flexDirection: 'row',
-        justifyContent: 'flex-start'
-    },
-});
-
-export const garmetTypes = ['TOPWEAR', 'BOTTOMWEAR', 'FOOTWEAR', 'ACCESSORIES'];
+// export const garmetTypes = ['TOPWEAR', 'BOTTOMWEAR', 'FOOTWEAR', 'ACCESSORIES'];
