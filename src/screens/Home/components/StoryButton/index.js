@@ -1,13 +1,12 @@
 import React from 'react';
 import { Button, Text } from 'react-native-elements';
-import { View, Image } from 'react-native';
+import { View } from 'react-native';
 import { garmentTypeLocalPoint } from '../../../../utils/config/config';
 import styles from './styles';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
 
 const StoryButton = props => {
-    const { jwt, garmentType, handleGarmentList, imagePath } = props;
+    const { jwt, garmentType, handleGarmentList, image } = props;
 
     const handleGarment = () => {
         axios.get(garmentTypeLocalPoint + `${garmentType}`, {
@@ -25,9 +24,7 @@ const StoryButton = props => {
         <View style={styles.buttonView} >
             <Button
                 icon={
-                    <Image
-                        style={{ width: 35, height: 35 }}
-                        source={imagePath} />
+                    image
                 }
                 buttonStyle={styles.buttonStyle}
                 onPress={handleGarment}
