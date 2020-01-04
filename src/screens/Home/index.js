@@ -16,19 +16,63 @@ export default class Home extends Component {
             username: userDetails.username,
             jwt: userDetails.jwt,
             isVisible: false,
-            wearList: [],
+            outfit: {
+                topwear: [],
+                bottomwear: [],
+                footwear: [],
+                accessories: [],
+            },
         }
-
-        // this.handleGarment = this.handleGarment.bind(this);
     }
 
     handleGarmentList = (garmentList, garmentType) => {
         if (garmentList.length > 0) {
-            console.log(garmentList);
-            this.setState({
-                wearList: garmentList,
-                isVisible: true
-            })
+            switch (garmentType) {
+                case 'TOPWEAR':
+                    this.setState({
+                        topwearList: garmentList,
+                    }, () => {
+                        const { topwearList } = this.state;
+                        this.setState({
+                            wearList: topwearList,
+                            isVisible: true
+                        })
+                    });
+                    break;
+                case 'BOTTOMWEAR':
+                    this.setState({
+                        bottomwearList: garmentList,
+                    }, () => {
+                        const { bottomwearList } = this.state;
+                        this.setState({
+                            wearList: bottomwearList,
+                            isVisible: true
+                        })
+                    });
+                    break;
+                case 'FOOTWEAR':
+                    this.setState({
+                        footwearList: garmentList,
+                    }, () => {
+                        const { footwearList } = this.state;
+                        this.setState({
+                            wearList: footwearList,
+                            isVisible: true
+                        })
+                    });
+                    break;
+                case 'ACCESSORIES':
+                    this.setState({
+                        accessoriesList: garmentList,
+                    }, () => {
+                        const { accessoriesList } = this.state;
+                        this.setState({
+                            wearList: accessoriesList,
+                            isVisible: true
+                        })
+                    });
+                    break;
+            }
         } else {
             console.log("No wearable object found!");
         }
@@ -42,20 +86,19 @@ export default class Home extends Component {
     }
 
     render() {
-        const { wearList, jwt, isVisible } = this.state;
+        const { wearList, jwt, isVisible, outfit, topwearList, bottomwearList, footwearList, accessoriesList } = this.state;
         const { navigation } = this.props;
 
         return (
-
             <View style={styles.container}>
-                <GarmentModal wearList={wearList} isVisible={isVisible} onCloseOverlay={this.onCloseOverlay} />
+                <GarmentModal wearList={wearList} outfit={outfit} isVisible={isVisible} onCloseOverlay={this.onCloseOverlay} />
                 <View style={styles.storyView}>
                     <ScrollView horizontal={true} alwaysBounceHorizontal={true} showsHorizontalScrollIndicator={false}>
                         <View style={styles.storyButtonView}>
-                            <StoryButton jwt={jwt} garmentType='TOPWEAR' handleGarmentList={this.handleGarmentList} image={<TopWear />} />
-                            <StoryButton jwt={jwt} garmentType='BOTTOMWEAR' handleGarmentList={this.handleGarmentList} image={<BottomWear />} />
-                            <StoryButton jwt={jwt} garmentType='FOOTWEAR' handleGarmentList={this.handleGarmentList} image={<Boots />} />
-                            <StoryButton jwt={jwt} garmentType='ACCESSORIES' handleGarmentList={this.handleGarmentList} image={<Glasses />} />
+                            <StoryButton jwt={jwt} wearList={topwearList} garmentType='TOPWEAR' handleGarmentList={this.handleGarmentList} image={<TopWear />} />
+                            <StoryButton jwt={jwt} wearList={bottomwearList} garmentType='BOTTOMWEAR' handleGarmentList={this.handleGarmentList} image={<BottomWear />} />
+                            <StoryButton jwt={jwt} wearList={footwearList} garmentType='FOOTWEAR' handleGarmentList={this.handleGarmentList} image={<Boots />} />
+                            <StoryButton jwt={jwt} wearList={accessoriesList} garmentType='ACCESSORIES' handleGarmentList={this.handleGarmentList} image={<Glasses />} />
                         </View>
                     </ScrollView>
                     <View style={styles.ratingView}>
@@ -71,5 +114,3 @@ export default class Home extends Component {
         );
     }
 }
-
-// export const garmetTypes = ['TOPWEAR', 'BOTTOMWEAR', 'FOOTWEAR', 'ACCESSORIES'];
