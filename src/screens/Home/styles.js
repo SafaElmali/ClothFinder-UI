@@ -81,10 +81,12 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     d: {
-        flex: 3,
+        flex: 2,
         backgroundColor: 'red',
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        borderBottomWidth: 1,
+        borderBottomColor: '#efefef'
     },
     e: {
         flex: 2,
@@ -94,21 +96,56 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     f: {
-        flex: 1.5,
+        flex: 3,
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: 'gray'
     },
     g: {
-        flex: 2,
+        flex: 4,
+        flexDirection: 'column',
+        justifyContent: 'center',
         backgroundColor: 'blue'
+    },
+    k: {
+        flex: 1,
+        flexDirection: 'row',
+        backgroundColor: 'white',
+        alignItems: 'center'
+    },
+    l: {
+        flex: 1,
+        backgroundColor: 'blue',
+        justifyContent: 'flex-start'
     },
     h: {
         flex: 3,
-        backgroundColor: 'orange'
+        backgroundColor: 'orange',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    x: {
+        fontSize: 32,
     },
     j: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
+    },
+    t: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center'
+    },
+    y: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        marginTop: 4,
+    },
+    z: {
+        fontSize: 12,
+        color: '#9f9f9f',
+        marginTop: 2,
     }
 });
 

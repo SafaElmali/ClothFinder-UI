@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Text } from 'react-native';
+import { View, ScrollView, Text, Image} from 'react-native';
 import { Card } from 'react-native-elements'
 import { BottomWear, Boots, Glasses, TopWear } from '../../components/SvgFiles/index';
 import StoryButton from './components/StoryButton/index';
@@ -144,27 +144,49 @@ export default class Home extends Component {
                         <View style={styles.c}>
                             <View style={styles.d}>
                                 <View style={styles.f}>
-                                    <Text style={{}}>A</Text>
+                                    <Image source={require('../../images/standing-19.png')} style={{width: 64, height: 64}}/>
                                 </View>
                                 <View style={styles.g}>
-                                    <Text style={{}}>A</Text>
+                                    <View style={styles.k}>
+                                        <Image source={require('../../images/standing-19.png')} style={{width: 16, height: 16}}/>
+                                        <Text style={{}}>Istanbul</Text>
+                                    </View>
+                                    <View style={styles.l}>
+                                        <Text style={{}}>Partly Cloudy</Text>
+                                    </View>
                                 </View>
                                 <View style={styles.h}>
-                                    <Text style={{}}>A</Text>
+                                    <Text style={styles.x}>6'C</Text>
                                 </View>
                             </View>
                             <View style={styles.e}>
                                 <View style={styles.j}>
-                                    <Text style={{}}>A</Text>
+                                    <View style={styles.t}>
+                                        <Image source={require('../../images/standing-19.png')} style={{width: 32, height: 32}}/>
+                                        <Text style={styles.y}>4'C</Text>
+                                        <Text style={styles.z}>Sat</Text>
+                                    </View>
                                 </View>
                                 <View style={styles.j}>
-                                    <Text style={{}}>A</Text>
+                                    <View style={styles.t}>
+                                        <Image source={require('../../images/standing-19.png')} style={{width: 32, height: 32}}/>
+                                        <Text style={styles.y}>3'C</Text>
+                                        <Text style={styles.z}>Sun</Text>
+                                    </View>
                                 </View>
                                 <View style={styles.j}>
-                                    <Text style={{}}>A</Text>
+                                    <View style={styles.t}>
+                                        <Image source={require('../../images/standing-19.png')} style={{width: 32, height: 32}}/>
+                                        <Text style={styles.y}>2'C</Text>
+                                        <Text style={styles.z}>Mon</Text>
+                                    </View>
                                 </View>
                                 <View style={styles.j}>
-                                    <Text style={{}}>A</Text>
+                                    <View style={styles.t}>
+                                        <Image source={require('../../images/standing-19.png')} style={{width: 32, height: 32}}/>
+                                        <Text style={styles.y}>6'C</Text>
+                                        <Text style={styles.z}>Tue</Text>
+                                    </View>
                                 </View>
                             </View>
                         </View>
