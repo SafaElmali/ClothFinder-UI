@@ -7,3 +7,5 @@ export const garmentRecepPoint = "http://192.168.0.10:8080/garments/";
 export const loginLocalPoint = `${startpoint}login`;
 export const registerLocalPoint = `${startpoint}register`;
 export const garmentTypeLocalPoint = `${startpoint}garments/`;
+export const currentWeatherEndpoint = `${startpoint}weather/current`;
+export const forecastWeatherEndpoint = `${startpoint}weather/forecast`;

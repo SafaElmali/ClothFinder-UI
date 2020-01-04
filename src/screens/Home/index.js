@@ -6,6 +6,8 @@ import StoryButton from './components/StoryButton/index';
 import LogoutButton from './components/LogoutButton/index';
 import GarmentModal from './components/Overlay/index';
 import styles from './styles';
+import axios from 'axios';
+import { currentWeatherEndpoint, forecastWeatherEndpoint } from '../../utils/config/config';
 
 export default class Home extends Component {
     constructor(props) {
@@ -23,8 +25,40 @@ export default class Home extends Component {
                 footwear: [],
                 accessories: [],
             },
+            currentWeather: {
+                icon: ''
+            }
         }
     }
+
+    componentDidMount() {
+        axios.get(currentWeatherEndpoint + "?lat=40.953187&lon=29.121463", {
+            headers: {
+                Authorization: 'Bearer ' + this.state.jwt //the token is a variable which holds the token
+            }
+        }).then(({ status, data }) => {
+            if (status === 200) {
+                this.setState({
+                    currentWeather: data
+                });
+                console.log(this.state);
+            }
+        });
+
+        axios.get(forecastWeatherEndpoint + "?lat=40.953187&lon=29.121463", {
+            headers: {
+                Authorization: 'Bearer ' + this.state.jwt //the token is a variable which holds the token
+            }
+        }).then(({ status, data }) => {
+            if (status === 200) {
+                this.setState({
+                    forecastWeather: data
+                });
+                console.log(this.state);
+            }
+        });
+    }
+
 
     //handle garmen type list and open modal
     handleGarmentList = (garmentList, garmentType) => {
@@ -134,7 +168,7 @@ export default class Home extends Component {
     }
 
     render() {
-        const { wearList, jwt, isVisible, outfit, topwearList, bottomwearList, footwearList, accessoriesList } = this.state;
+        const { wearList, jwt, isVisible, outfit, topwearList, bottomwearList, footwearList, accessoriesList, currentWeather } = this.state;
         const { navigation } = this.props;
 
         return (
@@ -150,24 +184,24 @@ export default class Home extends Component {
                         </View>
                     </ScrollView>
                 </View>
-                                <View style={styles.weatherContainer}>
+                <View style={styles.weatherContainer}>
                     <View style={styles.weatherCard}>
                         <View style={styles.weatherContent}>
                             <View style={styles.currentWeather}>
                                 <View style={styles.currentWeatherIconContainer}>
-                                    <Image source={require('../../images/mock-partly-cloudy.png')} style={{width: 128, height: 128}}/>
+                                    <Image source={{uri: currentWeather.icon}} style={{width: 128, height: 128}}/>
                                 </View>
                                 <View style={styles.currentWeatherInfoContainer}>
                                     <View style={styles.currentWeatherLocationContainer}>
                                         <Image source={require('../../images/location-pin.png')} style={{width: 16, height: 16}}/>
-                                        <Text style={styles.currentWeatherLocation}>Istanbul</Text>
+                                        <Text style={styles.currentWeatherLocation}>{currentWeather.locationName}</Text>
                                     </View>
                                     <View style={styles.currentWeatherDescriptionContainer}>
-                                        <Text>Partly Cloudy</Text>
+                                        <Text>{currentWeather.description}</Text>
                                     </View>
                                 </View>
                                 <View style={styles.currentWeatherValueContainer}>
-                                    <Text style={styles.currentWeatherValue}>6℃</Text>
+                                    <Text style={styles.currentWeatherValue}>{currentWeather.temperature}℃</Text>
                                 </View>
                             </View>
                             <View style={styles.forecastWeather}>
