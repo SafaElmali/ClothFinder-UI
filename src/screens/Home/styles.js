@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
         flexDirection: 'column'
     },
     storyButtonView: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        justifyContent: 'space-around'
     },
     ratingView: {
         flex: 1,

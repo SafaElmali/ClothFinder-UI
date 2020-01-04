@@ -25,6 +25,7 @@ export default class Home extends Component {
         }
     }
 
+    //handle garmen type list and open modal
     handleGarmentList = (garmentList, garmentType) => {
         if (garmentList.length > 0) {
             switch (garmentType) {
@@ -78,6 +79,52 @@ export default class Home extends Component {
         }
     }
 
+    //Get selected list for each story
+    handleSelectedOutfit = (selectedList, garmentType) => {
+        switch (garmentType) {
+            case 'TOPWEAR':
+                this.setState(prevState => ({
+                    outfit: {
+                        ...prevState.outfit,
+                        topwear: selectedList
+                    }
+                }), () => {
+                    console.log(this.state.outfit);
+                })
+                break;
+            case 'BOTTOMWEAR':
+                this.setState(prevState => ({
+                    outfit: {
+                        ...prevState.outfit,
+                        bottomwear: selectedList
+                    }
+                }), () => {
+                    console.log(this.state.outfit);
+                })
+                break;
+            case 'FOOTWEAR':
+                this.setState(prevState => ({
+                    outfit: {
+                        ...prevState.outfit,
+                        footwear: selectedList
+                    }
+                }), () => {
+                    console.log(this.state.outfit);
+                })
+                break;
+            case 'ACCESSORIES':
+                this.setState(prevState => ({
+                    outfit: {
+                        ...prevState.outfit,
+                        accessories: selectedList
+                    }
+                }), () => {
+                    console.log(this.state.outfit);
+                })
+                break;
+        }
+    }
+
     //Close modal
     onCloseOverlay = (closeState) => {
         this.setState({
@@ -91,7 +138,7 @@ export default class Home extends Component {
 
         return (
             <View style={styles.container}>
-                <GarmentModal wearList={wearList} outfit={outfit} isVisible={isVisible} onCloseOverlay={this.onCloseOverlay} />
+                <GarmentModal wearList={wearList} outfit={outfit} isVisible={isVisible} onCloseOverlay={this.onCloseOverlay} onHandleOutfit={this.handleSelectedOutfit} />
                 <View style={styles.storyView}>
                     <ScrollView horizontal={true} alwaysBounceHorizontal={true} showsHorizontalScrollIndicator={false}>
                         <View style={styles.storyButtonView}>
