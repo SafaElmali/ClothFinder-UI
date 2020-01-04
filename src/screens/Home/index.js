@@ -139,15 +139,36 @@ export default class Home extends Component {
 
         return (
             <View style={styles.container}>
-                <View style={styles.weatherView}>
-                    <Card containerStyle={styles.weatherContainerCard}>
-                        <View style={styles.currentWeather}>
-                            <Text>Recep</Text>
+                <View style={styles.a}>
+                    <View style={styles.b}>
+                        <View style={styles.c}>
+                            <View style={styles.d}>
+                                <View style={styles.f}>
+                                    <Text style={{}}>A</Text>
+                                </View>
+                                <View style={styles.g}>
+                                    <Text style={{}}>A</Text>
+                                </View>
+                                <View style={styles.h}>
+                                    <Text style={{}}>A</Text>
+                                </View>
+                            </View>
+                            <View style={styles.e}>
+                                <View style={styles.j}>
+                                    <Text style={{}}>A</Text>
+                                </View>
+                                <View style={styles.j}>
+                                    <Text style={{}}>A</Text>
+                                </View>
+                                <View style={styles.j}>
+                                    <Text style={{}}>A</Text>
+                                </View>
+                                <View style={styles.j}>
+                                    <Text style={{}}>A</Text>
+                                </View>
+                            </View>
                         </View>
-                        <View style={styles.forecastWeather}>
-                            <Text>Forecast</Text>
-                        </View>
-                    </Card>
+                    </View>
                 </View>
                 <GarmentModal wearList={wearList} outfit={outfit} isVisible={isVisible} onCloseOverlay={this.onCloseOverlay} onHandleOutfit={this.handleSelectedOutfit} />
                 <View style={styles.storyView}>

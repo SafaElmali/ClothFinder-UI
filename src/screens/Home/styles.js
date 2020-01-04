@@ -3,11 +3,15 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#eaebef',
     },
     weatherView: {
         flex: 6,
-        backgroundColor: 'yellow'
+        paddingTop: 16,
+        paddingRight: 24,
+        paddingBottom: 16,
+        paddingLeft: 24,
+        backgroundColor: 'red'
     },
     storyView: {
         flex: 4,
@@ -29,24 +33,83 @@ const styles = StyleSheet.create({
     },
     storyButtonView: {
         flex: 1,
+        flexDirection: 'row',
         justifyContent: 'space-around',
-        flexDirection: 'row',
+        alignItems: 'center',
     },
-    weatherContainerCard: {
-        borderRadius: 4,
-        borderColor: 'white',
-        padding: 16,
+    weatherCard: {
         flex: 1,
-        flexDirection: 'row',
+        margin: 0,
+        backgroundColor: 'purple',
+        borderRadius: 16,
+    },
+    weatherCardContent: {
+        flexDirection: 'column',
     },
     currentWeather: {
-        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
         backgroundColor: 'red'
     },
     forecastWeather: {
-        flex: 0.5,
         backgroundColor: 'yellow'
     },
+    a: {
+        flex: 6,
+        paddingTop: 16,
+        paddingRight: 24,
+        paddingBottom: 16,
+        paddingLeft: 24, 
+    },
+    b: {
+        flex: 1,
+        borderColor: 'white',
+        borderWidth: 1,
+        borderRadius: 16,
+        paddingTop: 8,
+        paddingRight: 16,
+        paddingBottom: 8,
+        paddingLeft: 16,
+        backgroundColor: 'white',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 1,
+        shadowRadius: 1,
+        elevation: 4,
+    },
+    c: {
+        flex: 1,
+    },
+    d: {
+        flex: 3,
+        backgroundColor: 'red',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    e: {
+        flex: 2,
+        backgroundColor: 'yellow',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    f: {
+        flex: 1.5,
+        backgroundColor: 'gray'
+    },
+    g: {
+        flex: 2,
+        backgroundColor: 'blue'
+    },
+    h: {
+        flex: 3,
+        backgroundColor: 'orange'
+    },
+    j: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+    }
 });
 
 export default styles;
