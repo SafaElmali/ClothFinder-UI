@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Text } from 'react-native';
+import { Card } from 'react-native-elements'
 import { BottomWear, Boots, Glasses, TopWear } from '../../components/SvgFiles/index';
 import StoryButton from './components/StoryButton/index';
 import LogoutButton from './components/LogoutButton/index';
@@ -140,7 +141,7 @@ export default class Home extends Component {
             <View style={styles.container}>
                 <GarmentModal wearList={wearList} outfit={outfit} isVisible={isVisible} onCloseOverlay={this.onCloseOverlay} onHandleOutfit={this.handleSelectedOutfit} />
                 <View style={styles.storyView}>
-                    <ScrollView horizontal={true} alwaysBounceHorizontal={true} showsHorizontalScrollIndicator={false}>
+                    <ScrollView contentContainerStyle={styles.storyViewContainer} horizontal={true} alwaysBounceHorizontal={true} showsHorizontalScrollIndicator={false}>
                         <View style={styles.storyButtonView}>
                             <StoryButton jwt={jwt} wearList={topwearList} garmentType='TOPWEAR' handleGarmentList={this.handleGarmentList} image={<TopWear />} />
                             <StoryButton jwt={jwt} wearList={bottomwearList} garmentType='BOTTOMWEAR' handleGarmentList={this.handleGarmentList} image={<BottomWear />} />
@@ -149,15 +150,11 @@ export default class Home extends Component {
                         </View>
                     </ScrollView>
                     <View style={styles.ratingView}>
-
+                        <Text>Forecast</Text>
                     </View>
-                </View>
-                <View style={styles.weatherView}>
-
                 </View>
                 <LogoutButton onClick={navigation} />
             </View>
-
         );
     }
 }

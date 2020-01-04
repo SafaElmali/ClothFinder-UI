@@ -9,9 +9,13 @@ const styles = StyleSheet.create({
         flex: 0.4,
         flexDirection: 'column'
     },
+    storyViewContainer: {
+        flex: 1,
+    },
     storyButtonView: {
+        flex: 1,
+        justifyContent: 'space-around',
         flexDirection: 'row',
-        justifyContent: 'space-around'
     },
     ratingView: {
         flex: 1,
@@ -20,7 +24,22 @@ const styles = StyleSheet.create({
     },
     weatherView: {
         flex: 0.4
-    }
+    },
+    weatherContainerCard: {
+        borderRadius: 4,
+        borderColor: 'white',
+        padding: 16,
+        flex: 1,
+        flexDirection: 'row',
+    },
+    currentWeather: {
+        flex: 1,
+        backgroundColor: 'red'
+    },
+    forecastWeather: {
+        flex: 0.5,
+        backgroundColor: 'yellow'
+    },
 });
 
 export default styles;
