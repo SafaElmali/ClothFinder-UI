@@ -139,9 +139,6 @@ export default class Home extends Component {
 
         return (
             <View style={styles.container}>
-                <View style={styles.top}>
-                    <Text>TopBar</Text>
-                </View>
                 <View style={styles.weatherView}>
                     <Card containerStyle={styles.weatherContainerCard}>
                         <View style={styles.currentWeather}>
@@ -168,9 +165,6 @@ export default class Home extends Component {
                 </View>
                 <View style={styles.submitView}>
                     <Text>Submit</Text>
-                </View>
-                <View style={styles.bottom}>
-                    <Text>BottomBar</Text>
                 </View>
                 <LogoutButton onClick={navigation} />
             </View>

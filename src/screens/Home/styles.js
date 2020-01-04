@@ -5,10 +5,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
     },
-    top: {
-        flex: 2,
-        backgroundColor: 'red'
-    },
     weatherView: {
         flex: 6,
         backgroundColor: 'yellow'
@@ -25,12 +21,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'blue'
     },
     submitView: {
-        flex: 4,
-        backgroundColor: 'gray',
-    },
-    bottom: {
         flex: 2,
-        backgroundColor: 'purple',
+        backgroundColor: 'gray',
     },
     storyViewContainer: {
         flex: 1,
