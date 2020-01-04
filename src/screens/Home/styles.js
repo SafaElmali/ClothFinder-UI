@@ -5,9 +5,32 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
     },
+    top: {
+        flex: 2,
+        backgroundColor: 'red'
+    },
+    weatherView: {
+        flex: 6,
+        backgroundColor: 'yellow'
+    },
     storyView: {
-        flex: 0.4,
-        flexDirection: 'column'
+        flex: 4,
+        flexDirection: 'column',
+        backgroundColor: 'green'
+    },
+    ratingView: {
+        flex: 6,
+        borderBottomColor: '#000',
+        borderWidth: 1,
+        backgroundColor: 'blue'
+    },
+    submitView: {
+        flex: 4,
+        backgroundColor: 'gray',
+    },
+    bottom: {
+        flex: 2,
+        backgroundColor: 'purple',
     },
     storyViewContainer: {
         flex: 1,
@@ -16,14 +39,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'space-around',
         flexDirection: 'row',
-    },
-    ratingView: {
-        flex: 1,
-        borderBottomColor: '#000',
-        borderWidth: 1,
-    },
-    weatherView: {
-        flex: 0.4
     },
     weatherContainerCard: {
         borderRadius: 4,

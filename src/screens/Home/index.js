@@ -139,6 +139,19 @@ export default class Home extends Component {
 
         return (
             <View style={styles.container}>
+                <View style={styles.top}>
+                    <Text>TopBar</Text>
+                </View>
+                <View style={styles.weatherView}>
+                    <Card containerStyle={styles.weatherContainerCard}>
+                        <View style={styles.currentWeather}>
+                            <Text>Recep</Text>
+                        </View>
+                        <View style={styles.forecastWeather}>
+                            <Text>Forecast</Text>
+                        </View>
+                    </Card>
+                </View>
                 <GarmentModal wearList={wearList} outfit={outfit} isVisible={isVisible} onCloseOverlay={this.onCloseOverlay} onHandleOutfit={this.handleSelectedOutfit} />
                 <View style={styles.storyView}>
                     <ScrollView contentContainerStyle={styles.storyViewContainer} horizontal={true} alwaysBounceHorizontal={true} showsHorizontalScrollIndicator={false}>
@@ -149,9 +162,15 @@ export default class Home extends Component {
                             <StoryButton jwt={jwt} wearList={accessoriesList} garmentType='ACCESSORIES' handleGarmentList={this.handleGarmentList} image={<Glasses />} />
                         </View>
                     </ScrollView>
-                    <View style={styles.ratingView}>
-                        <Text>Forecast</Text>
-                    </View>
+                </View>
+                <View style={styles.ratingView}>
+                    <Text>Forecast</Text>
+                </View>
+                <View style={styles.submitView}>
+                    <Text>Submit</Text>
+                </View>
+                <View style={styles.bottom}>
+                    <Text>BottomBar</Text>
                 </View>
                 <LogoutButton onClick={navigation} />
             </View>
