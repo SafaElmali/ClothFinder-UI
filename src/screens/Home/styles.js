@@ -6,10 +6,20 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     storyView: {
-        flex: 0.9,
-        flexDirection: 'row',
-        justifyContent: 'flex-start'
+        flex: 0.4,
+        flexDirection: 'column'
     },
+    storyButtonView: {
+        flexDirection: 'row'
+    },
+    ratingView: {
+        flex: 1,
+        borderBottomColor: '#000',
+        borderWidth: 1,
+    },
+    weatherView: {
+        flex: 0.4
+    }
 });
 
 export default styles;
