@@ -139,59 +139,6 @@ export default class Home extends Component {
 
         return (
             <View style={styles.container}>
-                <View style={styles.a}>
-                    <View style={styles.b}>
-                        <View style={styles.c}>
-                            <View style={styles.d}>
-                                <View style={styles.f}>
-                                    <Image source={require('../../images/standing-19.png')} style={{width: 64, height: 64}}/>
-                                </View>
-                                <View style={styles.g}>
-                                    <View style={styles.k}>
-                                        <Image source={require('../../images/standing-19.png')} style={{width: 16, height: 16}}/>
-                                        <Text style={{}}>Istanbul</Text>
-                                    </View>
-                                    <View style={styles.l}>
-                                        <Text style={{}}>Partly Cloudy</Text>
-                                    </View>
-                                </View>
-                                <View style={styles.h}>
-                                    <Text style={styles.x}>6'C</Text>
-                                </View>
-                            </View>
-                            <View style={styles.e}>
-                                <View style={styles.j}>
-                                    <View style={styles.t}>
-                                        <Image source={require('../../images/standing-19.png')} style={{width: 32, height: 32}}/>
-                                        <Text style={styles.y}>4'C</Text>
-                                        <Text style={styles.z}>Sat</Text>
-                                    </View>
-                                </View>
-                                <View style={styles.j}>
-                                    <View style={styles.t}>
-                                        <Image source={require('../../images/standing-19.png')} style={{width: 32, height: 32}}/>
-                                        <Text style={styles.y}>3'C</Text>
-                                        <Text style={styles.z}>Sun</Text>
-                                    </View>
-                                </View>
-                                <View style={styles.j}>
-                                    <View style={styles.t}>
-                                        <Image source={require('../../images/standing-19.png')} style={{width: 32, height: 32}}/>
-                                        <Text style={styles.y}>2'C</Text>
-                                        <Text style={styles.z}>Mon</Text>
-                                    </View>
-                                </View>
-                                <View style={styles.j}>
-                                    <View style={styles.t}>
-                                        <Image source={require('../../images/standing-19.png')} style={{width: 32, height: 32}}/>
-                                        <Text style={styles.y}>6'C</Text>
-                                        <Text style={styles.z}>Tue</Text>
-                                    </View>
-                                </View>
-                            </View>
-                        </View>
-                    </View>
-                </View>
                 <GarmentModal wearList={wearList} outfit={outfit} isVisible={isVisible} onCloseOverlay={this.onCloseOverlay} onHandleOutfit={this.handleSelectedOutfit} />
                 <View style={styles.storyView}>
                     <ScrollView contentContainerStyle={styles.storyViewContainer} horizontal={true} alwaysBounceHorizontal={true} showsHorizontalScrollIndicator={false}>
@@ -202,6 +149,59 @@ export default class Home extends Component {
                             <StoryButton jwt={jwt} wearList={accessoriesList} garmentType='ACCESSORIES' handleGarmentList={this.handleGarmentList} image={<Glasses />} />
                         </View>
                     </ScrollView>
+                </View>
+                                <View style={styles.weatherContainer}>
+                    <View style={styles.weatherCard}>
+                        <View style={styles.weatherContent}>
+                            <View style={styles.currentWeather}>
+                                <View style={styles.currentWeatherIconContainer}>
+                                    <Image source={require('../../images/mock-partly-cloudy.png')} style={{width: 128, height: 128}}/>
+                                </View>
+                                <View style={styles.currentWeatherInfoContainer}>
+                                    <View style={styles.currentWeatherLocationContainer}>
+                                        <Image source={require('../../images/location-pin.png')} style={{width: 16, height: 16}}/>
+                                        <Text style={styles.currentWeatherLocation}>Istanbul</Text>
+                                    </View>
+                                    <View style={styles.currentWeatherDescriptionContainer}>
+                                        <Text>Partly Cloudy</Text>
+                                    </View>
+                                </View>
+                                <View style={styles.currentWeatherValueContainer}>
+                                    <Text style={styles.currentWeatherValue}>6℃</Text>
+                                </View>
+                            </View>
+                            <View style={styles.forecastWeather}>
+                                <View style={styles.forecastWeatherGroup}>
+                                    <View style={styles.forecastWeatherItem}>
+                                        <Image source={require('../../images/mock-sunny.png')} style={{width: 32, height: 32}}/>
+                                        <Text style={styles.forecastWeatherValue}>4℃</Text>
+                                        <Text style={styles.forecastWeatherDay}>Sat</Text>
+                                    </View>
+                                </View>
+                                <View style={styles.forecastWeatherGroup}>
+                                    <View style={styles.forecastWeatherItem}>
+                                        <Image source={require('../../images/mock-partly-cloudy.png')} style={{width: 32, height: 32}}/>
+                                        <Text style={styles.forecastWeatherValue}>3℃</Text>
+                                        <Text style={styles.forecastWeatherDay}>Sun</Text>
+                                    </View>
+                                </View>
+                                <View style={styles.forecastWeatherGroup}>
+                                    <View style={styles.forecastWeatherItem}>
+                                        <Image source={require('../../images/mock-rainy.png')} style={{width: 32, height: 32}}/>
+                                        <Text style={styles.forecastWeatherValue}>2℃</Text>
+                                        <Text style={styles.forecastWeatherDay}>Mon</Text>
+                                    </View>
+                                </View>
+                                <View style={styles.forecastWeatherGroup}>
+                                    <View style={styles.forecastWeatherItem}>
+                                        <Image source={require('../../images/mock-partly-cloudy.png')} style={{width: 32, height: 32}}/>
+                                        <Text style={styles.forecastWeatherValue}>6℃</Text>
+                                        <Text style={styles.forecastWeatherDay}>Tue</Text>
+                                    </View>
+                                </View>
+                            </View>
+                        </View>
+                    </View>
                 </View>
                 <View style={styles.ratingView}>
                     <Text>Forecast</Text>

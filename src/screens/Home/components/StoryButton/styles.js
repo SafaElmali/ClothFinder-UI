@@ -6,17 +6,16 @@ const styles = StyleSheet.create({
     },
     buttonStyle: {
         borderRadius: 50,
-        width: 50,
-        height: 50,
+        width: 72,
+        height: 72,
         backgroundColor: '#000',
         borderColor: '#615D5D',
-        borderWidth: 1,
-        margin: 20,
+        borderWidth: 2,
         borderStyle: 'solid'
     },
     buttonText: {
         textTransform: 'capitalize',
-        marginVertical: -15,
+        marginTop: 8,
         color: '#615D5D'
     }
 });

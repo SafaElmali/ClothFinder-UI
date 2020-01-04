@@ -5,18 +5,9 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#eaebef',
     },
-    weatherView: {
-        flex: 6,
-        paddingTop: 16,
-        paddingRight: 24,
-        paddingBottom: 16,
-        paddingLeft: 24,
-        backgroundColor: 'red'
-    },
     storyView: {
         flex: 4,
         flexDirection: 'column',
-        backgroundColor: 'green'
     },
     ratingView: {
         flex: 6,
@@ -37,31 +28,17 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
     },
-    weatherCard: {
-        flex: 1,
-        margin: 0,
-        backgroundColor: 'purple',
-        borderRadius: 16,
-    },
-    weatherCardContent: {
-        flexDirection: 'column',
-    },
-    currentWeather: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        backgroundColor: 'red'
-    },
     forecastWeather: {
         backgroundColor: 'yellow'
     },
-    a: {
+    weatherContainer: {
         flex: 6,
         paddingTop: 16,
         paddingRight: 24,
         paddingBottom: 16,
         paddingLeft: 24, 
     },
-    b: {
+    weatherCard: {
         flex: 1,
         borderColor: 'white',
         borderWidth: 1,
@@ -77,72 +54,68 @@ const styles = StyleSheet.create({
         shadowRadius: 1,
         elevation: 4,
     },
-    c: {
+    weatherContent: {
         flex: 1,
     },
-    d: {
+    currentWeather: {
         flex: 2,
-        backgroundColor: 'red',
         flexDirection: 'row',
         justifyContent: 'space-between',
         borderBottomWidth: 1,
         borderBottomColor: '#efefef'
     },
-    e: {
+    forecastWeather: {
         flex: 2,
-        backgroundColor: 'yellow',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'
     },
-    f: {
+    currentWeatherIconContainer: {
         flex: 3,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'gray'
     },
-    g: {
+    currentWeatherInfoContainer: {
         flex: 4,
         flexDirection: 'column',
         justifyContent: 'center',
-        backgroundColor: 'blue'
     },
-    k: {
+    currentWeatherLocationContainer: {
         flex: 1,
         flexDirection: 'row',
-        backgroundColor: 'white',
         alignItems: 'center'
     },
-    l: {
+    currentWeatherLocation: {
+        marginLeft: 4,
+    },
+    currentWeatherDescriptionContainer: {
         flex: 1,
-        backgroundColor: 'blue',
         justifyContent: 'flex-start'
     },
-    h: {
+    currentWeatherValueContainer: {
         flex: 3,
-        backgroundColor: 'orange',
         justifyContent: 'center',
         alignItems: 'center',
     },
-    x: {
+    currentWeatherValue: {
         fontSize: 32,
     },
-    j: {
+    forecastWeatherGroup: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    t: {
+    forecastWeatherItem: {
         flex: 1,
         flexDirection: 'column',
         alignItems: 'center'
     },
-    y: {
+    forecastWeatherValue: {
         fontSize: 14,
         fontWeight: 'bold',
         marginTop: 4,
     },
-    z: {
+    forecastWeatherDay: {
         fontSize: 12,
         color: '#9f9f9f',
         marginTop: 2,
