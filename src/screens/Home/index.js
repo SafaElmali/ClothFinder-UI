@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Text, Image } from 'react-native';
+import { View, ScrollView, Text } from 'react-native';
 import { BottomWear, Boots, Glasses, TopWear } from '../../components/SvgFiles/index';
-import { currentWeatherEndpoint, forecastWeatherEndpoint } from '../../utils/config/config';
 import StoryButton from './components/StoryButton/index';
 import LogoutButton from './components/LogoutButton/index';
 import GarmentModal from './components/Overlay/index';
 import Weather from './components/Weather/index';
 import styles from './styles';
-import axios from 'axios';
 
 export default class Home extends Component {
     constructor(props) {
@@ -30,35 +28,6 @@ export default class Home extends Component {
             }
         }
     }
-
-    componentDidMount() {
-        axios.get(currentWeatherEndpoint + "?lat=40.953187&lon=29.121463", {
-            headers: {
-                Authorization: 'Bearer ' + this.state.jwt //the token is a variable which holds the token
-            }
-        }).then(({ status, data }) => {
-            if (status === 200) {
-                this.setState({
-                    currentWeather: data
-                });
-                console.log(this.state);
-            }
-        });
-
-        axios.get(forecastWeatherEndpoint + "?lat=40.953187&lon=29.121463", {
-            headers: {
-                Authorization: 'Bearer ' + this.state.jwt //the token is a variable which holds the token
-            }
-        }).then(({ status, data }) => {
-            if (status === 200) {
-                this.setState({
-                    forecastWeather: data
-                });
-                console.log(this.state);
-            }
-        });
-    }
-
 
     //handle garmen type list and open modal
     handleGarmentList = (garmentList, garmentType) => {
@@ -190,9 +159,12 @@ export default class Home extends Component {
                 <View style={styles.weatherContainer}>
                     <Weather jwt={jwt} />
                 </View>
-                <View style={styles.submitView}>
-                    <Text>Submit</Text>
-                </View>
+                { /*
+                    <View style={styles.submitView}>
+                        <Text>Submit</Text>
+                    </View>
+                    */
+                }
                 <LogoutButton onClick={navigation} />
             </View>
         );

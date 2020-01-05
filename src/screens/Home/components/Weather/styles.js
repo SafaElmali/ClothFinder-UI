@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 
+
 const styles = StyleSheet.create({
     weatherCard: {
         flex: 1,
@@ -25,7 +26,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         borderBottomWidth: 1,
+        paddingBottom: 20,
         borderBottomColor: '#efefef'
+    },
+    forecastWeather: {
+        flex: 2,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
     currentWeatherIconContainer: {
         flex: 3,
@@ -42,9 +50,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center'
     },
-    currentWeatherLocation: {
-        marginLeft: 4,
-    },
+
     currentWeatherDescriptionContainer: {
         flex: 1,
         justifyContent: 'flex-start'
@@ -76,16 +82,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: '#9f9f9f',
         marginTop: 2,
-    },
-    forecastWeather: {
-        flex: 2,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-    },
-    forecastWeather: {
-        backgroundColor: 'yellow'
-    },
-})
+    }
+});
 
 export default styles;
