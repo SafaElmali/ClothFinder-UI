@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Text, Image} from 'react-native';
-import { Card } from 'react-native-elements'
+import { View, ScrollView, Text, Image } from 'react-native';
 import { BottomWear, Boots, Glasses, TopWear } from '../../components/SvgFiles/index';
+import { currentWeatherEndpoint, forecastWeatherEndpoint } from '../../utils/config/config';
 import StoryButton from './components/StoryButton/index';
 import LogoutButton from './components/LogoutButton/index';
 import GarmentModal from './components/Overlay/index';
+import Weather from './components/Weather/index';
 import styles from './styles';
 import axios from 'axios';
-import { currentWeatherEndpoint, forecastWeatherEndpoint } from '../../utils/config/config';
 
 export default class Home extends Component {
     constructor(props) {
@@ -184,61 +184,11 @@ export default class Home extends Component {
                         </View>
                     </ScrollView>
                 </View>
-                <View style={styles.weatherContainer}>
-                    <View style={styles.weatherCard}>
-                        <View style={styles.weatherContent}>
-                            <View style={styles.currentWeather}>
-                                <View style={styles.currentWeatherIconContainer}>
-                                    <Image source={{uri: currentWeather.icon}} style={{width: 128, height: 128}}/>
-                                </View>
-                                <View style={styles.currentWeatherInfoContainer}>
-                                    <View style={styles.currentWeatherLocationContainer}>
-                                        <Image source={require('../../images/location-pin.png')} style={{width: 16, height: 16}}/>
-                                        <Text style={styles.currentWeatherLocation}>{currentWeather.locationName}</Text>
-                                    </View>
-                                    <View style={styles.currentWeatherDescriptionContainer}>
-                                        <Text>{currentWeather.description}</Text>
-                                    </View>
-                                </View>
-                                <View style={styles.currentWeatherValueContainer}>
-                                    <Text style={styles.currentWeatherValue}>{currentWeather.temperature}℃</Text>
-                                </View>
-                            </View>
-                            <View style={styles.forecastWeather}>
-                                <View style={styles.forecastWeatherGroup}>
-                                    <View style={styles.forecastWeatherItem}>
-                                        <Image source={require('../../images/mock-sunny.png')} style={{width: 32, height: 32}}/>
-                                        <Text style={styles.forecastWeatherValue}>4℃</Text>
-                                        <Text style={styles.forecastWeatherDay}>Sat</Text>
-                                    </View>
-                                </View>
-                                <View style={styles.forecastWeatherGroup}>
-                                    <View style={styles.forecastWeatherItem}>
-                                        <Image source={require('../../images/mock-partly-cloudy.png')} style={{width: 32, height: 32}}/>
-                                        <Text style={styles.forecastWeatherValue}>3℃</Text>
-                                        <Text style={styles.forecastWeatherDay}>Sun</Text>
-                                    </View>
-                                </View>
-                                <View style={styles.forecastWeatherGroup}>
-                                    <View style={styles.forecastWeatherItem}>
-                                        <Image source={require('../../images/mock-rainy.png')} style={{width: 32, height: 32}}/>
-                                        <Text style={styles.forecastWeatherValue}>2℃</Text>
-                                        <Text style={styles.forecastWeatherDay}>Mon</Text>
-                                    </View>
-                                </View>
-                                <View style={styles.forecastWeatherGroup}>
-                                    <View style={styles.forecastWeatherItem}>
-                                        <Image source={require('../../images/mock-partly-cloudy.png')} style={{width: 32, height: 32}}/>
-                                        <Text style={styles.forecastWeatherValue}>6℃</Text>
-                                        <Text style={styles.forecastWeatherDay}>Tue</Text>
-                                    </View>
-                                </View>
-                            </View>
-                        </View>
-                    </View>
-                </View>
                 <View style={styles.ratingView}>
-                    <Text>Forecast</Text>
+                    <Text>Rating</Text>
+                </View>
+                <View style={styles.weatherContainer}>
+                    <Weather jwt={jwt} />
                 </View>
                 <View style={styles.submitView}>
                     <Text>Submit</Text>
