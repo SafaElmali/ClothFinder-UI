@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Platform, Linking, Alert } from 'react-native';
 import { Text, Image } from 'react-native-elements';
 import { currentWeatherEndpoint, forecastWeatherEndpoint } from '../../../../utils/config/config';
+import RNAndroidLocationEnabler from 'react-native-android-location-enabler';
 import AccessCard from '../AccessCard/index';
 import Geolocation from '@react-native-community/geolocation';
 import axios from 'axios';
@@ -16,10 +17,12 @@ export default class Weather extends Component {
                 icon: ''
             },
             hasAccess: false,
+            accuracy: false
         }
     }
 
     goToSettings = async () => {
+        // Linking.openSettings();
         const settingsUrl = 'app-settings:'
         const canOpenSettings = await Linking.canOpenURL(settingsUrl);
         if (canOpenSettings) {
@@ -31,13 +34,14 @@ export default class Weather extends Component {
 
     //Android location permission fix - https://github.com/facebook/react-native/issues/7495
     getLocationPermission = () => {
+        const { accuracy } = this.state;
         Geolocation.getCurrentPosition(success => {
             this.getCurrentWeather(success.coords.latitude, success.coords.longitude);
             this.getForecastWeather(success.coords.latitude, success.coords.longitude);
         },
             (error) => {
-                console.log(error);
-                if (Platform.OS === 'ios' && error.PERMISSION_DENIED == 1) {
+                let accuracy = false;
+                if (Platform.OS === 'ios' && error.code === 1) {
                     Alert.alert(
                         'Allow "ClothFinder" to access your location while you are using the app',
                         'Your current location will be displayed on the screen and used for weather details',
@@ -46,9 +50,34 @@ export default class Weather extends Component {
                             { text: 'OK', onPress: () => this.goToSettings() }
                         ]
                     )
+                } else if (Platform.OS === 'android' && error.code === 2) {
+                    RNAndroidLocationEnabler.promptForEnableLocationIfNeeded({ interval: 10000, fastInterval: 5000 })
+                        .then(data => {
+                            console.log(data);
+                            this.setState({
+                                hasAccess: true
+                            });
+                            this.getLocationPermission();
+                            // The user has accepted to enable the location services
+                            // data can be :
+                            //  - "already-enabled" if the location services has been already enabled
+                            //  - "enabled" if user has clicked on OK button in the popup
+                        }).catch(err => {
+                            console.log(err);
+                            // The user has not accepted to enable the location services or something went wrong during the process
+                            // "err" : { "code" : "ERR00|ERR01|ERR02", "message" : "message"}
+                            // codes : 
+                            //  - ERR00 : The user has clicked on Cancel button in the popup
+                            //  - ERR01 : If the Settings change are unavailable
+                            //  - ERR02 : If the popup has failed to open
+                        });
+                } else if (Platform.OS === 'android' && error.code === 3) {
+                    this.setState({
+                        accuracy: !accuracy
+                    })
                 }
             },
-            { enableHighAccuracy: false, timeout: 2000 });
+            { enableHighAccuracy: accuracy, timeout: 2000 });
     }
 
     getCurrentWeather = (latitude, longitude) => {
