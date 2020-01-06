@@ -19,6 +19,13 @@ export default class Weather extends Component {
             hasAccess: false,
             accuracy: false
         }
+
+        Geolocation.watchPosition(success => {
+            this.getCurrentWeather(success.coords.latitude, success.coords.longitude);
+            this.getForecastWeather(success.coords.latitude, success.coords.longitude);
+        }, (error) => {
+            console.log(error);
+        })
     }
 
     goToSettings = async () => {
@@ -40,7 +47,6 @@ export default class Weather extends Component {
             this.getForecastWeather(success.coords.latitude, success.coords.longitude);
         },
             (error) => {
-                let accuracy = false;
                 if (Platform.OS === 'ios' && error.code === 1) {
                     Alert.alert(
                         'Allow "ClothFinder" to access your location while you are using the app',
@@ -53,15 +59,14 @@ export default class Weather extends Component {
                 } else if (Platform.OS === 'android' && error.code === 2) {
                     RNAndroidLocationEnabler.promptForEnableLocationIfNeeded({ interval: 10000, fastInterval: 5000 })
                         .then(data => {
-                            console.log(data);
-                            this.setState({
-                                hasAccess: true
-                            });
-                            this.getLocationPermission();
                             // The user has accepted to enable the location services
                             // data can be :
                             //  - "already-enabled" if the location services has been already enabled
                             //  - "enabled" if user has clicked on OK button in the popup
+                            this.setState({
+                                hasAccess: true
+                            });
+                            this.getLocationPermission();
                         }).catch(err => {
                             console.log(err);
                             // The user has not accepted to enable the location services or something went wrong during the process
@@ -72,9 +77,10 @@ export default class Weather extends Component {
                             //  - ERR02 : If the popup has failed to open
                         });
                 } else if (Platform.OS === 'android' && error.code === 3) {
+                    console.log(error);
                     this.setState({
                         accuracy: !accuracy
-                    })
+                    });
                 }
             },
             { enableHighAccuracy: accuracy, timeout: 2000 });
@@ -91,7 +97,6 @@ export default class Weather extends Component {
                     currentWeather: data,
                     hasAccess: true
                 });
-                console.log(this.state);
             }
         });
     }
@@ -106,7 +111,6 @@ export default class Weather extends Component {
                 this.setState({
                     forecastWeather: data
                 });
-                console.log(this.state);
             }
         });
     }
