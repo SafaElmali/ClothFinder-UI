@@ -1,6 +1,9 @@
 import React from "react"
 import Svg, { Defs, LinearGradient, Stop, Path, Ellipse, G, Circle } from "react-native-svg"
 
+const width = 40;
+const height = 40;
+
 export const Hat = (props) => {
     return (
         <Svg viewBox="0 0 512 512" width={35} height={35} {...props}>
@@ -123,7 +126,7 @@ export const BottomWear = (props) => {
 
 export const BadEmoji = (props) => {
     return (
-        <Svg viewBox="0 0 512 512" height={50} width={50} {...props}>
+        <Svg viewBox="0 0 512 512" height={height} width={width} {...props}>
             <Ellipse cx={256} cy={256} fill="#f6ee86" rx={256} ry={250.445} />
             <Path
                 d="M427.868 441.615C72.442 463.314 41.556 188.219 186.237 14.966 78.755 44.677 0 141.34 0 256c0 138.317 114.615 250.445 256 250.445 66.146 0 126.436-24.545 171.868-64.83z"
@@ -164,7 +167,7 @@ export const BadEmoji = (props) => {
 
 export const NeutralEmoji = props => {
     return (
-        <Svg viewBox="0 0 58 58" height={50} width={50} {...props}>
+        <Svg viewBox="0 0 58 58" height={height} width={width} {...props}>
             <G fillRule="nonzero" fill="none">
                 <Circle cx={29} cy={29} fill="#f0c419" r={29} />
                 <Path
@@ -191,7 +194,7 @@ export const NeutralEmoji = props => {
 
 export const BestEmoji = props => {
     return (
-        <Svg viewBox="0 0 512 512" height={50} width={50} {...props}>
+        <Svg viewBox="0 0 512 512" height={height} width={width} {...props}>
             <Path
                 d="M.143 415.707c2.682 32.336 33.681 55.98 55.237 68.223a22.5 22.5 0 0022.243 0c21.556-12.243 52.555-35.887 55.237-68.223 1.914-23.075-15.576-43.526-38.73-43.662-10.76-.063-20.516 4.221-27.629 11.191-7.113-6.97-16.868-11.254-27.629-11.191-23.153.136-40.643 20.587-38.729 43.662zM51.613 42.168c2.59 31.229 32.528 54.064 53.346 65.888a21.73 21.73 0 0021.482 0c20.818-11.824 50.756-34.659 53.346-65.888C181.635 19.883 164.744.132 142.383.001 131.991-.06 122.569 4.077 115.7 10.809 108.831 4.077 99.409-.06 89.017.001c-22.362.13-39.253 19.881-37.404 42.167z"
                 fill="#e16e7e"
@@ -234,7 +237,7 @@ export const BestEmoji = props => {
 
 export const WorstEmoji = props => {
     return (
-        <Svg height={50} width={50} viewBox="0 -31 512 511" {...props}>
+        <Svg height={height} width={width} viewBox="0 -31 512 511" {...props}>
             <Path
                 d="M464.063 430.387a1151.388 1151.388 0 01-416.125 0c-34.165-6.282-55.36-40.778-45.52-74.09 9.45-32 37.465-55 70.691-58.04a2008.562 2008.562 0 01365.778 0c33.23 3.04 61.246 26.04 70.695 58.04 9.84 33.312-11.355 67.812-45.52 74.09zm0 0"
                 fill="#a78c7e"
@@ -296,7 +299,7 @@ export const WorstEmoji = props => {
 
 export const GoodEmoji = props => {
     return (
-        <Svg viewBox="0 0 512 512" width={50} height={50} {...props}>
+        <Svg viewBox="0 0 512 512" width={width} height={height} {...props}>
             <Path
                 d="M258.577.023C257.722.011 256.855 0 256 0s-1.722.011-2.577.023C113.225 1.395 0 115.476 0 256s113.225 254.605 253.423 255.977c.855.011 1.722.022 2.577.022s1.722-.011 2.577-.022c108.769-1.766 219.035-115.7 219.035-255.977S367.346 1.789 258.577.023z"
                 fill="#ffcc3d"
