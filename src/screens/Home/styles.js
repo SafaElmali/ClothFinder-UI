@@ -1,24 +1,13 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
+import Colors from '../../standards/colors';
 
-export const Colors = {
-    black: '#000',
-    white: '#fff',
-    dark: '#090D14',
-    light: '#FEFEFE',
-    divider: '#EFEFEF',
-    darkText: '#4F4B52',
-    fadedText: '#898a89',
-    fadedLight: '#FAFAFA',
-    background: '#F8F8F8',
-    primary: '#F8530D'
-};
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: Colors.background,
     },
     storyView: {
-        flex: 3,
+        flex: Platform.OS === 'android' ? 4 : 3,
         flexDirection: 'column',
         backgroundColor: Colors.light,
         shadowColor: Colors.black,

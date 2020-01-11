@@ -1,26 +1,6 @@
 import { StyleSheet } from 'react-native';
-
-export const Colors = {
-    black: '#000',
-    white: '#fff',
-    dark: '#090D14',
-    light: '#FEFEFE',
-    divider: '#EFEFEF',
-    darkText: '#4F4B52',
-    fadedText: '#898a89',
-    fadedLight: '#FAFAFA',
-    background: '#F8F8F8',
-    primary: '#F8530D'
-};
-
-export const Fonts = {
-    title: 32,
-    subtitle: 24,
-    header: 18,
-    text: 14,
-    subtext: 12,
-    hint: 10,
-};
+import Colors from '../../../../standards/colors';
+import Fonts from '../../../../standards/fonts';
 
 const styles = StyleSheet.create({
     ratingCard: {
@@ -52,17 +32,17 @@ const styles = StyleSheet.create({
         marginTop: 16,
     },
     selectionContainer: {
-        flex: 0.5, 
-        flexDirection: 'row', 
+        flex: 0.5,
+        flexDirection: 'row',
         justifyContent: 'space-between',
     },
-    arrowContainer: { 
-        justifyContent: 'center' 
+    arrowContainer: {
+        justifyContent: 'center'
     },
-    buttonsContainer: { 
-        flex: 1, 
-        flexDirection: 'row', 
-        justifyContent: 'space-around', 
+    buttonsContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
         alignItems: 'center'
     },
     buttonStyle: {
