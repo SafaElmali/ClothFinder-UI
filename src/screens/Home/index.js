@@ -23,13 +23,10 @@ export default class Home extends Component {
                 footwear: [],
                 accessories: [],
             },
-            currentWeather: {
-                icon: ''
-            }
         }
     }
 
-    //handle garmen type list and open modal
+    //handle garment type list and open modal
     handleGarmentList = (garmentList, garmentType) => {
         if (garmentList.length > 0) {
             switch (garmentType) {
@@ -84,47 +81,91 @@ export default class Home extends Component {
     }
 
     //Get selected list for each story
-    handleSelectedOutfit = (selectedList, garmentType) => {
+    handleSelectedOutfit = (garmentItem, garmentType) => {
         switch (garmentType) {
             case 'TOPWEAR':
-                this.setState(prevState => ({
-                    outfit: {
-                        ...prevState.outfit,
-                        topwear: selectedList
-                    }
-                }), () => {
-                    console.log(this.state.outfit);
-                })
+                if (garmentItem.garment.selected) {
+                    this.setState(state => ({
+                        outfit: {
+                            ...state.outfit,
+                            topwear: state.outfit.topwear.concat(garmentItem)
+                        }
+                    }), () => {
+                        console.log(this.state.outfit);
+                    });
+                } else {
+                    this.setState(state => ({
+                        outfit: {
+                            ...state.outfit,
+                            topwear: state.outfit.topwear.filter((value => value.garment.id !== garmentItem.garment.id))
+                        }
+                    }), () => {
+                        console.log(this.state.outfit);
+                    });
+                }
                 break;
             case 'BOTTOMWEAR':
-                this.setState(prevState => ({
-                    outfit: {
-                        ...prevState.outfit,
-                        bottomwear: selectedList
-                    }
-                }), () => {
-                    console.log(this.state.outfit);
-                })
+                if (garmentItem.garment.selected) {
+                    this.setState(state => ({
+                        outfit: {
+                            ...state.outfit,
+                            bottomwear: state.outfit.bottomwear.concat(garmentItem)
+                        }
+                    }), () => {
+                        console.log(this.state.outfit);
+                    });
+                } else {
+                    this.setState(state => ({
+                        outfit: {
+                            ...state.outfit,
+                            bottomwear: state.outfit.bottomwear.filter((value => value.garment.id !== garmentItem.garment.id))
+                        }
+                    }), () => {
+                        console.log(this.state.outfit);
+                    });
+                }
                 break;
             case 'FOOTWEAR':
-                this.setState(prevState => ({
-                    outfit: {
-                        ...prevState.outfit,
-                        footwear: selectedList
-                    }
-                }), () => {
-                    console.log(this.state.outfit);
-                })
+                if (garmentItem.garment.selected) {
+                    this.setState(state => ({
+                        outfit: {
+                            ...state.outfit,
+                            footwear: state.outfit.footwear.concat(garmentItem)
+                        }
+                    }), () => {
+                        console.log(this.state.outfit);
+                    });
+                } else {
+                    this.setState(state => ({
+                        outfit: {
+                            ...state.outfit,
+                            footwear: state.outfit.footwear.filter((value => value.garment.id !== garmentItem.garment.id))
+                        }
+                    }), () => {
+                        console.log(this.state.outfit);
+                    });
+                }
                 break;
             case 'ACCESSORIES':
-                this.setState(prevState => ({
-                    outfit: {
-                        ...prevState.outfit,
-                        accessories: selectedList
-                    }
-                }), () => {
-                    console.log(this.state.outfit);
-                })
+                if (garmentItem.garment.selected) {
+                    this.setState(state => ({
+                        outfit: {
+                            ...state.outfit,
+                            accessories: state.outfit.accessories.concat(garmentItem)
+                        }
+                    }), () => {
+                        console.log(this.state.outfit);
+                    });
+                } else {
+                    this.setState(state => ({
+                        outfit: {
+                            ...state.outfit,
+                            accessories: state.outfit.accessories.filter((value => value.garment.id !== garmentItem.garment.id))
+                        }
+                    }), () => {
+                        console.log(this.state.outfit);
+                    });
+                }
                 break;
         }
     }
@@ -137,7 +178,7 @@ export default class Home extends Component {
     }
 
     render() {
-        const { wearList, jwt, isVisible, outfit, topwearList, bottomwearList, footwearList, accessoriesList, currentWeather } = this.state;
+        const { wearList, jwt, isVisible, outfit, topwearList, bottomwearList, footwearList, accessoriesList } = this.state;
         const { navigation } = this.props;
 
         return (
@@ -154,7 +195,7 @@ export default class Home extends Component {
                     </ScrollView>
                 </View>
                 <View style={styles.ratingView}>
-                    <Text>Rating</Text>
+                    <Text>{JSON.stringify(outfit)}</Text>
                 </View>
                 <View style={styles.weatherContainer}>
                     <Weather jwt={jwt} />

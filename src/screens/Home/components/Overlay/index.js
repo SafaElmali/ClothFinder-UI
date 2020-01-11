@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Overlay, Text, ListItem } from 'react-native-elements';
 import { View, SafeAreaView } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
@@ -7,11 +7,16 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 const GarmentModal = (props) => {
     const { isVisible, wearList, onHandleOutfit } = props;
+    const [garment, setGarment] = useState({ garment: { id: 0, name: '', garmentType: '', selected: null } })
 
     const onCloseOverlay = () => {
         const { onCloseOverlay } = props;
         onCloseOverlay(false);
     }
+
+    useEffect(() => {
+        onHandleOutfit(garment, garment.garment.garmentType);
+    }, [garment])
 
     return (
         <Overlay
@@ -45,10 +50,7 @@ const GarmentModal = (props) => {
                                         title: 'Reco',
                                         onPress() {
                                             item.selected = !item.selected;
-                                            let selectedList = wearList.filter(item => {
-                                                return item.selected
-                                            });
-                                            onHandleOutfit(selectedList, item.garmentType);
+                                            setGarment({ garment: { id: item.id, name: item.name, garmentType: item.garmentType, selected: item.selected } });
                                         },
                                         checked: item.selected,
                                         checkedIcon: 'dot-circle-o',

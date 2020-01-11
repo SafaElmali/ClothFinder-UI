@@ -105,6 +105,7 @@ export default class Login extends Component {
     render() {
         const { isKeyboardOpen, displayToaster, toasterText, toasterType } = this.state;
         const { navigation } = this.props;
+
         return (
             <SafeAreaView style={styles.container}>
                 {displayToaster ?
