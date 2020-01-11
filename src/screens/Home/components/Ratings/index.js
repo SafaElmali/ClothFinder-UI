@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
 import { WorstEmoji, BestEmoji, BadEmoji, NeutralEmoji, GoodEmoji } from '../../../../components/SvgFiles/index';
-import { Icon } from 'react-native-elements'
+import { Icon } from 'react-native-elements';
+import styles from './styles';
 
 const Rating = props => {
     const { outfit } = props;
@@ -15,7 +16,7 @@ const Rating = props => {
 
 
     return (
-        <View style={{ flex: 1 }}>
+        <View style={styles.ratingCard}>
             <View style={{ flex: 0.2, alignItems: 'center', marginVertical: 10 }}>
                 <Text></Text>
                 <Text>How do you feel with selected SelectedItem ({1}/{2})</Text>

@@ -170,7 +170,7 @@ export default class Home extends Component {
             <View style={styles.container}>
                 <GarmentModal wearList={wearList} outfit={outfit} isVisible={isVisible} onCloseOverlay={this.onCloseOverlay} onHandleOutfit={this.handleSelectedOutfit} />
                 <View style={styles.storyView}>
-                    <ScrollView contentContainerStyle={styles.storyViewContainer} horizontal={true} alwaysBounceHorizontal={true} showsHorizontalScrollIndicator={false}>
+                    <ScrollView contentContainerStyle={styles.storyViewScrollContainer} horizontal={true} alwaysBounceHorizontal={true} showsHorizontalScrollIndicator={false}>
                         <View style={styles.storyButtonView}>
                             <StoryButton jwt={jwt} wearList={topwearList} garmentType='TOPWEAR' handleGarmentList={this.handleGarmentList} image={<TopWear />} />
                             <StoryButton jwt={jwt} wearList={bottomwearList} garmentType='BOTTOMWEAR' handleGarmentList={this.handleGarmentList} image={<BottomWear />} />
@@ -179,7 +179,7 @@ export default class Home extends Component {
                         </View>
                     </ScrollView>
                 </View>
-                <View style={styles.ratingView}>
+                <View style={styles.ratingContainer}>
                     <Rating outfit={outfit} />
                 </View>
                 <View style={styles.weatherContainer}>
