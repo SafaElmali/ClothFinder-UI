@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Text } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { BottomWear, Boots, Glasses, TopWear } from '../../components/SvgFiles/index';
 import StoryButton from './components/StoryButton/index';
 import LogoutButton from './components/LogoutButton/index';
 import GarmentModal from './components/Overlay/index';
 import Weather from './components/Weather/index';
+import Rating from './components/Ratings/index';
 import styles from './styles';
 
 export default class Home extends Component {
@@ -90,18 +91,14 @@ export default class Home extends Component {
                             ...state.outfit,
                             topwear: state.outfit.topwear.concat(garmentItem)
                         }
-                    }), () => {
-                        console.log(this.state.outfit);
-                    });
+                    }));
                 } else {
                     this.setState(state => ({
                         outfit: {
                             ...state.outfit,
                             topwear: state.outfit.topwear.filter((value => value.garment.id !== garmentItem.garment.id))
                         }
-                    }), () => {
-                        console.log(this.state.outfit);
-                    });
+                    }));
                 }
                 break;
             case 'BOTTOMWEAR':
@@ -111,18 +108,14 @@ export default class Home extends Component {
                             ...state.outfit,
                             bottomwear: state.outfit.bottomwear.concat(garmentItem)
                         }
-                    }), () => {
-                        console.log(this.state.outfit);
-                    });
+                    }));
                 } else {
                     this.setState(state => ({
                         outfit: {
                             ...state.outfit,
                             bottomwear: state.outfit.bottomwear.filter((value => value.garment.id !== garmentItem.garment.id))
                         }
-                    }), () => {
-                        console.log(this.state.outfit);
-                    });
+                    }));
                 }
                 break;
             case 'FOOTWEAR':
@@ -132,18 +125,14 @@ export default class Home extends Component {
                             ...state.outfit,
                             footwear: state.outfit.footwear.concat(garmentItem)
                         }
-                    }), () => {
-                        console.log(this.state.outfit);
-                    });
+                    }));
                 } else {
                     this.setState(state => ({
                         outfit: {
                             ...state.outfit,
                             footwear: state.outfit.footwear.filter((value => value.garment.id !== garmentItem.garment.id))
                         }
-                    }), () => {
-                        console.log(this.state.outfit);
-                    });
+                    }));
                 }
                 break;
             case 'ACCESSORIES':
@@ -153,18 +142,14 @@ export default class Home extends Component {
                             ...state.outfit,
                             accessories: state.outfit.accessories.concat(garmentItem)
                         }
-                    }), () => {
-                        console.log(this.state.outfit);
-                    });
+                    }));
                 } else {
                     this.setState(state => ({
                         outfit: {
                             ...state.outfit,
                             accessories: state.outfit.accessories.filter((value => value.garment.id !== garmentItem.garment.id))
                         }
-                    }), () => {
-                        console.log(this.state.outfit);
-                    });
+                    }));
                 }
                 break;
         }
@@ -195,7 +180,7 @@ export default class Home extends Component {
                     </ScrollView>
                 </View>
                 <View style={styles.ratingView}>
-                    <Text>{JSON.stringify(outfit)}</Text>
+                    <Rating outfit={outfit} />
                 </View>
                 <View style={styles.weatherContainer}>
                     <Weather jwt={jwt} />
