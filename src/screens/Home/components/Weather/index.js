@@ -17,7 +17,8 @@ export default class Weather extends Component {
                 icon: ''
             },
             hasAccess: false,
-            accuracy: false
+            accuracy: false,
+            forecastWeather: []
         }
 
         Geolocation.watchPosition(success => {
@@ -115,6 +116,18 @@ export default class Weather extends Component {
         });
     }
 
+    forecastWeatherView() {
+        return this.state.forecastWeather.map((forecast) => {
+           return (
+                <View style={styles.forecastWeatherItem}>
+                    <Image source={{uri: forecast.icon}} style={{width: 32, height: 32}}/>
+                    <Text style={styles.forecastWeatherValue}>{forecast.temperature}℃</Text>
+                    <Text style={styles.forecastWeatherDay}>{forecast.date}</Text>
+                </View>
+            );
+        })
+    }
+
     componentDidMount() {
         this.getLocationPermission();
     }
@@ -135,41 +148,16 @@ export default class Weather extends Component {
                                     <Text style={styles.currentWeatherLocation}>{currentWeather.locationName}</Text>
                                 </View>
                                 <View style={styles.currentWeatherDescriptionContainer}>
-                                    <Text>{currentWeather.description}</Text>
+                                    <Text style={styles.currentWeatherDescription}>{currentWeather.description}</Text>
                                 </View>
                             </View>
                             <View style={styles.currentWeatherValueContainer}>
                                 <Text style={styles.currentWeatherValue}>{currentWeather.temperature}℃</Text>
                             </View>
-                        </View>
+                        </View> 
                         <View style={styles.forecastWeather}>
                             <View style={styles.forecastWeatherGroup}>
-                                <View style={styles.forecastWeatherItem}>
-                                    <Image source={require('../../../../images/mock-sunny.png')} style={{ width: 32, height: 32 }} />
-                                    <Text style={styles.forecastWeatherValue}>4℃</Text>
-                                    <Text style={styles.forecastWeatherDay}>Sat</Text>
-                                </View>
-                            </View>
-                            <View style={styles.forecastWeatherGroup}>
-                                <View style={styles.forecastWeatherItem}>
-                                    <Image source={require('../../../../images/mock-partly-cloudy.png')} style={{ width: 32, height: 32 }} />
-                                    <Text style={styles.forecastWeatherValue}>3℃</Text>
-                                    <Text style={styles.forecastWeatherDay}>Sun</Text>
-                                </View>
-                            </View>
-                            <View style={styles.forecastWeatherGroup}>
-                                <View style={styles.forecastWeatherItem}>
-                                    <Image source={require('../../../../images/mock-rainy.png')} style={{ width: 32, height: 32 }} />
-                                    <Text style={styles.forecastWeatherValue}>2℃</Text>
-                                    <Text style={styles.forecastWeatherDay}>Mon</Text>
-                                </View>
-                            </View>
-                            <View style={styles.forecastWeatherGroup}>
-                                <View style={styles.forecastWeatherItem}>
-                                    <Image source={require('../../../../images/mock-partly-cloudy.png')} style={{ width: 32, height: 32 }} />
-                                    <Text style={styles.forecastWeatherValue}>6℃</Text>
-                                    <Text style={styles.forecastWeatherDay}>Tue</Text>
-                                </View>
+                                {this.forecastWeatherView()}
                             </View>
                         </View>
                     </View> : <AccessCard onClick={this.getLocationPermission} />

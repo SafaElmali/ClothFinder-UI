@@ -82,14 +82,22 @@ const styles = StyleSheet.create({
     currentWeatherLocationContainer: {
         flex: 1,
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'red'
     },
     currentWeatherLocation: {
+        fontSize: 14,
         marginLeft: 4,
+        alignItems: 'center',
     },
     currentWeatherDescriptionContainer: {
-        flex: 1,
-        justifyContent: 'flex-start'
+        flex: 3,
+        justifyContent: 'flex-start',
+    },
+    currentWeatherDescription: {
+        fontSize: 12,
+        color: '#bebebf',
+        backgroundColor: 'yellow'
     },
     currentWeatherValueContainer: {
         flex: 3,

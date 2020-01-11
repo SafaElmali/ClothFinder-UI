@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         borderBottomWidth: 1,
-        paddingBottom: 20,
         borderBottomColor: '#efefef'
     },
     forecastWeather: {
@@ -48,12 +47,21 @@ const styles = StyleSheet.create({
     currentWeatherLocationContainer: {
         flex: 1,
         flexDirection: 'row',
-        alignItems: 'center'
+        justifyContent: 'flex-start',
+        alignItems: 'flex-end',
     },
-
+    currentWeatherLocation: {
+        fontSize: 14,
+        marginLeft: 4,
+        alignItems: 'center',
+    },
     currentWeatherDescriptionContainer: {
         flex: 1,
-        justifyContent: 'flex-start'
+        justifyContent: 'flex-start',
+    },
+    currentWeatherDescription: {
+        fontSize: 12,
+        color: '#aaaaaa',
     },
     currentWeatherValueContainer: {
         flex: 3,
@@ -80,7 +88,7 @@ const styles = StyleSheet.create({
     },
     forecastWeatherDay: {
         fontSize: 12,
-        color: '#9f9f9f',
+        color: '#aaaaaa',
         marginTop: 2,
     }
 });

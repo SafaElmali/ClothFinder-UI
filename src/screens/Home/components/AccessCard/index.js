@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Button, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import styles from './styles';
 
 const AccessCard = (props) => {
 
@@ -12,10 +13,8 @@ const AccessCard = (props) => {
 
     return (
         <View style={{ alignItems: 'center', }}>
-            <Text h4>Location Services</Text>
-            <View>
-                <Text>We need to know where you are in order to display weather details</Text>
-            </View>
+            <View style={styles.headerContainer}><Text style={styles.header}>Location Services</Text></View>
+            <View style={styles.descriptionContainer}><Text style={styles.description}>We need to know where you are in order to display weather details</Text></View>
             <Button
                 icon={
                     <Icon
@@ -24,14 +23,8 @@ const AccessCard = (props) => {
                         color="white"
                     />
                 }
-                title="Enable location Services"
-                buttonStyle={{
-                    backgroundColor: '#F37335', borderRadius: 12, marginVertical: 10, shadowColor: '#000',
-                    shadowOffset: { width: 0, height: 1 },
-                    shadowOpacity: 1,
-                    shadowRadius: 1,
-                    elevation: 4,
-                }}
+                title="Enable Location Service"
+                buttonStyle={styles.button}
                 titleStyle={{ paddingLeft: 10 }}
                 onPress={getLocationPermission}
             />
