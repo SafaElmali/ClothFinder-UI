@@ -1,5 +1,18 @@
 import { StyleSheet } from 'react-native';
 
+export const Colors = {
+    black: '#000',
+    white: '#fff',
+    dark: '#090D14',
+    light: '#FEFEFE',
+    divider: '#EFEFEF',
+    fadedText: '#898a89',
+    fadedLight: '#FAFAFA',
+    background: '#F8F8F8',
+    primary: '#F8530D'
+};
+
+
 const styles = StyleSheet.create({
 	headerContainer: {
 		marginTop: 16,
@@ -8,6 +21,7 @@ const styles = StyleSheet.create({
 		fontSize: 24,
 		fontWeight: 'bold',
 		textAlign: 'center',
+		color: Colors.dark,
 	},
 	descriptionContainer: {
 		marginTop: 16,
@@ -16,7 +30,7 @@ const styles = StyleSheet.create({
 		fontSize: 12,
 		paddingLeft: 32,
 		paddingRight: 32,
-		color: '#828994',
+		color: Colors.fadedText,
 		textAlign: 'center',
 		lineHeight: 16,
 	},
@@ -26,7 +40,7 @@ const styles = StyleSheet.create({
 		paddingBottom: 16,
 		paddingLeft: 48,
 		paddingRight: 48,
-        backgroundColor: '#F37335', borderRadius: 64, marginVertical: 10, shadowColor: '#000',
+        backgroundColor: Colors.primary, borderRadius: 64, marginVertical: 10, shadowColor: '#000',
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 1,
         shadowRadius: 1,

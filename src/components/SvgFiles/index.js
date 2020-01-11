@@ -54,7 +54,7 @@ export const Boots = (props) => {
 
 export const Glasses = (props) => {
     return (
-        <Svg viewBox="0 0 512 512" width={40} height={40} {...props}>
+        <Svg viewBox="0 0 512 512" width={35} height={35} {...props}>
             <Defs>
                 <LinearGradient
                     id="prefix__a"

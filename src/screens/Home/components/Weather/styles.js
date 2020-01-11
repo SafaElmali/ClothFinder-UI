@@ -1,18 +1,38 @@
 import { StyleSheet } from 'react-native';
 
+export const Colors = {
+    black: '#000',
+    white: '#fff',
+    dark: '#090D14',
+    light: '#FEFEFE',
+    divider: '#EFEFEF',
+    fadedText: '#898a89',
+    fadedLight: '#FAFAFA',
+    background: '#F8F8F8',
+    primary: '#F8530D'
+};
+
+export const Fonts = {
+    title: 32,
+    subtitle: 24,
+    header: 18,
+    text: 14,
+    subtext: 12,
+    hint: 10,
+};
 
 const styles = StyleSheet.create({
     weatherCard: {
         flex: 1,
-        borderColor: 'white',
+        borderColor: Colors.white,
         borderWidth: 1,
         borderRadius: 16,
         paddingTop: 8,
         paddingRight: 16,
         paddingBottom: 8,
         paddingLeft: 16,
-        backgroundColor: 'white',
-        shadowColor: '#000',
+        backgroundColor: Colors.white,
+        shadowColor: Colors.black,
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 1,
         shadowRadius: 1,
@@ -26,7 +46,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         borderBottomWidth: 1,
-        borderBottomColor: '#efefef'
+        borderBottomColor: Colors.divider,
     },
     forecastWeather: {
         flex: 2,
@@ -51,7 +71,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
     },
     currentWeatherLocation: {
-        fontSize: 14,
+        fontSize: Fonts.text,
         marginLeft: 4,
         alignItems: 'center',
     },
@@ -60,8 +80,8 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     currentWeatherDescription: {
-        fontSize: 12,
-        color: '#aaaaaa',
+        fontSize: Fonts.subtext,
+        color: Colors.fadedText,
     },
     currentWeatherValueContainer: {
         flex: 3,
@@ -69,7 +89,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     currentWeatherValue: {
-        fontSize: 32,
+        fontSize: Fonts.title,
+        color: Colors.dark,
     },
     forecastWeatherGroup: {
         flex: 1,
@@ -82,13 +103,14 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     forecastWeatherValue: {
-        fontSize: 14,
+        fontSize: Fonts.text,
         fontWeight: 'bold',
         marginTop: 4,
+        color: Colors.dark,
     },
     forecastWeatherDay: {
-        fontSize: 12,
-        color: '#aaaaaa',
+        fontSize: Fonts.subtext,
+        color: Colors.fadedText,
         marginTop: 2,
     }
 });

@@ -17,39 +17,35 @@ const Rating = props => {
 
     return (
         <View style={styles.ratingCard}>
-            <View style={{ flex: 0.2, alignItems: 'center', marginVertical: 10 }}>
-                <Text></Text>
-                <Text>How do you feel with selected SelectedItem ({1}/{2})</Text>
+            <View style={styles.questionContainer}>
+                <Text style={styles.questionText}>How do you feel with selected SelectedItem ({1}/{2})?</Text>
             </View>
-            <View style={{ flex: 0.5, flexDirection: 'row', justifyContent: 'space-between' }}>
-                <View style={{ justifyContent: 'center' }}>
-                    <Icon
-                        name='chevron-left'
-                        size={30}
-                        onPress={() => console.log(arr)} />
+            <View style={styles.selectionContainer}>
+                <View style={styles.arrowContainer}>
+                    <Icon name='chevron-left' size={30} onPress={() => console.log(arr)} />
                 </View>
-                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center' }}>
+                <View style={styles.buttonsContainer}>
                     <View style={{ alignItems: 'center' }}>
                         <WorstEmoji />
-                        <Text>WORST</Text>
+                        <Text style={styles.buttonText}>WORST</Text>
                     </View>
                     <View style={{ alignItems: 'center' }}>
-                        <BadEmoji on />
-                        <Text>BAD</Text>
+                        <BadEmoji />
+                        <Text style={styles.buttonText}>BAD</Text>
                     </View>
                     <View style={{ alignItems: 'center' }}>
                         <NeutralEmoji />
-                        <Text>NEUTRAL</Text>
+                        <Text style={styles.buttonText}>NEUTRAL</Text>
                     </View>
                     <View style={{ alignItems: 'center' }}>
                         <GoodEmoji />
-                        <Text>GOOD</Text>
+                        <Text style={styles.buttonText}>GOOD</Text>
                     </View>
                     <View style={{ alignItems: 'center' }}>
                         <BestEmoji />
-                        <Text>BEST</Text>
+                        <Text style={styles.buttonText}>BEST</Text>
                     </View>
-                    <View style={{ justifyContent: 'center' }}>
+                    <View style={styles.arrowContainer}>
                         <Icon
                             name='chevron-right'
                             size={30}

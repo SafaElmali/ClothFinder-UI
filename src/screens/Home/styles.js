@@ -4,9 +4,11 @@ export const Colors = {
     black: '#000',
     white: '#fff',
     dark: '#090D14',
-    background: '#F8F8F8',
     light: '#FEFEFE',
+    divider: '#EFEFEF',
+    fadedText: '#898a89',
     fadedLight: '#FAFAFA',
+    background: '#F8F8F8',
     primary: '#F8530D'
 };
 
@@ -23,10 +25,11 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 1,
         shadowRadius: 1,
-        elevation: 2,
+        elevation: 1,
     },
     storyViewScrollContainer: {
         flex: 1,
+        paddingHorizontal: 16,
     },
     storyButtonView: {
         flex: 1,
@@ -36,17 +39,17 @@ const styles = StyleSheet.create({
     },
     ratingContainer: {
         flex: 6,
-        paddingTop: 16,
+        paddingTop: 24,
         paddingBottom: 12,
-        paddingRight: 8,
-        paddingLeft: 8,
+        paddingRight: 12,
+        paddingLeft: 12,
     },
     weatherContainer: {
         flex: 6,
         paddingTop: 12,
         paddingBottom: 16,
-        paddingRight: 8,
-        paddingLeft: 8,
+        paddingRight: 12,
+        paddingLeft: 12,
     },
     submitView: {
         flex: 2,

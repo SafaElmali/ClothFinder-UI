@@ -24,16 +24,28 @@ const StoryButton = props => {
         }
     }
 
+    var getStoryName = (garmentType) => {
+        if (garmentType === 'TOPWEAR') {
+            return 'Top';
+        } else if (garmentType === 'BOTTOMWEAR')  {
+            return 'Bottom';
+        } else if (garmentType === 'FOOTWEAR')  {
+            return 'Footwear';
+        }  else if (garmentType === 'ACCESSORIES')  {
+            return 'Accessories';
+        } else {
+            return 'Comollocco';
+        }
+    }
+
     return (
         <View style={styles.buttonView} >
             <Button
-                icon={
-                    image
-                }
+                icon={image}
                 buttonStyle={styles.buttonStyle}
                 onPress={handleGarment}
             />
-            <Text style={styles.buttonText}>{garmentType}</Text>
+            <Text style={styles.buttonText}>{getStoryName(garmentType)}</Text>
         </View>
     )
 }
