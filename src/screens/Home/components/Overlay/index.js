@@ -19,11 +19,7 @@ const GarmentModal = (props) => {
     }, [garment])
 
     return (
-        <Overlay
-            isVisible={isVisible}
-            onBackdropPress={onCloseOverlay}
-            borderRadius={15}
-            fullScreen>
+        <Overlay isVisible={isVisible} onBackdropPress={onCloseOverlay} fullScreen>
             <SafeAreaView>
                 {
                     <View style={styles.overlayView}>
@@ -45,9 +41,9 @@ const GarmentModal = (props) => {
                                 <ListItem
                                     key={index}
                                     title={item.name}
+                                    titleStyle={styles.listItem}
                                     bottomDivider
                                     checkBox={{
-                                        title: 'Reco',
                                         onPress() {
                                             item.selected = !item.selected;
                                             setGarment({ garment: { id: item.id, name: item.name, garmentType: item.garmentType, selected: item.selected } });

@@ -46,10 +46,7 @@ const Rating = props => {
                         <Text style={styles.buttonText}>BEST</Text>
                     </View>
                     <View style={styles.arrowContainer}>
-                        <Icon
-                            name='chevron-right'
-                            size={30}
-                            onPress={() => console.log(arr)} />
+                        <Icon name='chevron-right' size={30} onPress={() => console.log(arr)} />
                     </View>
                 </View>
             </View>
