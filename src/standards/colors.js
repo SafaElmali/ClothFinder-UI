@@ -3,6 +3,7 @@ const Colors = {
     white: '#fff',
     dark: '#090D14',
     light: '#FEFEFE',
+    lightGray: '#d3d3d3',
     divider: '#EFEFEF',
     darkText: '#4F4B52',
     fadedText: '#898a89',

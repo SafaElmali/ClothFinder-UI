@@ -61,6 +61,7 @@ export default class Login extends Component {
                 }, async () => {
                     const { user } = this.state;
                     const { navigation } = this.props;
+
                     await AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
                     navigation.navigate('Home', { user: { username: user.username, jwt: user.jwt } });
                 });
@@ -92,6 +93,7 @@ export default class Login extends Component {
                     }
                 }, () => {
                     const { user } = this.state;
+
                     this.handleLogin(user.username, user.password, false);
                 });
             } else {

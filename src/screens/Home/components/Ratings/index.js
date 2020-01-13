@@ -14,7 +14,6 @@ const Rating = props => {
         setArr(Object.values(outfit));
     }, [outfit])
 
-
     return (
         <View style={styles.ratingCard}>
             <View style={styles.questionContainer}>
@@ -25,23 +24,23 @@ const Rating = props => {
                     <Icon name='chevron-left' size={30} onPress={() => console.log(arr)} />
                 </View>
                 <View style={styles.buttonsContainer}>
-                    <View style={{ alignItems: 'center' }}>
+                    <View style={styles.buttonCenterView}>
                         <WorstEmoji />
                         <Text style={styles.buttonText}>WORST</Text>
                     </View>
-                    <View style={{ alignItems: 'center' }}>
+                    <View style={styles.buttonCenterView}>
                         <BadEmoji />
                         <Text style={styles.buttonText}>BAD</Text>
                     </View>
-                    <View style={{ alignItems: 'center' }}>
+                    <View style={styles.buttonCenterView}>
                         <NeutralEmoji />
                         <Text style={styles.buttonText}>NEUTRAL</Text>
                     </View>
-                    <View style={{ alignItems: 'center' }}>
+                    <View style={styles.buttonCenterView}>
                         <GoodEmoji />
                         <Text style={styles.buttonText}>GOOD</Text>
                     </View>
-                    <View style={{ alignItems: 'center' }}>
+                    <View style={styles.buttonCenterView}>
                         <BestEmoji />
                         <Text style={styles.buttonText}>BEST</Text>
                     </View>
@@ -49,9 +48,6 @@ const Rating = props => {
                         <Icon name='chevron-right' size={30} onPress={() => console.log(arr)} />
                     </View>
                 </View>
-            </View>
-            <View style={{ flex: 0.2, alignItems: 'center' }}>
-                <Text>Selected:</Text>
             </View>
         </View>
     )

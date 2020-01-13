@@ -13,26 +13,26 @@ const styles = StyleSheet.create({
         paddingBottom: 8,
         paddingLeft: 16,
         backgroundColor: 'white',
-        shadowColor: '#000',
+        shadowColor: Colors.lightGray,
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 1,
         shadowRadius: 1,
         elevation: 4,
     },
     questionContainer: {
-        flex: 0.25,
+        flex: 1,
         alignItems: 'center',
+        justifyContent: 'center',
         paddingHorizontal: 16,
     },
     questionText: {
         fontSize: Fonts.header,
         fontWeight: '600',
         color: Colors.dark,
-        textAlign: 'center',
-        marginTop: 16,
+        textAlign: 'center'
     },
     selectionContainer: {
-        flex: 0.5,
+        flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
@@ -52,12 +52,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#000',
         borderColor: '#615D5D',
         borderWidth: 1,
-        margin: 20,
-        borderStyle: 'solid'
     },
     buttonText: {
         fontSize: Fonts.hint,
-    }
+    },
+    buttonCenterView: {
+        alignItems: 'center'
+    },
 });
 
 export default styles;

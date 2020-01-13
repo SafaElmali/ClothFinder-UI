@@ -2,17 +2,11 @@ import { StyleSheet } from 'react-native';
 import Colors from '../../../../standards/colors';
 
 const styles = StyleSheet.create({
-	headerContainer: {
-		marginTop: 16,
-	},
 	header: {
 		fontSize: 24,
 		fontWeight: 'bold',
 		textAlign: 'center',
 		color: Colors.dark,
-	},
-	descriptionContainer: {
-		marginTop: 16,
 	},
 	description: {
 		fontSize: 12,
@@ -23,7 +17,6 @@ const styles = StyleSheet.create({
 		lineHeight: 16,
 	},
 	button: {
-		marginTop: 48,
 		paddingTop: 16,
 		paddingBottom: 16,
 		paddingLeft: 48,

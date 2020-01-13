@@ -43,6 +43,7 @@ export default class Weather extends Component {
     //Android location permission fix - https://github.com/facebook/react-native/issues/7495
     getLocationPermission = () => {
         const { accuracy } = this.state;
+
         Geolocation.getCurrentPosition(success => {
             this.getCurrentWeather(success.coords.latitude, success.coords.longitude);
             this.getForecastWeather(success.coords.latitude, success.coords.longitude);
@@ -88,9 +89,11 @@ export default class Weather extends Component {
     }
 
     getCurrentWeather = (latitude, longitude) => {
+        const { jwt } = this.state;
+
         axios.get(currentWeatherEndpoint + `?lat=${latitude}&lon=${longitude}`, {
             headers: {
-                Authorization: 'Bearer ' + this.state.jwt //the token is a variable which holds the token
+                Authorization: 'Bearer ' + jwt //the token is a variable which holds the token
             }
         }).then(({ status, data }) => {
             if (status === 200) {
@@ -103,9 +106,11 @@ export default class Weather extends Component {
     }
 
     getForecastWeather = (latitude, longitude) => {
+        const { jwt } = this.state;
+
         axios.get(forecastWeatherEndpoint + `?lat=${latitude}&lon=${longitude}`, {
             headers: {
-                Authorization: 'Bearer ' + this.state.jwt //the token is a variable which holds the token
+                Authorization: 'Bearer ' + jwt //the token is a variable which holds the token
             }
         }).then(({ status, data }) => {
             if (status === 200) {
@@ -117,15 +122,15 @@ export default class Weather extends Component {
     }
 
     forecastWeatherView() {
-        return this.state.forecastWeather.map((forecast) => {
-           return (
-                <View style={styles.forecastWeatherItem}>
-                    <Image source={{uri: forecast.icon}} style={{width: 32, height: 32}}/>
-                    <Text style={styles.forecastWeatherValue}>{forecast.temperature}℃</Text>
-                    <Text style={styles.forecastWeatherDay}>{forecast.date}</Text>
-                </View>
-            );
-        })
+        const { forecastWeather } = this.state;
+
+        return forecastWeather.map((forecast, index) => (
+            <View key={index} style={styles.forecastWeatherItem}>
+                <Image source={{ uri: forecast.icon }} style={{ width: 32, height: 32 }} />
+                <Text style={styles.forecastWeatherValue}>{forecast.temperature}℃</Text>
+                <Text style={styles.forecastWeatherDay}>{forecast.date}</Text>
+            </View>
+        ));
     }
 
     componentDidMount() {
@@ -134,6 +139,7 @@ export default class Weather extends Component {
 
     render() {
         const { currentWeather, hasAccess } = this.state;
+
         return (
             <View style={styles.weatherCard}>
                 {hasAccess === true ?
@@ -154,7 +160,7 @@ export default class Weather extends Component {
                             <View style={styles.currentWeatherValueContainer}>
                                 <Text style={styles.currentWeatherValue}>{currentWeather.temperature}℃</Text>
                             </View>
-                        </View> 
+                        </View>
                         <View style={styles.forecastWeather}>
                             <View style={styles.forecastWeatherGroup}>
                                 {this.forecastWeatherView()}

@@ -1,14 +1,6 @@
 import { StyleSheet } from 'react-native';
 import Colors from '../../../../standards/colors';
-
-export const Fonts = {
-    title: 32,
-    subtitle: 24,
-    header: 18,
-    text: 14,
-    subtext: 12,
-    hint: 10,
-};
+import Fonts from '../../../../standards/fonts';
 
 const styles = StyleSheet.create({
     buttonView: {

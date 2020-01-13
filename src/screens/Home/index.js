@@ -36,6 +36,7 @@ export default class Home extends Component {
                         topwearList: garmentList,
                     }, () => {
                         const { topwearList } = this.state;
+
                         this.setState({
                             wearList: topwearList,
                             isVisible: true
@@ -47,6 +48,7 @@ export default class Home extends Component {
                         bottomwearList: garmentList,
                     }, () => {
                         const { bottomwearList } = this.state;
+
                         this.setState({
                             wearList: bottomwearList,
                             isVisible: true
@@ -58,6 +60,7 @@ export default class Home extends Component {
                         footwearList: garmentList,
                     }, () => {
                         const { footwearList } = this.state;
+
                         this.setState({
                             wearList: footwearList,
                             isVisible: true
@@ -69,6 +72,7 @@ export default class Home extends Component {
                         accessoriesList: garmentList,
                     }, () => {
                         const { accessoriesList } = this.state;
+
                         this.setState({
                             wearList: accessoriesList,
                             isVisible: true
