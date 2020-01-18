@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import { registerLocalPoint } from '../../../../utils/config/config';
-import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
@@ -25,7 +24,6 @@ const SignupForm = (props) => {
         axios.post(registerLocalPoint, user).then(({ status }) => {
             if (status === 200) {
                 setLoading(false);
-                AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
                 handleSignupStatus(true, 'You registered Successfully 🤩\nreturning to login 🚀', 'Success');
             }
         }).catch(err => {

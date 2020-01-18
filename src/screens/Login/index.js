@@ -21,7 +21,6 @@ export default class Login extends Component {
         this.state = {
             user: {
                 username: '',
-                password: '',
                 jwt: '',
             },
             displayToaster: '',
@@ -55,7 +54,6 @@ export default class Login extends Component {
                 this.setState({
                     user: {
                         username: username,
-                        password: password,
                         jwt: data.jwt
                     }
                 }, async () => {
@@ -86,16 +84,9 @@ export default class Login extends Component {
             const userDetails = await AsyncStorage.getItem("USER_DETAILS");
             const user = JSON.parse(userDetails);
             if (user !== null) {
-                this.setState({
-                    user: {
-                        username: user.username,
-                        password: user.password
-                    }
-                }, () => {
-                    const { user } = this.state;
+                const { navigation } = this.props;
 
-                    this.handleLogin(user.username, user.password, false);
-                });
+                navigation.navigate('Home', { user: { username: user.username, jwt: user.jwt } });
             } else {
                 console.log('storage is null');
             }
