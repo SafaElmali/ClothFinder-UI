@@ -59,6 +59,23 @@ const styles = StyleSheet.create({
     buttonCenterView: {
         alignItems: 'center'
     },
+    emptyRatingCard: {
+        flex: 1,
+        borderColor: 'white',
+        borderWidth: 1,
+        borderRadius: 16,
+        paddingTop: 8,
+        paddingRight: 16,
+        paddingBottom: 8,
+        paddingLeft: 16,
+        backgroundColor: 'gray',
+        shadowColor: Colors.lightGray,
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 1,
+        shadowRadius: 1,
+        opacity: 0.7,
+        elevation: 4,
+    }
 });
 
 export default styles;

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { View, ScrollView } from 'react-native';
 import { BottomWear, Boots, Glasses, TopWear } from '../../components/SvgFiles/index';
+import { outfitSaveEndPoint } from '../../utils/config/config';
 import StoryButton from './components/StoryButton/index';
 import LogoutButton from './components/LogoutButton/index';
 import GarmentModal from './components/Overlay/index';
 import Weather from './components/Weather/index';
 import Rating from './components/Ratings/index';
 import styles from './styles';
+import axios from 'axios';
 
 export default class Home extends Component {
     constructor(props) {
@@ -24,6 +26,7 @@ export default class Home extends Component {
                 footwear: [],
                 accessories: [],
             },
+            sendOutfit: {}
         }
     }
 
@@ -95,7 +98,7 @@ export default class Home extends Component {
                             ...state.outfit,
                             topwear: state.outfit.topwear.concat(garmentItem)
                         }
-                    }));
+                    }))
                 } else {
                     this.setState(state => ({
                         outfit: {
@@ -166,6 +169,28 @@ export default class Home extends Component {
         });
     }
 
+    handleSelectedRate = () => {
+        const { jwt, outfit, username } = this.state;
+        this.setState(state => ({
+            sendOutfit: {
+                ...state.outfit,
+                username: username
+            }
+        }), () => {
+            const { sendOutfit } = this.state;
+            console.log(JSON.stringify(sendOutfit));
+            axios.post(outfitSaveEndPoint, sendOutfit, {
+                headers: {
+                    Authorization: 'Bearer ' + jwt //the token is a variable which holds the token
+                }
+            }).then(({ status, data }) => {
+                if (status === 201) {
+                    console.log(data);
+                }
+            }, (error) => console.log(error));
+        });
+    }
+
     render() {
         const { wearList, jwt, isVisible, outfit, topwearList, bottomwearList, footwearList, accessoriesList } = this.state;
         const { navigation } = this.props;
@@ -184,7 +209,7 @@ export default class Home extends Component {
                     </ScrollView>
                 </View>
                 <View style={styles.ratingContainer}>
-                    <Rating outfit={outfit} />
+                    <Rating outfit={outfit} handleSelectedRate={this.handleSelectedRate} />
                 </View>
                 <View style={styles.weatherContainer}>
                     <Weather jwt={jwt} />
