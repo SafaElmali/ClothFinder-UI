@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { Text } from 'react-native-elements';
 import { WorstEmoji, BestEmoji, BadEmoji, NeutralEmoji, GoodEmoji } from '../../../../components/SvgFiles/index';
+import DisabledCard from '../RatingsDisabled/index';
 import Swiper from 'react-native-swiper'
 import styles from './styles';
 
@@ -76,45 +78,13 @@ const Rating = props => {
                             </View>
                         }) : null
                     })
-                    : <EmptyCard />
+                    : <DisabledCard />
                 }
             </Swiper>
         </>
     )
 }
 
-const EmptyCard = () => {
-    return (
-        <View style={styles.emptyRatingCard}>
-            <View style={styles.questionContainer}>
-                <Text style={styles.questionText}>You should make at least one selection to rate your wear</Text>
-            </View>
-            <View style={styles.selectionContainer}>
-                <View style={styles.buttonsContainer}>
-                    <View style={styles.buttonCenterView}>
-                        <WorstEmoji />
-                        <Text style={styles.buttonText}>WORST</Text>
-                    </View>
-                    <View style={styles.buttonCenterView}>
-                        <BadEmoji />
-                        <Text style={styles.buttonText}>BAD</Text>
-                    </View>
-                    <View style={styles.buttonCenterView}>
-                        <NeutralEmoji />
-                        <Text style={styles.buttonText}>NEUTRAL</Text>
-                    </View>
-                    <View style={styles.buttonCenterView}>
-                        <GoodEmoji />
-                        <Text style={styles.buttonText}>GOOD</Text>
-                    </View>
-                    <View style={styles.buttonCenterView}>
-                        <BestEmoji />
-                        <Text style={styles.buttonText}>BEST</Text>
-                    </View>
-                </View>
-            </View>
-        </View>
-    )
-}
+
 
 export default Rating;

@@ -3,27 +3,23 @@ import Colors from '../../../../standards/colors';
 import Fonts from '../../../../standards/fonts';
 
 const styles = StyleSheet.create({
-    ratingCard: {
+    disableRatingCard: {
         flex: 1,
-        borderColor: 'white',
+        borderColor: 'lightgray',
         borderWidth: 1,
         borderRadius: 16,
         paddingTop: 8,
         paddingRight: 16,
         paddingBottom: 8,
+        marginBottom: 8,
         paddingLeft: 16,
         backgroundColor: 'white',
         shadowColor: Colors.lightGray,
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 1,
         shadowRadius: 1,
+        opacity: 0.7,
         elevation: 4,
-    },
-    questionContainer: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingHorizontal: 16,
     },
     questionText: {
         fontSize: Fonts.header,
@@ -35,9 +31,6 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
-    },
-    arrowContainer: {
-        justifyContent: 'center'
     },
     buttonsContainer: {
         flex: 1,
@@ -59,23 +52,8 @@ const styles = StyleSheet.create({
     buttonCenterView: {
         alignItems: 'center'
     },
-    disableRatingCard: {
-        flex: 1,
-        borderColor: 'white',
-        borderWidth: 1,
-        borderRadius: 16,
-        paddingTop: 8,
-        paddingRight: 16,
-        paddingBottom: 8,
-        marginBottom: 10,
-        paddingLeft: 16,
-        backgroundColor: 'white',
-        shadowColor: Colors.lightGray,
-        shadowOffset: { width: 0, height: 1 },
-        shadowOpacity: 1,
-        shadowRadius: 1,
-        opacity: 0.7,
-        elevation: 4,
+    disableView: {
+        opacity: 0.4
     },
 });
 

@@ -163,6 +163,7 @@ export default class Home extends Component {
         }
     }
 
+    //Get current weather detail
     handleCurrentWeather = (currentWeather) => {
         this.setState({
             currentWeather: currentWeather
@@ -176,6 +177,7 @@ export default class Home extends Component {
         });
     }
 
+    //Send each rate selection
     handleSelectedRate = () => {
         const { jwt, username, currentWeather } = this.state;
         this.setState(state => ({
