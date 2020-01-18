@@ -4,8 +4,12 @@ import Signup from '../screens/Signup/index';
 
 const AuthNavigation = createStackNavigator(
     {
-        Login: { screen: Login },
-        Signup: { screen: Signup }
+        Login: {
+            screen: Login
+        },
+        Signup: {
+            screen: Signup
+        }
     },
     {
         initialRouteName: 'Login',
