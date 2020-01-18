@@ -20,8 +20,20 @@ const Rating = props => {
             topwearList[selectedGarmentItem].rating = rateType;
             handleSelectedRate();
         } else if (garmentType === 'BOTTOMWEAR') {
+            let bottomwearList = arr[1];
+            let selectedGarmentItem = bottomwearList.findIndex((garmentItem => garmentItem.garment.id == item.garment.id));
+            bottomwearList[selectedGarmentItem].rating = rateType;
+            handleSelectedRate();
         } else if (garmentType === 'FOOTWEAR') {
+            let footwearList = arr[2];
+            let selectedGarmentItem = footwearList.findIndex((garmentItem => garmentItem.garment.id == item.garment.id));
+            footwearList[selectedGarmentItem].rating = rateType;
+            handleSelectedRate();
         } else if (garmentType === 'ACCESSORIES') {
+            let accessoriesList = arr[3];
+            let selectedGarmentItem = accessoriesList.findIndex((garmentItem => garmentItem.garment.id == item.garment.id));
+            accessoriesList[selectedGarmentItem].rating = rateType;
+            handleSelectedRate();
         } else {
             return 'Comollocco';
         }
@@ -44,19 +56,19 @@ const Rating = props => {
                                             <Text style={styles.buttonText}>WORST</Text>
                                         </View>
                                         <View style={styles.buttonCenterView}>
-                                            <BadEmoji onPress={() => assignRate(garmentItem, 'BAD')} />
+                                            <BadEmoji onPress={() => assignRate(garmentItem, 'BAD', garmentItem.garment.garmentType)} />
                                             <Text style={styles.buttonText}>BAD</Text>
                                         </View>
                                         <View style={styles.buttonCenterView}>
-                                            <NeutralEmoji onPress={() => assignRate(garmentItem, 'NEUTRAL')} />
+                                            <NeutralEmoji onPress={() => assignRate(garmentItem, 'NEUTRAL', garmentItem.garment.garmentType)} />
                                             <Text style={styles.buttonText}>NEUTRAL</Text>
                                         </View>
                                         <View style={styles.buttonCenterView}>
-                                            <GoodEmoji onPress={() => assignRate(garmentItem, 'GOOD')} />
+                                            <GoodEmoji onPress={() => assignRate(garmentItem, 'GOOD', garmentItem.garment.garmentType)} />
                                             <Text style={styles.buttonText}>GOOD</Text>
                                         </View>
                                         <View style={styles.buttonCenterView}>
-                                            <BestEmoji onPress={() => assignRate(garmentItem, 'BEST')} />
+                                            <BestEmoji onPress={() => assignRate(garmentItem, 'BEST', garmentItem.garment.garmentType)} />
                                             <Text style={styles.buttonText}>BEST</Text>
                                         </View>
                                     </View>
