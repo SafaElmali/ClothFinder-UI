@@ -29,6 +29,10 @@ export default class Weather extends Component {
         })
     }
 
+    componentDidMount() {
+        this.getLocationPermission();
+    }
+
     goToSettings = async () => {
         // Linking.openSettings();
         const settingsUrl = 'app-settings:'
@@ -100,6 +104,10 @@ export default class Weather extends Component {
                 this.setState({
                     currentWeather: data,
                     hasAccess: true
+                }, () => {
+                    const { handleCurrentWeather } = this.props;
+                    const { currentWeather } = this.state;
+                    handleCurrentWeather(currentWeather);
                 });
             }
         });
@@ -131,10 +139,6 @@ export default class Weather extends Component {
                 <Text style={styles.forecastWeatherDay}>{forecast.date}</Text>
             </View>
         ));
-    }
-
-    componentDidMount() {
-        this.getLocationPermission();
     }
 
     render() {

@@ -26,6 +26,7 @@ export default class Home extends Component {
                 footwear: [],
                 accessories: [],
             },
+            currentWeather: {},
             sendOutfit: {}
         }
     }
@@ -162,6 +163,12 @@ export default class Home extends Component {
         }
     }
 
+    handleCurrentWeather = (currentWeather) => {
+        this.setState({
+            currentWeather: currentWeather
+        });
+    }
+
     //Close modal
     onCloseOverlay = (closeState) => {
         this.setState({
@@ -170,18 +177,19 @@ export default class Home extends Component {
     }
 
     handleSelectedRate = () => {
-        const { jwt, outfit, username } = this.state;
+        const { jwt, username, currentWeather } = this.state;
         this.setState(state => ({
             sendOutfit: {
                 ...state.outfit,
-                username: username
+                username: username,
+                currentWeather: currentWeather
             }
         }), () => {
             const { sendOutfit } = this.state;
-            console.log(JSON.stringify(sendOutfit));
+            console.log(sendOutfit);
             axios.post(outfitSaveEndPoint, sendOutfit, {
                 headers: {
-                    Authorization: 'Bearer ' + jwt //the token is a variable which holds the token
+                    Authorization: 'Bearer ' + jwt
                 }
             }).then(({ status, data }) => {
                 if (status === 201) {
@@ -212,14 +220,8 @@ export default class Home extends Component {
                     <Rating outfit={outfit} handleSelectedRate={this.handleSelectedRate} />
                 </View>
                 <View style={styles.weatherContainer}>
-                    <Weather jwt={jwt} />
+                    <Weather jwt={jwt} handleCurrentWeather={this.handleCurrentWeather} />
                 </View>
-                { /*
-                    <View style={styles.submitView}>
-                        <Text>Submit</Text>
-                    </View>
-                    */
-                }
                 <LogoutButton onClick={navigation} />
             </View>
         );
