@@ -50,6 +50,7 @@ export default class Home extends Component {
                 case 'BOTTOMWEAR':
                     this.setState({
                         bottomwearList: garmentList,
+                        isVisible: true
                     }, () => {
                         const { bottomwearList } = this.state;
 
