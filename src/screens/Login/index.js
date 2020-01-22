@@ -30,24 +30,12 @@ export default class Login extends Component {
         }
     }
 
-    // Check storage to login automatically if there is user details
+    // Check storage to login automatically if there are user details
     componentDidMount() {
         this.checkStorage();
     }
 
-    _keyboardDidShow = () => {
-        this.setState({
-            isKeyboardOpen: true
-        });
-    }
-
-    _keyboardDidHide = () => {
-        this.setState({
-            isKeyboardOpen: false
-        });
-    }
-
-    // Check user username and password in db. If its true then navigate to the home
+    // Check user username and password in db. If it returns success then navigate to home screen
     handleLogin = (username, password, toasterStatus) => {
         axios.post(loginLocalPoint, { username: username, password: password }).then(({ data, status }) => {
             if (status === 200) {
@@ -93,6 +81,20 @@ export default class Login extends Component {
         } catch (error) {
             console.log(error);
         }
+    }
+
+    // Hide some component to display input areas clearly when keyboard opened
+    _keyboardDidShow = () => {
+        this.setState({
+            isKeyboardOpen: true
+        });
+    }
+
+    // Show hidden components after keyboard closed 
+    _keyboardDidHide = () => {
+        this.setState({
+            isKeyboardOpen: false
+        });
     }
 
     render() {

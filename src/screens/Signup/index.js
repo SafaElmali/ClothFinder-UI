@@ -29,12 +29,14 @@ export default class Signup extends Component {
         }
     }
 
+    // Hide some component to display input areas clearly when keyboard opened
     _keyboardDidShow = () => {
         this.setState({
             isKeyboardOpen: true
         });
     }
 
+    // Show hidden components after keyboard closed 
     _keyboardDidHide = () => {
         this.setState({
             isKeyboardOpen: false
@@ -76,7 +78,7 @@ export default class Signup extends Component {
                     </View> : null
                 }
                 <View style={styles.formContent}>
-                    <SignupForm handleSignupStatus={this.handleSignupStatus} />
+                    <SignupForm onSignupStatus={this.handleSignupStatus} />
                 </View>
                 {!isKeyboardOpen === true ?
                     <View style={styles.footer}>

@@ -20,14 +20,14 @@ export default class Home extends Component {
             username: userDetails.username,
             jwt: userDetails.jwt,
             isVisible: false,
-            outfit: {
+            tempOutfit: {
                 topwear: [],
                 bottomwear: [],
                 footwear: [],
                 accessories: [],
             },
             currentWeather: {},
-            sendOutfit: {}
+            outfit: {}
         }
     }
 
@@ -96,16 +96,16 @@ export default class Home extends Component {
             case 'TOPWEAR':
                 if (garmentItem.garment.selected) {
                     this.setState(state => ({
-                        outfit: {
-                            ...state.outfit,
-                            topwear: state.outfit.topwear.concat(garmentItem)
+                        tempOutfit: {
+                            ...state.tempOutfit,
+                            topwear: state.tempOutfit.topwear.concat(garmentItem)
                         }
                     }))
                 } else {
                     this.setState(state => ({
-                        outfit: {
-                            ...state.outfit,
-                            topwear: state.outfit.topwear.filter((value => value.garment.id !== garmentItem.garment.id))
+                        tempOutfit: {
+                            ...state.tempOutfit,
+                            topwear: state.tempOutfit.topwear.filter((value => value.garment.id !== garmentItem.garment.id))
                         }
                     }));
                 }
@@ -113,16 +113,16 @@ export default class Home extends Component {
             case 'BOTTOMWEAR':
                 if (garmentItem.garment.selected) {
                     this.setState(state => ({
-                        outfit: {
-                            ...state.outfit,
-                            bottomwear: state.outfit.bottomwear.concat(garmentItem)
+                        tempOutfit: {
+                            ...state.tempOutfit,
+                            bottomwear: state.tempOutfit.bottomwear.concat(garmentItem)
                         }
                     }));
                 } else {
                     this.setState(state => ({
-                        outfit: {
-                            ...state.outfit,
-                            bottomwear: state.outfit.bottomwear.filter((value => value.garment.id !== garmentItem.garment.id))
+                        tempOutfit: {
+                            ...state.tempOutfit,
+                            bottomwear: state.tempOutfit.bottomwear.filter((value => value.garment.id !== garmentItem.garment.id))
                         }
                     }));
                 }
@@ -130,16 +130,16 @@ export default class Home extends Component {
             case 'FOOTWEAR':
                 if (garmentItem.garment.selected) {
                     this.setState(state => ({
-                        outfit: {
-                            ...state.outfit,
-                            footwear: state.outfit.footwear.concat(garmentItem)
+                        tempOutfit: {
+                            ...state.tempOutfit,
+                            footwear: state.tempOutfit.footwear.concat(garmentItem)
                         }
                     }));
                 } else {
                     this.setState(state => ({
-                        outfit: {
-                            ...state.outfit,
-                            footwear: state.outfit.footwear.filter((value => value.garment.id !== garmentItem.garment.id))
+                        tempOutfit: {
+                            ...state.tempOutfit,
+                            footwear: state.tempOutfit.footwear.filter((value => value.garment.id !== garmentItem.garment.id))
                         }
                     }));
                 }
@@ -147,16 +147,16 @@ export default class Home extends Component {
             case 'ACCESSORIES':
                 if (garmentItem.garment.selected) {
                     this.setState(state => ({
-                        outfit: {
-                            ...state.outfit,
-                            accessories: state.outfit.accessories.concat(garmentItem)
+                        tempOutfit: {
+                            ...state.tempOutfit,
+                            accessories: state.tempOutfit.accessories.concat(garmentItem)
                         }
                     }));
                 } else {
                     this.setState(state => ({
-                        outfit: {
-                            ...state.outfit,
-                            accessories: state.outfit.accessories.filter((value => value.garment.id !== garmentItem.garment.id))
+                        tempOutfit: {
+                            ...state.tempOutfit,
+                            accessories: state.tempOutfit.accessories.filter((value => value.garment.id !== garmentItem.garment.id))
                         }
                     }));
                 }
@@ -183,15 +183,15 @@ export default class Home extends Component {
         const { jwt, username, currentWeather } = this.state;
 
         this.setState(state => ({
-            sendOutfit: {
-                ...state.outfit,
+            outfit: {
+                ...state.tempOutfit,
                 username: username,
                 currentWeather: currentWeather
             }
         }), () => {
-            const { sendOutfit } = this.state;
+            const { outfit } = this.state;
 
-            axios.post(outfitSaveEndPoint, sendOutfit, {
+            axios.post(outfitSaveEndPoint, outfit, {
                 headers: {
                     Authorization: 'Bearer ' + jwt
                 }
@@ -204,12 +204,12 @@ export default class Home extends Component {
     }
 
     render() {
-        const { wearList, jwt, isVisible, outfit, topwearList, bottomwearList, footwearList, accessoriesList } = this.state;
+        const { wearList, jwt, isVisible, tempOutfit, topwearList, bottomwearList, footwearList, accessoriesList } = this.state;
         const { navigation } = this.props;
 
         return (
             <View style={styles.container}>
-                <GarmentModal wearList={wearList} outfit={outfit} isVisible={isVisible} onCloseOverlay={this.onCloseOverlay} onHandleOutfit={this.handleSelectedOutfit} />
+                <GarmentModal wearList={wearList} outfit={tempOutfit} isVisible={isVisible} onCloseOverlay={this.onCloseOverlay} onHandleOutfit={this.handleSelectedOutfit} />
                 <View style={styles.storyView}>
                     <ScrollView contentContainerStyle={styles.storyViewScrollContainer} horizontal={true} alwaysBounceHorizontal={true} showsHorizontalScrollIndicator={false}>
                         <View style={styles.storyButtonView}>
@@ -221,7 +221,7 @@ export default class Home extends Component {
                     </ScrollView>
                 </View>
                 <View style={styles.ratingContainer}>
-                    <Rating outfit={outfit} handleSelectedRate={this.handleSelectedRate} />
+                    <Rating outfit={tempOutfit} handleSelectedRate={this.handleSelectedRate} />
                 </View>
                 <View style={styles.weatherContainer}>
                     <Weather jwt={jwt} handleCurrentWeather={this.handleCurrentWeather} />

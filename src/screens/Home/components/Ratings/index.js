@@ -7,10 +7,11 @@ import styles from './styles';
 
 const Rating = props => {
     const { outfit } = props;
-    const [arr, setArr] = useState([]);
+    const [outfitList, setOutfitList] = useState([]);
+    console.log(outfitList);
 
     useEffect(() => {
-        setArr(Object.values(outfit));
+        setOutfitList(Object.values(outfit));
     }, [outfit])
 
     const assignRate = (item, rateType, garmentType) => {

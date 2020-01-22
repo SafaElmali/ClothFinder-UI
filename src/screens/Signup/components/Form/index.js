@@ -18,21 +18,21 @@ const SignupForm = (props) => {
 
     // Save user signup details to AsyncStorage if response status is success
     const handleFormSignup = () => {
-        const { handleSignupStatus } = props;
+        const { onSignupStatus } = props;
         setLoading(true);
 
         axios.post(registerLocalPoint, user).then(({ status }) => {
             if (status === 200) {
                 setLoading(false);
-                handleSignupStatus(true, 'You registered Successfully 🤩\nreturning to login 🚀', 'Success');
+                onSignupStatus(true, 'You registered Successfully 🤩\nreturning to login 🚀', 'Success');
             }
         }).catch(err => {
             if (err.response.status === 409) {
                 setLoading(false);
-                handleSignupStatus(false, err.response.data, 'Warning');
+                onSignupStatus(false, err.response.data, 'Warning');
             } else if (err.response.status === 422) {
                 setLoading(false);
-                handleSignupStatus(false, err.response.data, 'Warning');
+                onSignupStatus(false, err.response.data, 'Warning');
             }
         });
     }
