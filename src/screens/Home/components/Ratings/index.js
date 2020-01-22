@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
 import { WorstEmoji, BestEmoji, BadEmoji, NeutralEmoji, GoodEmoji } from '../../../../components/SvgFiles/index';
-import DisabledCard from '../RatingsDisabled/index';
+import DisabledCard from '../DisabledCard/index';
 import Swiper from 'react-native-swiper'
 import styles from './styles';
 
