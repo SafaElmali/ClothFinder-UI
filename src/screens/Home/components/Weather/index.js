@@ -3,7 +3,7 @@ import { View, Platform, Linking, Alert } from 'react-native';
 import { Text, Image } from 'react-native-elements';
 import { currentWeatherEndpoint, forecastWeatherEndpoint } from '../../../../utils/config/config';
 import RNAndroidLocationEnabler from 'react-native-android-location-enabler';
-import AccessCard from '../AccessCard/index';
+import AccessCard from '../LocationAccess/index';
 import Geolocation from '@react-native-community/geolocation';
 import axios from 'axios';
 import styles from './styles';

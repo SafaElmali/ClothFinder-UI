@@ -181,6 +181,7 @@ export default class Home extends Component {
     //Send each rate selection
     handleSelectedRate = () => {
         const { jwt, username, currentWeather } = this.state;
+
         this.setState(state => ({
             sendOutfit: {
                 ...state.outfit,
@@ -189,7 +190,7 @@ export default class Home extends Component {
             }
         }), () => {
             const { sendOutfit } = this.state;
-            console.log(sendOutfit);
+
             axios.post(outfitSaveEndPoint, sendOutfit, {
                 headers: {
                     Authorization: 'Bearer ' + jwt
