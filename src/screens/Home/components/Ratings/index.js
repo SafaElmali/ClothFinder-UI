@@ -27,22 +27,45 @@ const Rating = props => {
 
     const assignRate = (item, rateType, garmentType) => {
         const { handleSelectedRate } = props;
-        const [topwearList, bottomwearList, footwearList, accessoriesList] = outfitList;
         let selectedGarmentItem = -1;
 
         if (garmentType === 'TOPWEAR') {
+            const topwearList = outfitList.find((garmentArray) => {
+                return garmentArray.some((garmentItem, index) => {
+                    return garmentItem.garment.id == item.garment.id
+                });
+            });
+
             selectedGarmentItem = topwearList.findIndex((garmentItem => garmentItem.garment.id == item.garment.id));
             topwearList[selectedGarmentItem].rating = rateType;
             handleSelectedRate();
         } else if (garmentType === 'BOTTOMWEAR') {
+            const bottomwearList = outfitList.find((garmentArray) => {
+                return garmentArray.some((garmentItem, index) => {
+                    return garmentItem.garment.id == item.garment.id
+                });
+            });
+
             selectedGarmentItem = bottomwearList.findIndex((garmentItem => garmentItem.garment.id == item.garment.id));
             bottomwearList[selectedGarmentItem].rating = rateType;
             handleSelectedRate();
         } else if (garmentType === 'FOOTWEAR') {
+            const footwearList = outfitList.find((garmentArray) => {
+                return garmentArray.some((garmentItem, index) => {
+                    return garmentItem.garment.id == item.garment.id
+                });
+            });
+
             selectedGarmentItem = footwearList.findIndex((garmentItem => garmentItem.garment.id == item.garment.id));
             footwearList[selectedGarmentItem].rating = rateType;
             handleSelectedRate();
         } else if (garmentType === 'ACCESSORIES') {
+            const accessoriesList = outfitList.find((garmentArray) => {
+                return garmentArray.some((garmentItem, index) => {
+                    return garmentItem.garment.id == item.garment.id
+                });
+            });
+
             selectedGarmentItem = accessoriesList.findIndex((garmentItem => garmentItem.garment.id == item.garment.id));
             accessoriesList[selectedGarmentItem].rating = rateType;
             handleSelectedRate();
