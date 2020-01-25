@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
         flex: 1,
         borderColor: Colors.white,
         borderWidth: 1,
+        borderRadius: 16,
         paddingTop: 8,
         paddingRight: 16,
         paddingBottom: 8,

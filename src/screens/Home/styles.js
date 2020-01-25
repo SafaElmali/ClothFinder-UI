@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.background,
     },
     storyView: {
-        flex: Platform.OS === 'android' ? 4 : 3,
+        flex: Platform.OS === 'android' ? 3 : 2,
         flexDirection: 'column',
         backgroundColor: Colors.light,
         shadowColor: Colors.black,
