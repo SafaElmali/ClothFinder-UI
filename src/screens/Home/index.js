@@ -171,13 +171,6 @@ export default class Home extends Component {
         });
     }
 
-    //Close modal
-    onCloseOverlay = (closeState) => {
-        this.setState({
-            isVisible: closeState
-        });
-    }
-
     //Send each rate selection
     handleSelectedRate = () => {
         const { jwt, username, currentWeather } = this.state;
@@ -200,6 +193,13 @@ export default class Home extends Component {
                     console.log(data);
                 }
             }, (error) => console.log(error));
+        });
+    }
+
+    //Close modal
+    onCloseOverlay = (closeState) => {
+        this.setState({
+            isVisible: closeState
         });
     }
 
