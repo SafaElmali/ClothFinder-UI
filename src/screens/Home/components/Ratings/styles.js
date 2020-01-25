@@ -48,10 +48,8 @@ const styles = StyleSheet.create({
     },
     submitContainer: {
         flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingVertical: 16,
-        paddingHorizontal: 48,
+        alignContent: 'center',
+        alignItems: 'center'
     },
     submitButton: {
         flex: 1,

@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import {View, Dimensions} from 'react-native';
-import {Text} from 'react-native-elements';
+import React, { useState, useEffect } from 'react';
+import { View, Dimensions } from 'react-native';
+import { Text, Button } from 'react-native-elements';
 import {
   WorstEmoji,
   BestEmoji,
@@ -13,7 +13,7 @@ import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
 
 const Rating = props => {
-  const {outfit} = props;
+  const { outfit } = props;
   const [outfitList, setOutfitList] = useState([]);
   const selectedList = [];
 
@@ -32,7 +32,7 @@ const Rating = props => {
   }, [outfit]);
 
   const assignRate = (item, rateType, garmentType) => {
-    const {handleSelectedRate} = props;
+    const { handleSelectedRate } = props;
     let selectedGarmentItem = -1;
 
     if (garmentType === 'TOPWEAR') {
@@ -46,7 +46,7 @@ const Rating = props => {
         garmentItem => garmentItem.garment.id == item.garment.id,
       );
       topwearList[selectedGarmentItem].rating = rateType;
-      handleSelectedRate();
+      handleSelectedRate(false);
     } else if (garmentType === 'BOTTOMWEAR') {
       const bottomwearList = outfitList.find(garmentArray => {
         return garmentArray.some((garmentItem, index) => {
@@ -58,7 +58,7 @@ const Rating = props => {
         garmentItem => garmentItem.garment.id == item.garment.id,
       );
       bottomwearList[selectedGarmentItem].rating = rateType;
-      handleSelectedRate();
+      handleSelectedRate(false);
     } else if (garmentType === 'FOOTWEAR') {
       const footwearList = outfitList.find(garmentArray => {
         return garmentArray.some((garmentItem, index) => {
@@ -70,7 +70,7 @@ const Rating = props => {
         garmentItem => garmentItem.garment.id == item.garment.id,
       );
       footwearList[selectedGarmentItem].rating = rateType;
-      handleSelectedRate();
+      handleSelectedRate(false);
     } else if (garmentType === 'ACCESSORIES') {
       const accessoriesList = outfitList.find(garmentArray => {
         return garmentArray.some((garmentItem, index) => {
@@ -82,13 +82,15 @@ const Rating = props => {
         garmentItem => garmentItem.garment.id == item.garment.id,
       );
       accessoriesList[selectedGarmentItem].rating = rateType;
-      handleSelectedRate();
+      handleSelectedRate(false);
     } else {
       return 'Comollocco';
     }
   };
 
-  const _renderItem = ({item, index}) => {
+  const _renderItem = ({ item, index }) => {
+    const { handleSelectedRate, isLoading } = props;
+
     return (
       <View key={index} style={styles.ratingCard}>
         <View style={styles.ratingContent}>
@@ -142,9 +144,11 @@ const Rating = props => {
             </View>
           </View>
           <View style={styles.submitContainer}>
-            <View style={styles.submitButton}>
-              <Text style={styles.submitButtonText}>save outfit</Text>
-            </View>
+            <Button
+              buttonStyle={styles.submitButton}
+              title="save outfit"
+              loading={isLoading}
+              onPress={() => handleSelectedRate(true)} />
           </View>
         </View>
       </View>
@@ -166,10 +170,10 @@ const Rating = props => {
           inactiveSlideOpacity={1}
         />
       ) : (
-        <View style={styles.disabledCardContainer}>
-          <DisabledCard />
-        </View>
-      )}
+          <View style={styles.disabledCardContainer}>
+            <DisabledCard />
+          </View>
+        )}
     </>
   );
 };

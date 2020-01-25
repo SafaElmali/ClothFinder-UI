@@ -31,6 +31,7 @@ export default class Home extends Component {
             username: userDetails.username,
             jwt: userDetails.jwt,
             isVisible: false,
+            isLoading: false,
             tempOutfit: {
                 topwear: [],
                 bottomwear: [],
@@ -183,28 +184,57 @@ export default class Home extends Component {
     }
 
     //Send each rate selection
-    handleSelectedRate = () => {
+    handleSelectedRate = (isSaveOutfitClicked) => {
         const { jwt, username, currentWeather } = this.state;
 
-        this.setState(state => ({
-            outfit: {
-                ...state.tempOutfit,
-                username: username,
-                currentWeather: currentWeather
-            }
-        }), () => {
-            const { outfit } = this.state;
+        if (!isSaveOutfitClicked) {
+            this.setState(state => ({
+                outfit: {
+                    ...state.tempOutfit,
+                    username: username,
+                    currentWeather: currentWeather,
+                    saved: false
+                },
+            }), () => {
+                const { outfit } = this.state;
 
-            axios.post(outfitSaveEndPoint, outfit, {
-                headers: {
-                    Authorization: 'Bearer ' + jwt
-                }
-            }).then(({ status, data }) => {
-                if (status === 201) {
-                    console.log(data);
-                }
-            }, (error) => console.log(error));
-        });
+                axios.post(outfitSaveEndPoint, outfit, {
+                    headers: {
+                        Authorization: 'Bearer ' + jwt
+                    }
+                }).then(({ status, data }) => {
+                    if (status === 201) {
+                        console.log(data);
+                    }
+                }, (error) => console.log(error));
+            });
+        } else {
+            this.setState(state => ({
+                outfit: {
+                    ...state.tempOutfit,
+                    username: username,
+                    currentWeather: currentWeather,
+                    saved: true,
+                },
+                isLoading: true
+            }), () => {
+                const { outfit } = this.state;
+
+                axios.post(outfitSaveEndPoint, outfit, {
+                    headers: {
+                        Authorization: 'Bearer ' + jwt
+                    }
+                }).then(({ status, data }) => {
+                    if (status === 201) {
+                        console.log(data);
+                        console.log("Outfit saved successfully!");
+                        this.setState({
+                            isLoading: false
+                        });
+                    }
+                }, (error) => console.log(error));
+            });
+        }
     }
 
     //Close modal
@@ -215,7 +245,7 @@ export default class Home extends Component {
     }
 
     render() {
-        const { wearList, jwt, isVisible, tempOutfit, topwearList, bottomwearList, footwearList, accessoriesList } = this.state;
+        const { wearList, jwt, isVisible, tempOutfit, topwearList, bottomwearList, footwearList, accessoriesList, isLoading } = this.state;
 
         return (
             <View style={styles.container}>
@@ -231,7 +261,7 @@ export default class Home extends Component {
                     </ScrollView>
                 </View>
                 <View style={styles.ratingContainer}>
-                    <Rating outfit={tempOutfit} handleSelectedRate={this.handleSelectedRate} />
+                    <Rating outfit={tempOutfit} handleSelectedRate={this.handleSelectedRate} isLoading={isLoading} />
                 </View>
                 <View style={styles.weatherContainer}>
                     <Weather jwt={jwt} handleCurrentWeather={this.handleCurrentWeather} />
