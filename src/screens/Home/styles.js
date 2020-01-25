@@ -30,8 +30,6 @@ const styles = StyleSheet.create({
         flex: 6,
         paddingTop: 24,
         paddingBottom: 12,
-        paddingRight: 12,
-        paddingLeft: 12,
     },
     weatherContainer: {
         flex: 6,
