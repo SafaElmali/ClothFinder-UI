@@ -158,7 +158,7 @@ const Rating = props => {
           sliderWidth={sliderWidth}
           itemWidth={itemWidth}
           activeSlideAlignment={'center'}
-          inactiveSlideOpacity={0.5}
+          inactiveSlideOpacity={1}
         />
       ) : (
         <View style={styles.disabledCardContainer}>

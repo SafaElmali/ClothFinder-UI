@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
         shadowOpacity: 1,
         shadowRadius: 16,
         elevation: 4,
-        marginVertical: 8,
-        marginHorizontal: 8,
+        marginVertical: 4,
+        marginHorizontal: 4,
     },
     disabledCardContainer: {
         flex: 1,
