@@ -45,13 +45,6 @@ export default class Profile extends Component {
                             <Text style={styles.menuItem}>Send Feedback</Text>
                         </View>
                     </View>
-                    <View style={styles.itemDivier}></View>
-                    <View style={styles.itemContainer}>
-                        <View style={styles.logoutContainer}>
-                            <Icon name="sign-out" size={32} style={{ marginRight: 16 }} />
-                            <Text style={styles.menuItem}>Logout</Text>
-                        </View>
-                    </View>
                 </View>
                 <LogoutButton onClick={navigation} />
             </View>
