@@ -1,4 +1,4 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Colors from '../../standards/colors';
 
 const styles = StyleSheet.create({
@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.background,
     },
     storyView: {
-        flex: Platform.OS === 'android' ? 3 : 2,
+        flex: 2.5,
         flexDirection: 'column',
         backgroundColor: Colors.light,
         shadowColor: Colors.black,

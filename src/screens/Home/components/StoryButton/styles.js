@@ -5,7 +5,6 @@ import Fonts from '../../../../standards/fonts';
 const styles = StyleSheet.create({
     buttonView: {
         alignItems: 'center',
-        marginTop: 10
     },
     buttonStyle: {
         borderRadius: 50,
