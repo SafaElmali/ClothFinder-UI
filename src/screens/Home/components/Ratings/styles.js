@@ -36,15 +36,43 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
     },
     questionText: {
-        fontSize: Fonts.header,
+        fontSize: Fonts.subheader,
         fontWeight: '600',
         color: Colors.dark,
         textAlign: 'center'
     },
     selectionContainer: {
+        flex: 2,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    submitContainer: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
+        paddingVertical: 16,
+        paddingHorizontal: 48,
+    },
+    submitButton: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderColor: Colors.primary,
+        borderWidth: 1,
+        borderRadius: 50,
+        backgroundColor: Colors.primary,
+        shadowColor: Colors.black,
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 1,
+        shadowRadius: 1,
+        elevation: 4,
+    },
+    submitButtonText: {
+        color: Colors.white,
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
+        fontSize: Fonts.text
     },
     arrowContainer: {
         justifyContent: 'center'

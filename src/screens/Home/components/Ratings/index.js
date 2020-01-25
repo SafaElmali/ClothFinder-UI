@@ -141,6 +141,11 @@ const Rating = props => {
               </View>
             </View>
           </View>
+          <View style={styles.submitContainer}>
+            <View style={styles.submitButton}>
+              <Text style={styles.submitButtonText}>save outfit</Text>
+            </View>
+          </View>
         </View>
       </View>
     );
