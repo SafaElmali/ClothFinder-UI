@@ -45,7 +45,6 @@ const StoryButton = props => {
                 buttonStyle={styles.buttonStyle}
                 onPress={handleGarment}
             />
-            <Text style={styles.buttonText}>{getStoryName(garmentType)}</Text>
         </View>
     )
 }
