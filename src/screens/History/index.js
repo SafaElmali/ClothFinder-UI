@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {View, ScrollView} from 'react-native';
-import {Text, Image} from 'react-native-elements';
-import {outfitSaveEndPoint} from '../../utils/config/config';
+import React, { Component } from 'react';
+import { View, ScrollView } from 'react-native';
+import { Text, Image } from 'react-native-elements';
+import { outfitSaveEndPoint } from '../../utils/config/config';
 import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
 import styles from './styles';
@@ -39,7 +39,7 @@ export default class History extends Component {
   };
 
   getHistory = () => {
-    const {user} = this.state;
+    const { user } = this.state;
     var url = outfitSaveEndPoint + `${user.username}`;
 
     axios
@@ -48,7 +48,7 @@ export default class History extends Component {
           Authorization: 'Bearer ' + user.jwt, //the token is a variable which holds the token
         },
       })
-      .then(({status, data}) => {
+      .then(({ status, data }) => {
         console.log(status, data);
         if (status === 200) {
           this.setState({
@@ -62,41 +62,43 @@ export default class History extends Component {
   };
 
   historyView() {
-    const {history} = this.state;
+    const { history } = this.state;
 
     return history.map((item, index) => (
-      <View style={styles.cardItem}>
-        <View style={styles.dateBadge}>
-          <Text style={styles.date}>{item.currentWeather.date}</Text>
-        </View>
-        <View style={styles.weatherContainer}>
-          <Text style={styles.weather}>{item.currentWeather.temperature}℃</Text>
-          <Text style={styles.description}>
-            {item.currentWeather.description}
-          </Text>
-          <View style={styles.locationContainer}>
+      <View key={index}>
+        <View style={styles.cardItem}>
+          <View style={styles.dateBadge}>
+            <Text style={styles.date}>{item.currentWeather.date}</Text>
+          </View>
+          <View style={styles.weatherContainer}>
+            <Text style={styles.weather}>{item.currentWeather.temperature}℃</Text>
+            <Text style={styles.description}>
+              {item.currentWeather.description}
+            </Text>
+            <View style={styles.locationContainer}>
+              <Image
+                source={require('../../images/location-pin.png')}
+                style={{
+                  width: 16,
+                  height: 16,
+                }}
+              />
+              <Text style={styles.location}>
+                {item.currentWeather.locationName}
+              </Text>
+            </View>
+          </View>
+          <View style={styles.iconContainer}>
             <Image
-              source={require('../../images/location-pin.png')}
+              source={{
+                uri: item.currentWeather.icon,
+              }}
               style={{
-                width: 16,
-                height: 16,
+                width: 72,
+                height: 72,
               }}
             />
-            <Text style={styles.location}>
-              {item.currentWeather.locationName}
-            </Text>
           </View>
-        </View>
-        <View style={styles.iconContainer}>
-          <Image
-            source={{
-              uri: item.currentWeather.icon,
-            }}
-            style={{
-              width: 72,
-              height: 72,
-            }}
-          />
         </View>
       </View>
     ));
@@ -107,7 +109,7 @@ export default class History extends Component {
   }
 
   render() {
-    const {hasData} = this.state;
+    const { hasData } = this.state;
     return (
       <View style={styles.container}>
         {hasData === true ? (
@@ -115,20 +117,20 @@ export default class History extends Component {
             {this.historyView()}
           </ScrollView>
         ) : (
-          <View style={styles.dataNotFoundContainer}>
-            <Image
-              source={require('../../images/sad.png')}
-              style={{
-                width: 128,
-                height: 128,
-              }}
-            />
-            <Text style={styles.dataNotFoundText}>
-              No available data found. Please choose and rate some outfit in the
-              home screen to get your results.
+            <View style={styles.dataNotFoundContainer}>
+              <Image
+                source={require('../../images/sad.png')}
+                style={{
+                  width: 128,
+                  height: 128,
+                }}
+              />
+              <Text style={styles.dataNotFoundText}>
+                No available data found. Please choose and rate some outfit in the
+                home screen to get your results.
             </Text>
-          </View>
-        )}
+            </View>
+          )}
       </View>
     );
   }
