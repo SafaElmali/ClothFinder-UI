@@ -7,13 +7,13 @@ const ProfileButton = props => {
   return <Button
     icon={
       <Icon
-        name="user-circle-o"
+        name="user-o"
         size={30}
         color='black'
       />
     }
-    onPress={() => navigate('Profile')} color="#fff"
-    buttonStyle={{ backgroundColor: '#fff' }}
+    onPress={() => navigate('Profile')}
+    buttonStyle={{ backgroundColor: '#fff', marginRight: 16 }}
   />
 }
 

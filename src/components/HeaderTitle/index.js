@@ -6,8 +6,8 @@ const HeaderTitle = (props) => {
     const { title } = props;
 
     return (
-        <View style={{ paddingHorizontal: 10 }}>
-            <Text style={{ fontSize: 18, fontStyle: 'italic' }}>{title}</Text>
+        <View style={{ marginLeft: 16 }}>
+            <Text style={{ fontSize: 18 }}>{title}</Text>
         </View>
     )
 }
