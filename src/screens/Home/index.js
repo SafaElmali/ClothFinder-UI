@@ -3,14 +3,25 @@ import { View, ScrollView } from 'react-native';
 import { BottomWear, Boots, Glasses, TopWear } from '../../components/SvgFiles/index';
 import { outfitSaveEndPoint } from '../../utils/config/config';
 import StoryButton from './components/StoryButton/index';
-import LogoutButton from './components/LogoutButton/index';
 import GarmentModal from './components/Overlay/index';
 import Weather from './components/Weather/index';
 import Rating from './components/Ratings/index';
+import HeaderTitle from '../../components/HeaderTitle/index';
+import ProfileButton from './components/ProfileButton/index';
 import styles from './styles';
 import axios from 'axios';
 
 export default class Home extends Component {
+    static navigationOptions = ({ navigation, navigationOptions }) => {
+
+        return {
+            headerTitle: () => <HeaderTitle title="Clothfinder" />,
+            headerRight: () => (
+                <ProfileButton onClick={navigation} />
+            ),
+        }
+    };
+
     constructor(props) {
         super(props);
         const { navigation } = this.props;
@@ -171,13 +182,6 @@ export default class Home extends Component {
         });
     }
 
-    //Close modal
-    onCloseOverlay = (closeState) => {
-        this.setState({
-            isVisible: closeState
-        });
-    }
-
     //Send each rate selection
     handleSelectedRate = () => {
         const { jwt, username, currentWeather } = this.state;
@@ -203,9 +207,15 @@ export default class Home extends Component {
         });
     }
 
+    //Close modal
+    onCloseOverlay = (closeState) => {
+        this.setState({
+            isVisible: closeState
+        });
+    }
+
     render() {
         const { wearList, jwt, isVisible, tempOutfit, topwearList, bottomwearList, footwearList, accessoriesList } = this.state;
-        const { navigation } = this.props;
 
         return (
             <View style={styles.container}>
@@ -226,7 +236,6 @@ export default class Home extends Component {
                 <View style={styles.weatherContainer}>
                     <Weather jwt={jwt} handleCurrentWeather={this.handleCurrentWeather} />
                 </View>
-                <LogoutButton onClick={navigation} />
             </View>
         );
     }

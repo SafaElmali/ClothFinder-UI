@@ -38,10 +38,6 @@ const styles = StyleSheet.create({
         paddingRight: 12,
         paddingLeft: 12,
     },
-    submitView: {
-        flex: 2,
-        backgroundColor: 'gray',
-    },
 });
 
 export default styles;
