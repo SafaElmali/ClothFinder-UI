@@ -28,15 +28,15 @@ export default class Profile extends Component {
                     <View style={styles.itemDivier}></View>
                     <View style={styles.itemContainer}>
                         <View style={styles.logoutContainer}>
-                            <Icon name="envelope" size={24} style={{ marginRight: 16 }} />
-                            <Text style={styles.menuItem}>recepinancc@gmail.com</Text>
+                            <Icon name="user" size={32} style={{ marginRight: 16 }} />
+                            <Text style={styles.menuItem}>recep</Text>
                         </View>
                     </View>
                     <View style={styles.itemDivier}></View>
                     <View style={styles.itemContainer}>
                         <View style={styles.logoutContainer}>
-                            <Icon name="user" size={32} style={{ marginRight: 16 }} />
-                            <Text style={styles.menuItem}>recep</Text>
+                            <Icon name="envelope" size={24} style={{ marginRight: 16 }} />
+                            <Text style={styles.menuItem}>recepinancc@gmail.com</Text>
                         </View>
                     </View>
                     <View style={styles.itemDivier}></View>
