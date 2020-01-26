@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { Text, Image, Button } from 'react-native-elements';
+import { Text } from 'react-native-elements';
 import LogoutButton from './components/LogoutButton/index';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -16,7 +16,7 @@ export default class Profile extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.userIconContainer}>
-                    <Icon name="user" size={128}/>
+                    <Icon name="user" size={128} />
                 </View>
                 <View style={styles.listContainer}>
                     <View style={styles.itemContainer}>

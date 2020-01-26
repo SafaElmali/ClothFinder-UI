@@ -12,12 +12,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 32
-    },
-    infoContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 16
     },
     infoCard: {
         flexDirection: 'column',
