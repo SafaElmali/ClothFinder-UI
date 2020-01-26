@@ -26,7 +26,8 @@ export default class Login extends Component {
             displayToaster: '',
             toasterText: '',
             toasterType: '',
-            isKeyboardOpen: false
+            isKeyboardOpen: false,
+            loading: false
         }
     }
 
@@ -37,13 +38,17 @@ export default class Login extends Component {
 
     // Check user username and password in db. If it returns success then navigate to home screen
     handleLogin = (username, password, toasterStatus) => {
+        this.setState({
+            loading: true
+        });
         axios.post(loginLocalPoint, { username: username, password: password }).then(({ data, status }) => {
             if (status === 200) {
                 this.setState({
                     user: {
                         username: username,
                         jwt: data.jwt
-                    }
+                    },
+                    loading: false
                 }, async () => {
                     const { user } = this.state;
                     const { navigation } = this.props;
@@ -57,13 +62,28 @@ export default class Login extends Component {
                 this.setState({
                     displayToaster: toasterStatus,
                     toasterText: "Username or Password invalid",
-                    toasterType: 'Warning'
+                    toasterType: 'Warning',
+                    loading: false
                 });
                 setTimeout(() => {
                     this.setState({ displayToaster: false })
                 }, 3000)
             }
         })
+    }
+
+    // Hide some component to display input areas clearly when keyboard opened
+    _keyboardDidShow = () => {
+        this.setState({
+            isKeyboardOpen: true
+        });
+    }
+
+    // Show hidden components after keyboard closed 
+    _keyboardDidHide = () => {
+        this.setState({
+            isKeyboardOpen: false
+        });
     }
 
     //Check AsyncStorage has Item
@@ -83,22 +103,8 @@ export default class Login extends Component {
         }
     }
 
-    // Hide some component to display input areas clearly when keyboard opened
-    _keyboardDidShow = () => {
-        this.setState({
-            isKeyboardOpen: true
-        });
-    }
-
-    // Show hidden components after keyboard closed 
-    _keyboardDidHide = () => {
-        this.setState({
-            isKeyboardOpen: false
-        });
-    }
-
     render() {
-        const { isKeyboardOpen, displayToaster, toasterText, toasterType } = this.state;
+        const { isKeyboardOpen, displayToaster, toasterText, toasterType, loading } = this.state;
         const { navigation } = this.props;
 
         return (
@@ -113,7 +119,7 @@ export default class Login extends Component {
                     </View> : null
                 }
                 <View style={styles.loginFormContent}>
-                    <LoginForm onLogin={this.handleLogin} />
+                    <LoginForm onLogin={this.handleLogin} isLoading={loading} />
                 </View>
                 {!isKeyboardOpen === true ?
                     <View style={styles.footer}>

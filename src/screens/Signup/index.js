@@ -14,9 +14,6 @@ export default class Signup extends Component {
         headerStyle: {
             backgroundColor: '#f7f7f7',
         },
-        headerTitleStyle: {
-            color: '#000'
-        },
     };
 
     constructor() {
@@ -26,6 +23,25 @@ export default class Signup extends Component {
             displayToaster: false,
             toasterText: '',
             toasterType: '',
+        }
+    }
+
+    // Handle user signup inputs
+    handleSignupStatus = (status, statusText, toasterType) => {
+        const { navigation } = this.props;
+
+        if (status) {
+            this.setState({ displayToaster: true, toasterText: statusText, toasterType: toasterType });
+            setTimeout(() => {
+                this.setState({ displayToaster: false }, () => {
+                    navigation.navigate('Login');
+                })
+            }, 2000);
+        } else {
+            this.setState({ displayToaster: true, toasterText: statusText, toasterType: toasterType });
+            setTimeout(() => {
+                this.setState({ displayToaster: false })
+            }, 3000);
         }
     }
 
@@ -41,25 +57,6 @@ export default class Signup extends Component {
         this.setState({
             isKeyboardOpen: false
         });
-    }
-
-    // Handle user signup inputs
-    handleSignupStatus = (status, statusText, toasterType) => {
-        const { navigation } = this.props;
-
-        if (status) {
-            this.setState({ displayToaster: true, toasterText: statusText, toasterType: toasterType });
-            setTimeout(() => {
-                this.setState({ displayToaster: false }, () => {
-                    navigation.navigate('Login');
-                })
-            }, 2500);
-        } else {
-            this.setState({ displayToaster: true, toasterText: statusText, toasterType: toasterType });
-            setTimeout(() => {
-                this.setState({ displayToaster: false })
-            }, 3000);
-        }
     }
 
     render() {

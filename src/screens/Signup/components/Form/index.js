@@ -6,7 +6,7 @@ import axios from 'axios';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 
-const SignupForm = (props) => {
+const SignupForm = props => {
     const [user, setUser] = useState({ username: '', email: '', password: '' });
     const [displayPassword, setPasswordShow] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -98,7 +98,7 @@ const SignupForm = (props) => {
                     iconRight
                     loading={loading}
                     icon={
-                        <Icon name='check-circle' size={22} color="#2089dc" />
+                        <Icon name='check-circle' size={18} color="#2089dc" />
                     }
                     titleStyle={styles.buttonTitle}
                     onPress={handleFormSignup}
