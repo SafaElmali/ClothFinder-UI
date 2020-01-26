@@ -105,9 +105,9 @@ export default class Weather extends Component {
                     currentWeather: data,
                     hasAccess: true
                 }, () => {
-                    const { handleCurrentWeather } = this.props;
+                    const { onHandleCurrentWeather } = this.props;
                     const { currentWeather } = this.state;
-                    handleCurrentWeather(currentWeather);
+                    onHandleCurrentWeather(currentWeather);
                 });
             }
         });
