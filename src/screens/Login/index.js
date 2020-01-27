@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView } from 'react-native';
-import { Toaster } from '../../components/Toaster/index';
 import { loginLocalPoint } from '../../utils/config/config';
+import { Toast } from 'native-base';
 import AsyncStorage from '@react-native-community/async-storage';
 import KeyboardEvent from '../../components/Keyboard/index';
 import Header from '../../components/Header/index';
@@ -23,9 +23,6 @@ export default class Login extends Component {
                 username: '',
                 jwt: '',
             },
-            displayToaster: '',
-            toasterText: '',
-            toasterType: '',
             isKeyboardOpen: false,
             loading: false
         }
@@ -58,16 +55,16 @@ export default class Login extends Component {
                 });
             }
         }).catch(err => {
-            if (err.response.status === 403 && toasterStatus) {
+            if (err.response.status === 403) {
+                Toast.show({
+                    text: "Username or Password invalid",
+                    buttonText: "Okay",
+                    type: "warning",
+                    duration: 3000
+                })
                 this.setState({
-                    displayToaster: toasterStatus,
-                    toasterText: "Username or Password invalid",
-                    toasterType: 'Warning',
                     loading: false
                 });
-                setTimeout(() => {
-                    this.setState({ displayToaster: false })
-                }, 3000)
             }
         })
     }
@@ -104,14 +101,11 @@ export default class Login extends Component {
     }
 
     render() {
-        const { isKeyboardOpen, displayToaster, toasterText, toasterType, loading } = this.state;
+        const { isKeyboardOpen, loading } = this.state;
         const { navigation } = this.props;
 
         return (
             <SafeAreaView style={styles.container}>
-                {displayToaster ?
-                    <Toaster text={toasterText} type={toasterType} /> : null
-                }
                 <KeyboardEvent keyboardShow={this._keyboardDidShow} keyboardHide={this._keyboardDidHide} />
                 {!isKeyboardOpen === true ?
                     <View style={styles.header}>

@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* ClothfinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ClothfinderTests.m */; };
 		0E12BE70B5734D44BDA6D8DC /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8ADACD82A77D4A35B0204285 /* Foundation.ttf */; };
