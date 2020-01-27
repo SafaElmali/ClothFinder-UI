@@ -12,7 +12,7 @@ import styles from './styles';
 import axios from 'axios';
 
 export default class Home extends Component {
-    static navigationOptions = ({ navigation, navigationOptions }) => {
+    static navigationOptions = ({ navigation }) => {
 
         return {
             headerTitle: () => <HeaderTitle title="Clothfinder" />,
@@ -253,18 +253,18 @@ export default class Home extends Component {
                 <View style={styles.storyView}>
                     <ScrollView contentContainerStyle={styles.storyViewScrollContainer} horizontal={true} alwaysBounceHorizontal={true} showsHorizontalScrollIndicator={false}>
                         <View style={styles.storyButtonView}>
-                            <StoryButton jwt={jwt} wearList={topwearList} garmentType='TOPWEAR' handleGarmentList={this.handleGarmentList} image={<TopWear />} />
-                            <StoryButton jwt={jwt} wearList={bottomwearList} garmentType='BOTTOMWEAR' handleGarmentList={this.handleGarmentList} image={<BottomWear />} />
-                            <StoryButton jwt={jwt} wearList={footwearList} garmentType='FOOTWEAR' handleGarmentList={this.handleGarmentList} image={<Boots />} />
-                            <StoryButton jwt={jwt} wearList={accessoriesList} garmentType='ACCESSORIES' handleGarmentList={this.handleGarmentList} image={<Glasses />} />
+                            <StoryButton jwt={jwt} wearList={topwearList} garmentType='TOPWEAR' onHandleGarmentList={this.handleGarmentList} image={<TopWear />} />
+                            <StoryButton jwt={jwt} wearList={bottomwearList} garmentType='BOTTOMWEAR' onHandleGarmentList={this.handleGarmentList} image={<BottomWear />} />
+                            <StoryButton jwt={jwt} wearList={footwearList} garmentType='FOOTWEAR' onHandleGarmentList={this.handleGarmentList} image={<Boots />} />
+                            <StoryButton jwt={jwt} wearList={accessoriesList} garmentType='ACCESSORIES' onHandleGarmentList={this.handleGarmentList} image={<Glasses />} />
                         </View>
                     </ScrollView>
                 </View>
                 <View style={styles.ratingContainer}>
-                    <Rating outfit={tempOutfit} handleSelectedRate={this.handleSelectedRate} isLoading={isLoading} />
+                    <Rating outfit={tempOutfit} onHandleSelectedRate={this.handleSelectedRate} isLoading={isLoading} />
                 </View>
                 <View style={styles.weatherContainer}>
-                    <Weather jwt={jwt} handleCurrentWeather={this.handleCurrentWeather} />
+                    <Weather jwt={jwt} onHandleCurrentWeather={this.handleCurrentWeather} />
                 </View>
             </View>
         );

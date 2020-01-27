@@ -32,7 +32,7 @@ const Rating = props => {
   }, [outfit]);
 
   const assignRate = (item, rateType, garmentType) => {
-    const { handleSelectedRate } = props;
+    const { onHandleSelectedRate } = props;
     let selectedGarmentItem = -1;
 
     if (garmentType === 'TOPWEAR') {
@@ -46,7 +46,7 @@ const Rating = props => {
         garmentItem => garmentItem.garment.id == item.garment.id,
       );
       topwearList[selectedGarmentItem].rating = rateType;
-      handleSelectedRate(false);
+      onHandleSelectedRate(false);
     } else if (garmentType === 'BOTTOMWEAR') {
       const bottomwearList = outfitList.find(garmentArray => {
         return garmentArray.some((garmentItem, index) => {
@@ -58,7 +58,7 @@ const Rating = props => {
         garmentItem => garmentItem.garment.id == item.garment.id,
       );
       bottomwearList[selectedGarmentItem].rating = rateType;
-      handleSelectedRate(false);
+      onHandleSelectedRate(false);
     } else if (garmentType === 'FOOTWEAR') {
       const footwearList = outfitList.find(garmentArray => {
         return garmentArray.some((garmentItem, index) => {
@@ -70,7 +70,7 @@ const Rating = props => {
         garmentItem => garmentItem.garment.id == item.garment.id,
       );
       footwearList[selectedGarmentItem].rating = rateType;
-      handleSelectedRate(false);
+      onHandleSelectedRate(false);
     } else if (garmentType === 'ACCESSORIES') {
       const accessoriesList = outfitList.find(garmentArray => {
         return garmentArray.some((garmentItem, index) => {
@@ -82,14 +82,14 @@ const Rating = props => {
         garmentItem => garmentItem.garment.id == item.garment.id,
       );
       accessoriesList[selectedGarmentItem].rating = rateType;
-      handleSelectedRate(false);
+      onHandleSelectedRate(false);
     } else {
       return 'Comollocco';
     }
   };
 
   const _renderItem = ({ item, index }) => {
-    const { handleSelectedRate, isLoading } = props;
+    const { onHandleSelectedRate, isLoading } = props;
 
     return (
       <View key={index} style={styles.ratingCard}>
@@ -148,7 +148,7 @@ const Rating = props => {
               buttonStyle={styles.submitButton}
               title="save outfit"
               loading={isLoading}
-              onPress={() => handleSelectedRate(true)} />
+              onPress={() => onHandleSelectedRate(true)} />
           </View>
         </View>
       </View>
