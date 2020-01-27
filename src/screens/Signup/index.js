@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView } from 'react-native';
-import { Toaster } from '../../components/Toaster/index';
+import { Toast } from 'native-base';
 import SignupForm from './components/Form/index';
 import Header from '../../components/Header/index';
 import Footer from '../../components/Footer/index';
@@ -14,18 +14,36 @@ export default class Signup extends Component {
         headerStyle: {
             backgroundColor: '#f7f7f7',
         },
-        headerTitleStyle: {
-            color: '#000'
-        },
     };
 
     constructor() {
         super();
         this.state = {
             isKeyboardOpen: false,
-            displayToaster: false,
-            toasterText: '',
-            toasterType: '',
+        }
+    }
+
+    // Handle user signup inputs
+    handleSignupStatus = (status, statusText) => {
+        const { navigation } = this.props;
+
+        if (status) {
+            Toast.show({
+                text: statusText,
+                type: "success",
+                buttonText: "Okay",
+                duration: 3000
+            })
+            setTimeout(() => {
+                navigation.navigate('Login');
+            }, 2000);
+        } else {
+            Toast.show({
+                text: statusText,
+                type: "warning",
+                buttonText: "Okay",
+                duration: 3000
+            })
         }
     }
 
@@ -43,34 +61,12 @@ export default class Signup extends Component {
         });
     }
 
-    // Handle user signup inputs
-    handleSignupStatus = (status, statusText, toasterType) => {
-        const { navigation } = this.props;
-
-        if (status) {
-            this.setState({ displayToaster: true, toasterText: statusText, toasterType: toasterType });
-            setTimeout(() => {
-                this.setState({ displayToaster: false }, () => {
-                    navigation.navigate('Login');
-                })
-            }, 2500);
-        } else {
-            this.setState({ displayToaster: true, toasterText: statusText, toasterType: toasterType });
-            setTimeout(() => {
-                this.setState({ displayToaster: false })
-            }, 3000);
-        }
-    }
-
     render() {
-        const { isKeyboardOpen, displayToaster, toasterText, toasterType } = this.state;
+        const { isKeyboardOpen } = this.state;
         const { navigation } = this.props;
 
         return (
             <SafeAreaView style={styles.container}>
-                {displayToaster ?
-                    <Toaster text={toasterText} type={toasterType} /> : null
-                }
                 <KeyboardEvent keyboardShow={this._keyboardDidShow} keyboardHide={this._keyboardDidHide} />
                 {!isKeyboardOpen === true ?
                     <View style={styles.header}>

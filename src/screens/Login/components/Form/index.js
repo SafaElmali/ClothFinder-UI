@@ -4,7 +4,8 @@ import { Input, Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 
-const LoginForm = (props) => {
+const LoginForm = props => {
+    const { isLoading } = props;
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [displayPassword, setPasswordShow] = useState(false);
@@ -18,7 +19,7 @@ const LoginForm = (props) => {
     const handleLogin = () => {
         const { onLogin } = props;
 
-        onLogin(name, password, true);
+        onLogin(name, password);
     }
 
     return (
@@ -68,8 +69,12 @@ const LoginForm = (props) => {
                     containerStyle={styles.button}
                     iconRight
                     icon={
-                        <Icon size={22} color="#2089dc" />
+                        <Icon
+                            size={18}
+                            name='sign-in'
+                            color="#2089dc" />
                     }
+                    loading={isLoading}
                     titleStyle={styles.buttonTitle}
                     onPress={handleLogin}
                 />
