@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { View, ScrollView } from 'react-native';
-import { Text, Image } from 'react-native-elements';
+import { Text, Image, Button } from 'react-native-elements';
 import { outfitSaveEndPoint } from '../../utils/config/config';
+import DetailOverlay from './components/DetailOverlay/index';
 import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
 import styles from './styles';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class History extends Component {
   constructor(props) {
@@ -14,6 +16,8 @@ export default class History extends Component {
         icon: '',
       },
       hasData: false,
+      isVisible: false,
+      outfitDetail: []
     };
   }
 
@@ -65,6 +69,7 @@ export default class History extends Component {
     const { history } = this.state;
 
     return history.map((item, index) => (
+
       <View key={index}>
         <View style={styles.cardItem}>
           <View style={styles.dateBadge}>
@@ -99,6 +104,36 @@ export default class History extends Component {
               }}
             />
           </View>
+          <View style={{ flex: 1, bottom: -5, right: 0, left: 0, justifyContent: 'center', alignItems: 'center', position: 'absolute' }}>
+            <Button
+              title='See Details'
+              titleStyle={{ color: '#AAAAAA', paddingRight: 5 }}
+              icon={
+                <Icon
+                  name="arrow-right"
+                  size={15}
+                  color="#AAAAAA"
+                />
+              }
+              containerStyle={{ bottom: -20 }}
+              buttonStyle={{
+                borderRadius: 50, backgroundColor: '#FFFFFF', shadowColor: '#000',
+                shadowOffset: {
+                  width: 0,
+                  height: 1,
+                },
+                shadowOpacity: 1,
+                shadowRadius: 1,
+                elevation: 8,
+              }}
+              iconRight
+              onPress={() => {
+                this.setState({
+                  outfitDetail: item,
+                  isVisible: true
+                })
+              }} />
+          </View>
         </View>
       </View>
     ));
@@ -108,12 +143,21 @@ export default class History extends Component {
     this.loadHistory();
   }
 
+  //Close modal
+  onCloseOverlay = (closeState) => {
+    this.setState({
+      isVisible: closeState
+    });
+  }
+
   render() {
-    const { hasData } = this.state;
+    const { hasData, isVisible, outfitDetail } = this.state;
+
     return (
       <View style={styles.container}>
         {hasData === true ? (
           <ScrollView contentContainerStyle={styles.scrollContainer}>
+            <DetailOverlay isVisible={isVisible} outfitDetail={outfitDetail} closeOverlay={this.onCloseOverlay} />
             {this.historyView()}
           </ScrollView>
         ) : (
