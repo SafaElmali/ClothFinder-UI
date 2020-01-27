@@ -5,19 +5,23 @@ const DetailOverlay = (props) => {
     const { isVisible, outfitDetail } = props;
     console.log(outfitDetail);
     const { topwear, bottomwear, footwear, accessories } = outfitDetail;
-    console.log(topwear);
-    console.log(bottomwear);
-    console.log(footwear);
-    console.log(accessories);
+    const selectedList = [];
+
+    selectedList.push(topwear, bottomwear, footwear, accessories);
+    console.log(selectedList);
 
     const onCloseOverlay = () => {
-        const { onCloseOverlay } = props;
-        onCloseOverlay(false);
+        const { closeOverlay } = props;
+        closeOverlay(false);
     }
 
     return (
         <Overlay isVisible={isVisible} onBackdropPress={onCloseOverlay}>
-            <Text>Hello from Overlay!</Text>
+            {
+                selectedList.map((garmentList) => {
+                    console.log(garmentList);
+                })
+            }
         </Overlay>
     )
 }

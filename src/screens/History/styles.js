@@ -1,4 +1,4 @@
-import {StyleSheet, Platform} from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import Colors from '../../standards/colors';
 import Fonts from '../../standards/fonts';
 
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     shadowRadius: 1,
     elevation: 8,
     marginTop: 24,
+    marginBottom: 20
   },
   dateBadge: {
     flex: 1,
