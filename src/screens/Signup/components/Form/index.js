@@ -24,7 +24,7 @@ const SignupForm = props => {
         axios.post(registerLocalPoint, user).then(({ status }) => {
             if (status === 200) {
                 setLoading(false);
-                onSignupStatus(true, 'You registered Successfully 🤩\nreturning to login 🚀');
+                onSignupStatus(true, 'You registered Successfully 🤩\nReturning to login 🚀');
             }
         }).catch(err => {
             if (err.response.status === 409) {
