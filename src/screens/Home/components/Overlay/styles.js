@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         fontWeight: 'bold',
         fontSize: Fonts.header,
-        color: Colors.dark,
+        color: '#006699',
         marginVertical: 16,
     },
     overlayCloseButton: {
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         marginTop: 16,
         paddingHorizontal: 16,
         right: 0,
-        color: '#0687f5'
+        color: Colors.primary
     },
     listItem: {
         color: Colors.darkText,
