@@ -146,7 +146,8 @@ const Rating = props => {
           <View style={styles.submitContainer}>
             <Button
               buttonStyle={styles.submitButton}
-              title="save outfit"
+              titleStyle={{ textTransform: 'uppercase' }}
+              title="save outfıt"
               loading={isLoading}
               onPress={() => onHandleSelectedRate(true)} />
           </View>
