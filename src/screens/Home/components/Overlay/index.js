@@ -42,15 +42,21 @@ const GarmentModal = (props) => {
                                     key={index}
                                     title={item.name}
                                     titleStyle={styles.listItem}
-                                    bottomDivider
                                     checkBox={{
                                         onPress() {
                                             item.selected = !item.selected;
                                             setGarment({ garment: { id: item.id, name: item.name, garmentType: item.garmentType, selected: item.selected } });
                                         },
                                         checked: item.selected,
-                                        checkedIcon: 'dot-circle-o',
-                                        uncheckedIcon: 'circle-o'
+                                        checkedIcon: 'check-circle',
+                                        uncheckedIcon: 'circle',
+                                        size: 26,
+                                        checkedColor: '#42f57e'
+                                    }}
+                                    bottomDivider
+                                    onPress={() => {
+                                        item.selected = !item.selected;
+                                        setGarment({ garment: { id: item.id, name: item.name, garmentType: item.garmentType, selected: item.selected } });
                                     }}
                                 />
                             )

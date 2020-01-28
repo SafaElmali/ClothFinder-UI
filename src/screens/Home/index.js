@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, ScrollView } from 'react-native';
 import { BottomWear, Boots, Glasses, TopWear } from '../../components/SvgFiles/index';
 import { outfitSaveEndPoint } from '../../utils/config/config';
+import { Toast } from 'native-base';
 import StoryButton from './components/StoryButton/index';
 import GarmentModal from './components/Overlay/index';
 import Weather from './components/Weather/index';
@@ -43,7 +44,7 @@ export default class Home extends Component {
         }
     }
 
-    //handle garment type list and open modal
+    // Handle garment type list and open modal
     handleGarmentList = (garmentList, garmentType) => {
         if (garmentList.length > 0) {
             switch (garmentType) {
@@ -102,7 +103,7 @@ export default class Home extends Component {
         }
     }
 
-    //Get selected list for each story
+    // Get selected list for each story
     handleSelectedOutfit = (garmentItem, garmentType) => {
         switch (garmentType) {
             case 'TOPWEAR':
@@ -176,14 +177,14 @@ export default class Home extends Component {
         }
     }
 
-    //Get current weather detail
+    // Get current weather detail
     handleCurrentWeather = (currentWeather) => {
         this.setState({
             currentWeather: currentWeather
         });
     }
 
-    //Send each rate selection
+    // Send each rate selection
     handleSelectedRate = (isSaveOutfitClicked) => {
         const { jwt, username, currentWeather } = this.state;
 
@@ -204,9 +205,25 @@ export default class Home extends Component {
                     }
                 }).then(({ status, data }) => {
                     if (status === 201) {
+                        Toast.show({
+                            text: 'Rating saved!',
+                            buttonText: 'Okay',
+                            position: 'bottom',
+                            type: 'success',
+                            duration: 2000
+                        });
                         console.log(data);
                     }
-                }, (error) => console.log(error));
+                }, (error) => {
+                    console.log(error);
+                    Toast.show({
+                        text: 'Error occured saving rating!',
+                        buttonText: 'Okay',
+                        position: 'bottom',
+                        type: 'danger',
+                        duration: 2000
+                    });
+                });
             });
         } else {
             this.setState(state => ({
@@ -227,17 +244,35 @@ export default class Home extends Component {
                 }).then(({ status, data }) => {
                     if (status === 201) {
                         console.log(data);
-                        console.log("Outfit saved successfully!");
+                        Toast.show({
+                            text: 'Outfit saved to your history!',
+                            buttonText: 'Okay',
+                            position: 'bottom',
+                            type: 'success',
+                            duration: 2000
+                        });
                         this.setState({
                             isLoading: false
                         });
                     }
-                }, (error) => console.log(error));
+                }, (error) => {
+                    console.log(error);
+                    Toast.show({
+                        text: 'Error occured saving outfit!',
+                        buttonText: 'Okay',
+                        position: 'bottom',
+                        type: 'danger',
+                        duration: 2000
+                    });
+                    this.setState({
+                        isLoading: false
+                    });
+                });
             });
         }
     }
 
-    //Close modal
+    // Close modal
     onCloseOverlay = (closeState) => {
         this.setState({
             isVisible: closeState
