@@ -18,6 +18,35 @@ const GarmentModal = (props) => {
         onHandleOutfit(garment, garment.garment.garmentType);
     }, [garment])
 
+
+    const _renderItem = (({ item, index }) => {
+        return (
+            <ListItem
+                key={index}
+                title={item.name}
+                titleStyle={styles.listItem}
+                checkBox={{
+                    onPress() {
+                        item.selected = !item.selected;
+                        setGarment({ garment: { id: item.id, name: item.name, garmentType: item.garmentType, selected: item.selected } });
+                    },
+                    checked: item.selected,
+                    checkedIcon: 'check-circle',
+                    uncheckedIcon: 'circle',
+                    size: 26,
+                    checkedColor: '#42f57e'
+                }}
+                onPress={() => {
+                    item.selected = !item.selected;
+                    setGarment({ garment: { id: item.id, name: item.name, garmentType: item.garmentType, selected: item.selected } });
+                }}
+                bottomDivider
+                underlayColor={'#d2d4d6'}
+            />
+        )
+    });
+
+
     return (
         <Overlay isVisible={isVisible} onBackdropPress={onCloseOverlay} fullScreen>
             <SafeAreaView>
@@ -36,31 +65,7 @@ const GarmentModal = (props) => {
                     <FlatList
                         data={wearList}
                         keyExtractor={item => item.id.toString()}
-                        renderItem={({ item, index }) => {
-                            return (
-                                <ListItem
-                                    key={index}
-                                    title={item.name}
-                                    titleStyle={styles.listItem}
-                                    checkBox={{
-                                        onPress() {
-                                            item.selected = !item.selected;
-                                            setGarment({ garment: { id: item.id, name: item.name, garmentType: item.garmentType, selected: item.selected } });
-                                        },
-                                        checked: item.selected,
-                                        checkedIcon: 'check-circle',
-                                        uncheckedIcon: 'circle',
-                                        size: 26,
-                                        checkedColor: '#42f57e'
-                                    }}
-                                    bottomDivider
-                                    onPress={() => {
-                                        item.selected = !item.selected;
-                                        setGarment({ garment: { id: item.id, name: item.name, garmentType: item.garmentType, selected: item.selected } });
-                                    }}
-                                />
-                            )
-                        }}
+                        renderItem={_renderItem}
                     /> : null
                 }
             </SafeAreaView>
