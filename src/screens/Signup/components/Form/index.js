@@ -29,7 +29,7 @@ const SignupForm = props => {
         }).catch(err => {
             if (err.response.status === 409) {
                 setLoading(false);
-                onSignupStatus(true, err.response.data);
+                onSignupStatus(false, err.response.data);
             } else if (err.response.status === 422) {
                 setLoading(false);
                 onSignupStatus(false, err.response.data);
