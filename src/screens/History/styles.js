@@ -11,18 +11,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 16,
   },
-  dataNotFoundContainer: {
-    flex: 1,
-    paddingVertical: 64,
-    paddingHorizontal: 32,
-    alignItems: 'center',
-  },
-  dataNotFoundText: {
-    textAlign: 'center',
-    fontSize: Fonts.subheader,
-    color: Colors.fadedText,
-    marginTop: 32,
-  },
   cardItem: {
     flex: 0.2,
     flexDirection: 'row',

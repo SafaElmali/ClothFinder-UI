@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, ScrollView } from 'react-native';
 import { Text, Image, Button } from 'react-native-elements';
 import { outfitSaveEndPoint } from '../../utils/config/config';
+import NoDataView from './components/NoDataView/index';
 import DetailOverlay from './components/DetailOverlay/index';
 import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
@@ -160,21 +161,8 @@ export default class History extends Component {
             <DetailOverlay isVisible={isVisible} outfitDetail={outfitDetail} closeOverlay={this.onCloseOverlay} />
             {this.historyView()}
           </ScrollView>
-        ) : (
-            <View style={styles.dataNotFoundContainer}>
-              <Image
-                source={require('../../images/sad.png')}
-                style={{
-                  width: 128,
-                  height: 128,
-                }}
-              />
-              <Text style={styles.dataNotFoundText}>
-                No available data found. Please choose and rate some outfit in the
-                home screen to get your results.
-            </Text>
-            </View>
-          )}
+        ) : <NoDataView />
+        }
       </View>
     );
   }
