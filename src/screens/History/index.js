@@ -54,14 +54,11 @@ export default class History extends Component {
         },
       })
       .then(({ status, data }) => {
-        console.log(status, data);
         if (status === 200) {
           this.setState({
             history: data,
             hasData: true,
           });
-
-          console.log(data);
         }
       });
   };

@@ -1,26 +1,77 @@
 import React from 'react';
-import { Overlay, Text } from 'react-native-elements';
+import { View, FlatList } from 'react-native';
+import { Overlay, ListItem, Text } from 'react-native-elements';
+import {
+    WorstEmoji,
+    BestEmoji,
+    BadEmoji,
+    NeutralEmoji,
+    GoodEmoji,
+} from '../../../../components/SvgFiles/index';
 
 const DetailOverlay = (props) => {
     const { isVisible, outfitDetail } = props;
-    console.log(outfitDetail);
     const { topwear, bottomwear, footwear, accessories } = outfitDetail;
     const selectedList = [];
 
     selectedList.push(topwear, bottomwear, footwear, accessories);
-    console.log(selectedList);
 
     const onCloseOverlay = () => {
         const { closeOverlay } = props;
         closeOverlay(false);
     }
 
+    const _renderHistoryDetail = () => {
+        return selectedList.map((garmentList) => {
+            if (garmentList != undefined && garmentList.length > 0) {
+                return <FlatList
+                    data={garmentList}
+                    keyExtractor={item => item.garment.id.toString()}
+                    renderItem={_renderItem}
+                />
+            } else {
+                return null;
+            }
+        });
+    }
+
+    const _renderItem = (({ item, index }) => {
+        return (
+            <ListItem
+                key={index}
+                title={item.garment.name}
+                bottomDivider
+                underlayColor={'#d2d4d6'}
+                rightElement={
+                    checkSelectedRating(item)
+                }
+            />
+        )
+    });
+
+    const checkSelectedRating = (garmentItem) => {
+        if (garmentItem.rating === 'WORST') {
+            return <WorstEmoji />
+        } else if (garmentItem.rating === 'BAD') {
+            return <BadEmoji />
+        } else if (garmentItem.rating === 'NEUTRAL') {
+            return <NeutralEmoji />
+        } else if (garmentItem.rating === 'GOOD') {
+            return <GoodEmoji />
+        } else if (garmentItem.rating === 'BEST') {
+            return <BestEmoji />
+        } else {
+            return <Text>Not Rated</Text>;
+        }
+    }
+
     return (
-        <Overlay isVisible={isVisible} onBackdropPress={onCloseOverlay}>
+        <Overlay
+            isVisible={isVisible}
+            onBackdropPress={onCloseOverlay}
+            borderRadius={15}>
             {
-                selectedList.map((garmentList) => {
-                    console.log(garmentList);
-                })
+                _renderHistoryDetail()
             }
         </Overlay>
     )
