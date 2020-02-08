@@ -22,6 +22,14 @@ export default class History extends Component {
     };
   }
 
+  componentDidMount() {
+    const { navigation } = this.props;
+    this.navFocusListener = navigation.addListener('willFocus', () => {
+      this.loadHistory();
+    });
+  }
+
+
   loadHistory = async () => {
     try {
       const userDetails = await AsyncStorage.getItem('USER_DETAILS');
@@ -54,6 +62,7 @@ export default class History extends Component {
         },
       })
       .then(({ status, data }) => {
+        console.log(data);
         if (status === 200) {
           this.setState({
             history: data,
@@ -137,9 +146,7 @@ export default class History extends Component {
     ));
   }
 
-  componentDidMount() {
-    this.loadHistory();
-  }
+
 
   //Close modal
   onCloseOverlay = (closeState) => {
