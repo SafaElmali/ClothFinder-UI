@@ -41,25 +41,28 @@ const Rating = props => {
         garmentItem => garmentItem.garment.id == item.garment.id,
       );
 
-      topwearList[selectedGarmentItem].rating = rateType;
+      topwear[selectedGarmentItem].rating = rateType;
       onHandleSelectedRate(false);
     } else if (garmentType === 'BOTTOMWEAR') {
       selectedGarmentItem = bottomwear.findIndex(
         garmentItem => garmentItem.garment.id == item.garment.id,
       );
-      bottomwearList[selectedGarmentItem].rating = rateType;
+
+      bottomwear[selectedGarmentItem].rating = rateType;
       onHandleSelectedRate(false);
     } else if (garmentType === 'FOOTWEAR') {
       selectedGarmentItem = footwear.findIndex(
         garmentItem => garmentItem.garment.id == item.garment.id,
       );
-      footwearList[selectedGarmentItem].rating = rateType;
+
+      footwear[selectedGarmentItem].rating = rateType;
       onHandleSelectedRate(false);
     } else if (garmentType === 'ACCESSORIES') {
       selectedGarmentItem = accessories.findIndex(
         garmentItem => garmentItem.garment.id == item.garment.id,
       );
-      accessoriesList[selectedGarmentItem].rating = rateType;
+
+      accessories[selectedGarmentItem].rating = rateType;
       onHandleSelectedRate(false);
     } else {
       return 'Comollocco';
