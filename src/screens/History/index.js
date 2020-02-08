@@ -22,13 +22,13 @@ export default class History extends Component {
     };
   }
 
+  // Get user history when History tab is triggered
   componentDidMount() {
     const { navigation } = this.props;
     this.navFocusListener = navigation.addListener('willFocus', () => {
       this.loadHistory();
     });
   }
-
 
   loadHistory = async () => {
     try {
@@ -62,7 +62,6 @@ export default class History extends Component {
         },
       })
       .then(({ status, data }) => {
-        console.log(data);
         if (status === 200) {
           this.setState({
             history: data,
