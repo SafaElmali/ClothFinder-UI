@@ -145,8 +145,6 @@ export default class History extends Component {
     ));
   }
 
-
-
   //Close modal
   onCloseOverlay = (closeState) => {
     this.setState({

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { Overlay, ListItem, Text } from 'react-native-elements';
 import {
     WorstEmoji,
@@ -13,7 +13,6 @@ const DetailOverlay = (props) => {
     const { isVisible, outfitDetail } = props;
     const { topwear, bottomwear, footwear, accessories } = outfitDetail;
     const selectedList = [];
-
     selectedList.push(topwear, bottomwear, footwear, accessories);
 
     const onCloseOverlay = () => {
@@ -22,13 +21,18 @@ const DetailOverlay = (props) => {
     }
 
     const _renderHistoryDetail = () => {
-        return selectedList.map((garmentList) => {
+        return selectedList.map((garmentList, index) => {
             if (garmentList != undefined && garmentList.length > 0) {
-                return <FlatList
-                    data={garmentList}
-                    keyExtractor={item => item.garment.id.toString()}
-                    renderItem={_renderItem}
-                />
+                return (
+                    <View>
+                        <FlatList
+                            key={index}
+                            data={garmentList}
+                            keyExtractor={item => item.garment.id.toString()}
+                            renderItem={_renderItem}
+                        />
+                    </View>
+                )
             } else {
                 return null;
             }
