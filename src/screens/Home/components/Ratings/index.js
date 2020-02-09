@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Dimensions } from 'react-native';
+import { View, Dimensions, TouchableOpacity } from 'react-native';
 import { Text, Button } from 'react-native-elements';
 import {
   WorstEmoji,
@@ -11,6 +11,7 @@ import {
 import DisabledCard from '../DisabledCard/index';
 import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
+import { Icon } from 'react-native-elements'
 
 const Rating = props => {
   const { outfit } = props;
@@ -83,43 +84,42 @@ const Rating = props => {
           <View style={styles.selectionContainer}>
             <View style={styles.buttonsContainer}>
               <View style={styles.buttonCenterView}>
-                <WorstEmoji
-                  onPress={() =>
-                    assignRate(item, 'WORST', item.garment.garmentType)
-                  }
-                />
+                <TouchableOpacity onPress={() => assignRate(item, 'WORST', item.garment.garmentType)}>
+                  <WorstEmoji
+                  />
+                  <Icon
+                    name='check-circle'
+                    color='#A5F989'
+                    containerStyle={{ position: 'absolute', right: -10, top: -15 }} />
+                </TouchableOpacity>
                 <Text style={styles.buttonText}>WORST</Text>
               </View>
               <View style={styles.buttonCenterView}>
-                <BadEmoji
-                  onPress={() =>
-                    assignRate(item, 'BAD', item.garment.garmentType)
-                  }
-                />
+                <TouchableOpacity onPress={() => assignRate(item, 'BAD', item.garment.garmentType)}>
+                  <BadEmoji
+                  />
+                </TouchableOpacity>
                 <Text style={styles.buttonText}>BAD</Text>
               </View>
               <View style={styles.buttonCenterView}>
-                <NeutralEmoji
-                  onPress={() =>
-                    assignRate(item, 'NEUTRAL', item.garment.garmentType)
-                  }
-                />
+                <TouchableOpacity onPress={() => assignRate(item, 'NEUTRAL', item.garment.garmentType)}>
+                  <NeutralEmoji
+                  />
+                </TouchableOpacity>
                 <Text style={styles.buttonText}>NEUTRAL</Text>
               </View>
               <View style={styles.buttonCenterView}>
-                <GoodEmoji
-                  onPress={() =>
-                    assignRate(item, 'GOOD', item.garment.garmentType)
-                  }
-                />
+                <TouchableOpacity onPress={() => assignRate(item, 'GOOD', item.garment.garmentType)}>
+                  <GoodEmoji
+                  />
+                </TouchableOpacity>
                 <Text style={styles.buttonText}>GOOD</Text>
               </View>
               <View style={styles.buttonCenterView}>
-                <BestEmoji
-                  onPress={() =>
-                    assignRate(item, 'BEST', item.garment.garmentType)
-                  }
-                />
+                <TouchableOpacity onPress={() => assignRate(item, 'BEST', item.garment.garmentType)}>
+                  <BestEmoji
+                  />
+                </TouchableOpacity>
                 <Text style={styles.buttonText}>BEST</Text>
               </View>
             </View>
