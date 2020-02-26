@@ -1,17 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Dimensions, TouchableOpacity } from 'react-native';
-import { Text, Button } from 'react-native-elements';
-import {
-  WorstEmoji,
-  BestEmoji,
-  BadEmoji,
-  NeutralEmoji,
-  GoodEmoji,
-} from '../../../../components/SvgFiles/index';
+import { View, Dimensions } from 'react-native';
 import DisabledCard from '../DisabledCard/index';
 import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
-import { Icon } from 'react-native-elements'
+import RatingItems from './components/RatingItems/index';
 
 const Rating = props => {
   const { outfit } = props;
@@ -71,70 +63,8 @@ const Rating = props => {
   };
 
   const _renderItem = ({ item, index }) => {
-    const { onHandleSelectedRate, isLoading } = props;
-
-    return (
-      <View key={index} style={styles.ratingCard}>
-        <View style={styles.ratingContent}>
-          <View style={styles.questionContainer}>
-            <Text style={styles.questionText}>
-              How do you feel with selected {item.garment.name}?
-            </Text>
-          </View>
-          <View style={styles.selectionContainer}>
-            <View style={styles.buttonsContainer}>
-              <View style={styles.buttonCenterView}>
-                <TouchableOpacity onPress={() => assignRate(item, 'WORST', item.garment.garmentType)}>
-                  <WorstEmoji
-                  />
-                  <Icon
-                    name='check-circle'
-                    color='#A5F989'
-                    containerStyle={{ position: 'absolute', right: -10, top: -15 }} />
-                </TouchableOpacity>
-                <Text style={styles.buttonText}>WORST</Text>
-              </View>
-              <View style={styles.buttonCenterView}>
-                <TouchableOpacity onPress={() => assignRate(item, 'BAD', item.garment.garmentType)}>
-                  <BadEmoji
-                  />
-                </TouchableOpacity>
-                <Text style={styles.buttonText}>BAD</Text>
-              </View>
-              <View style={styles.buttonCenterView}>
-                <TouchableOpacity onPress={() => assignRate(item, 'NEUTRAL', item.garment.garmentType)}>
-                  <NeutralEmoji
-                  />
-                </TouchableOpacity>
-                <Text style={styles.buttonText}>NEUTRAL</Text>
-              </View>
-              <View style={styles.buttonCenterView}>
-                <TouchableOpacity onPress={() => assignRate(item, 'GOOD', item.garment.garmentType)}>
-                  <GoodEmoji
-                  />
-                </TouchableOpacity>
-                <Text style={styles.buttonText}>GOOD</Text>
-              </View>
-              <View style={styles.buttonCenterView}>
-                <TouchableOpacity onPress={() => assignRate(item, 'BEST', item.garment.garmentType)}>
-                  <BestEmoji
-                  />
-                </TouchableOpacity>
-                <Text style={styles.buttonText}>BEST</Text>
-              </View>
-            </View>
-          </View>
-          <View style={styles.submitContainer}>
-            <Button
-              buttonStyle={styles.submitButton}
-              titleStyle={{ textTransform: 'uppercase' }}
-              title="save outfıt"
-              loading={isLoading}
-              onPress={() => onHandleSelectedRate(true)} />
-          </View>
-        </View>
-      </View>
-    );
+    const { isLoading, onHandleSelectedRate } = props;
+    return <RatingItems key={item.id} item={item} onAssignRate={assignRate} isLoading={isLoading} onHandleSelectedRate={onHandleSelectedRate} />
   };
 
   const sliderWidth = Dimensions.get('window').width;
