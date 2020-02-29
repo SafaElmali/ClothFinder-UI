@@ -18,15 +18,27 @@ export default class History extends Component {
       },
       hasData: false,
       isVisible: false,
-      outfitDetail: []
+      outfitDetail: [],
+      isMounted: false
     };
   }
 
   // Get user history when History tab is triggered
   componentDidMount() {
     const { navigation } = this.props;
-    this.navFocusListener = navigation.addListener('willFocus', () => {
-      this.loadHistory();
+    this.setState({
+      isMounted: true
+    }, () => {
+      const { isMounted } = this.state;
+      this.navFocusListener = navigation.addListener('willFocus', () => {
+        isMounted && this.loadHistory();
+      });
+    });
+  }
+
+  componentWillUnmount() {
+    this.setState({
+      isMounted: false
     });
   }
 
@@ -75,7 +87,6 @@ export default class History extends Component {
     const { history } = this.state;
 
     return history.map((item, index) => (
-
       <View key={index}>
         <View style={styles.cardItem}>
           <View style={styles.dateBadge}>

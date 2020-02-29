@@ -71,6 +71,7 @@ const DetailOverlay = (props) => {
 
     return (
         <Overlay
+            key={outfitDetail.id}
             isVisible={isVisible}
             onBackdropPress={onCloseOverlay}
             borderRadius={15}>
