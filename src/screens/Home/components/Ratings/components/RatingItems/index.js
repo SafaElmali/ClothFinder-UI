@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Icon } from 'react-native-elements'
 import { Text, Button } from 'react-native-elements';
 import {
@@ -9,7 +9,7 @@ import {
     GoodEmoji,
 } from '../../../../../../components/SvgFiles/index';
 import { View, TouchableOpacity } from 'react-native';
-import styles from '../../styles';
+import styles from './styles';
 
 const RatingItems = props => {
     const [rateType, setRateType] = useState(false);
@@ -96,7 +96,7 @@ const RatingItems = props => {
                     <Button
                         buttonStyle={styles.submitButton}
                         titleStyle={{ textTransform: 'uppercase' }}
-                        title="save outfit"
+                        title="save outfıt"
                         loading={isLoading}
                         onPress={() => onHandleSelectedRate(true)}
                     />

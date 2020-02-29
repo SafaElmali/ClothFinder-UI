@@ -1,8 +1,8 @@
 import React from "react"
 import Svg, { Defs, LinearGradient, Stop, Path, Ellipse, G, Circle } from "react-native-svg"
 
-const width = 40;
-const height = 40;
+const width = 35;
+const height = 35;
 
 export const Hat = (props) => {
     return (
