@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, SafeAreaView } from 'react-native';
+import { View, SafeAreaView, Image } from 'react-native';
 import { loginLocalPoint } from '../../utils/config/config';
 import { Toast } from 'native-base';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -10,6 +10,8 @@ import LoginForm from './components/Form';
 import Footer from '../../components/Footer/index';
 import axios from 'axios';
 
+
+const picture = require('../../images/standing-19.png');
 export default class Login extends Component {
     static navigationOptions = {
         title: 'Login',
@@ -35,38 +37,40 @@ export default class Login extends Component {
 
     // Check user username and password in db. If it returns success then navigate to home screen
     handleLogin = (username, password, toasterStatus) => {
-        this.setState({
-            loading: true
-        });
-        axios.post(loginLocalPoint, { username: username, password: password }).then(({ data, status }) => {
-            if (status === 200) {
-                this.setState({
-                    user: {
-                        username: username,
-                        jwt: data.jwt
-                    },
-                    loading: false
-                }, async () => {
-                    const { user } = this.state;
-                    const { navigation } = this.props;
+        this.props.navigation.navigate('Home');
 
-                    await AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
-                    navigation.navigate('Home', { user: { username: user.username, jwt: user.jwt } });
-                });
-            }
-        }).catch(err => {
-            if (err.response.status === 403) {
-                Toast.show({
-                    text: "Username or Password invalid",
-                    buttonText: "Okay",
-                    type: "warning",
-                    duration: 3000
-                })
-                this.setState({
-                    loading: false
-                });
-            }
-        })
+        // this.setState({
+        //     loading: true
+        // });
+        // axios.post(loginLocalPoint, { username: username, password: password }).then(({ data, status }) => {
+        //     if (status === 200) {
+        //         this.setState({
+        //             user: {
+        //                 username: username,
+        //                 jwt: data.jwt
+        //             },
+        //             loading: false
+        //         }, async () => {
+        //             const { user } = this.state;
+        //             const { navigation } = this.props;
+
+        //             await AsyncStorage.setItem("USER_DETAILS", JSON.stringify(user));
+        //             navigation.navigate('Home', { user: { username: user.username, jwt: user.jwt } });
+        //         });
+        //     }
+        // }).catch(err => {
+        //     if (err.response.status === 403) {
+        //         Toast.show({
+        //             text: "Username or Password invalid",
+        //             buttonText: "Okay",
+        //             type: "warning",
+        //             duration: 3000
+        //         })
+        //         this.setState({
+        //             loading: false
+        //         });
+        //     }
+        // })
     }
 
     // Hide some component to display input areas clearly when keyboard opened

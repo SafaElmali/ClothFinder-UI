@@ -29,8 +29,8 @@ export default class Home extends Component {
         const userDetails = navigation.getParam('user');
 
         this.state = {
-            username: userDetails.username,
-            jwt: userDetails.jwt,
+            username: "Safa",
+            jwt: "sdadsdlaskdlşsakdaşlk",
             isVisible: false,
             isLoading: false,
             tempOutfit: {
