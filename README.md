@@ -3,7 +3,7 @@
 
 # ClothFinder-UI
 
-👚 👔  _ClothFinder app helps you dress better_ 👕👖
+👚 👔  _ClothFinder helps you to dress better_ 👕👖
 
 </div>
 
